@@ -355,7 +355,7 @@ of them is at entity `r2` (PROOF-32).
 
 **Organization: a reject example with an approver.** The constraint
 `approved_if_large` ([`06-calculation-rules.md`](06-calculation-rules.md)
-§2.12). Facts: `sari` has a contract with the position manager. Action: record
+§2.12). Facts: `sari` has a contract with the job title manager. Action: record
 a purchase of 12,000,000 IDR, actor `sari`, approver `sari`. Result: rejected
 by `approved_if_large`, because the approver is the same as the actor. Here the
 action must not be abbreviated, because the actor and the approver are exactly

@@ -48,7 +48,7 @@ card**:
 | **Direction** | For numbers: what a positive number means ([`03-values.md`](03-values.md) §2.3) | required for numbers |
 | **Concept referred to** | For references: the class of entities that may be referred to | required for references |
 | **Choice list** | For choices: the list that is used | required for choices |
-| **Number of values** | **One** or **many** values that apply at one time | required |
+| **Number of values** | **One** or **many** values that are valid at one time | required |
 | **Valid time** | Whether facts with this property use a date or an instant ([`03-values.md`](03-values.md) §2.4) | optional |
 | **Personal data** **[provisional]** | Whether the value concerns a person's private matters (§2.8) | required |
 | **Bridge**, **note** | As on the concept card | optional |
@@ -72,18 +72,18 @@ The statement "applies to" may be written by anyone, in their own module:
 | **Concept owner**, using someone else's property | `uniti/common/note` applies to `klinik-sehat/records/MedicalRecord` | yes |
 | **Another party**, adding a property to a concept that is not theirs | `rudi/rental/plate_number` applies to `uniti/item/Item` | **no** |
 
-The third way is the key to modularity: Rudi adds what he needs without
+The third way is the key to modularity: Rudi adds what Rudi needs without
 changing the vocabulary and without creating a new concept. The addition must
 not be required, because other modules that record an Item know nothing about
-`plate_number`. When Rudi needs a required property, he makes a child concept
-of his own, for example `rudi/rental/Car` with the parent Item.
+`plate_number`. When Rudi needs a required property, Rudi makes a child concept
+of Rudi's own, for example `rudi/rental/Car` with the parent Item.
 
 A statement "applies to" only applies to an organization that installs the
 module in which the statement is written.
 
 ### 2.4 Child concept
 
-A concept may state **one parent**: "Rental is a type of Transaction". The
+A concept may state **one parent**: "Rental is a subtype of Transaction". The
 consequences:
 
 - every property that applies to the parent, including the required ones, also
@@ -259,7 +259,7 @@ separately, so that users know before they install that version.
 **Check per action**
 
 - **CONCEPT-18.** After all facts in an action are taken into account, every
-  entity that is the subject of a fact in that action MUST have an applicable
+  entity that is the subject of a fact in that action MUST have a valid
   value for every property that is required for its type, at every time that
   the action touches for that entity (§2.7).
 - **CONCEPT-19.** An action that does not meet CONCEPT-6, CONCEPT-18, or
@@ -306,9 +306,9 @@ that install the vocabulary but do not install Rudi's module do not see that
 property.
 
 **Clinic.** The concept `klinik-sehat/records/Patient` is not created. Ani is a
-Person, and her role as a patient is recorded through
+Person, and Ani's role as a patient is recorded through
 `MedicalRecord R-201 → patient → Ani`. When Ani also works as a nurse at that
-clinic, she is still one entity, which is referred to by
+clinic, Ani is still one entity, which is referred to by
 `Contract K-12 → employee → Ani`.
 
 **School.** The vocabulary has the concept `uniti/education/Class`. A school

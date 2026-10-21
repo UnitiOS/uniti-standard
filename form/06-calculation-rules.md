@@ -142,7 +142,7 @@ to divide without a remainder, are content. They are written in the
 | | `min(k, x: u)`, `max(k, x: u)` | The smallest or largest value. Also allowed for two values: `min(a, b)` |
 | | `all_match(k, x: condition)` | Yes if the condition is yes for every member. Empty collection: yes. All members are always calculated, unlike `and` |
 | | `any_match(k, x: condition)` | Yes if the condition is yes for at least one member. Empty collection: no. All members are always calculated, unlike `or` |
-| **Calculate** | `+`, `−`, `×`, `÷` | With exact fractions (§2.8) |
+| **Calculate** | `+`, `−`, `×`, `÷` | With exact numbers (§2.8) |
 | | `power(a, n)` | `a` to the power of `n`, for an integer `n` |
 | | `floor_multiple(n, of: k)` | The largest multiple of `k` that is not more than `n`: `floor_multiple(−4.8 kg, of: 0.5 kg)` = −5 kg. `k` is more than zero and has the same unit as `n`. All ways of rounding are written from this operation |
 | **Time** | `range(a, b)` | The range from `a` up to **before** `b` (§2.7). If `b` is before `a`, it is not computable because of reversed time |

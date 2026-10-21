@@ -152,7 +152,7 @@ example attended_90_of_96
 example attended_77_of_80
   kind         compute
   title        Boundary: exactly half, the previous digit is even
-  explanation  77 ÷ 80 = 96.25%. Ordinary rounding goes away from zero: 96.3%.
+  explanation  77 ÷ 80 = 96.25%. Ordinary rounding takes an exact half away from zero: 96.3%.
                Rounding to even would give 96.2%, so this example tells the
                two apart; 93.75% above does not.
   facts        recorded 20 Dec 2026

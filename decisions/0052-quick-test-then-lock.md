@@ -56,7 +56,7 @@ implementation.
 3. **Stage 8: locked, translated, packaged.**
    - ‹root› is decided.
    - The normative documents are translated into English: `00-principles`,
-     `01-glossary`, `form/`, `appendix/`, and `content/`. `decisions/`,
+     `01-glossary`, `form/`, `appendix/`, and `content/`. `keputusan/`,
      `kajian/`, and `uji/` remain in Indonesian.
    - The package: an explanation for people, one entry file for agents, and
      conformance tests from the examples that already exist.

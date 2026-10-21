@@ -5,7 +5,7 @@ Status: accepted
 
 **Context**
 According to 0052 item 3, stage 8 locks, translates, and packages v0.1.
-‹root› must be decided, and `decisions/`, `kajian/`, and `uji/` remain in
+‹root› must be decided, and `keputusan/`, `kajian/`, and `uji/` remain in
 Indonesian. The quick test added one more thing that the owner must decide:
 the language for names read by machines
 (`uji/03-uji-singkat.md` <!-- ARCHIVE-LINK: uji/03-uji-singkat.md -->

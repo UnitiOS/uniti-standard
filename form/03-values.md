@@ -254,7 +254,7 @@ uses f3. f3 is an ordinary fact, with its own provenance.
   1990.
 - The property `arrival_time` has an instant as its value: 6 October 2026 at
   08:47 WITA.
-- The price of a consultation applies since the **date** 1 November. The clinic
+- The new price of a consultation applies from the **date** 1 November. The clinic
   in Makassar uses the default time zone WITA, so a payment at 00:30 WITA on
   1 November already uses the new price.
 

@@ -186,8 +186,8 @@ example large_approved_by_manager
 example large_approved_by_self
   kind         reject
   title        Purchase of 12,000,000 approved by the actor themselves
-  explanation  Sari is a manager, but she is also the actor. The approver has
-               to be someone else.
+  explanation  Sari is a manager, but Sari is also the actor. The approver must
+               be someone else.
   zone         WIB
   facts        as in small_without_approver
   action       recorded 12 Oct 2026 09:00, actor sari, approver sari
@@ -197,7 +197,7 @@ example large_approved_by_self
 
 example exactly_at_limit_without_approver
   kind         accept
-  title        Boundary point: purchase of exactly 10,000,000 without approver
+  title        Boundary: purchase of exactly 10,000,000 without approver
   explanation  "Above 10,000,000" does not include 10,000,000, so this
                purchase does not need approval.
   zone         WIB
@@ -209,7 +209,7 @@ example exactly_at_limit_without_approver
 
 example over_limit_without_approver
   kind         reject
-  title        Boundary point: purchase of 10,000,001 without approver
+  title        Boundary: purchase of 10,000,001 without approver
   explanation  One rupiah above the limit already needs approval.
   zone         WIB
   facts        as in small_without_approver

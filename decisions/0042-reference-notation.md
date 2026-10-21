@@ -20,7 +20,7 @@ could read the same text in different ways.
   month names and always state the year.
 - The reading order of operators is set in one table. Comparisons do not
   chain, and `if` always uses `else`.
-- Every operation has a fixed call form, so that named arguments and binders
+- Every operation has a fixed call form, so that named arguments and bindings
   can be told apart without extra marks.
 - Cards and rules have a full form for modules that are frozen, and a short
   form for quotations.

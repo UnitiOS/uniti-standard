@@ -95,7 +95,7 @@ example three_night_rental
 
 ## U2. A user is bound to an exact version
 
-Toko Kemah Ceria uses version 1, and nothing changes for it because version 2
+The Kemah Ceria shop uses version 1, and nothing changes for it because version 2
 exists (CHANGE-15). When the shop freezes a version that uses version 2, its
 examples are run again with version 2 (PROOF-24). The old rental can still be
 read, with the new property empty (07 §4).

@@ -9,7 +9,7 @@ made by humans can change.
 
 **Decision**
 - **A content address does not contain a version.** A concept and a property
-  with an address are the same in all versions of their module. The version
+  keep the same address in all versions of their module. The version
   used is recorded in every fact (version used). When the meaning changes
   fundamentally, a new address is made.
 - **The identifier of an entity is random**, unique across the world,

@@ -16,7 +16,7 @@ concept Item
   label.id       Barang
   definition.en  One kind of object that can be stored, moved, sold, rented
                  out, or made, for example "4-person dome tent". The
-                 quantity is recorded in the record that names that item,
+                 count is recorded in the record that names that item,
                  not with one entity for each object.
   includes.en    Inventory: tents that enter and leave the shop's warehouse.
   includes.en    Manufacturing: components and finished products in a bill

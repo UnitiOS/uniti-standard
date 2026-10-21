@@ -12,7 +12,7 @@ postponed from the start, because it waits for `kajian/01-ekosistem`. Its
 content is the registration of owners, governance, and how the form itself
 changes, which concern law and governance more than the form.
 
-The other forms do not need 09 to be usable and testable. Only a few open
+The rest of the form does not need 09 to be usable and testable. Only a few open
 questions wait for it.
 
 **Decision**

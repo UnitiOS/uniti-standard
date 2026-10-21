@@ -394,9 +394,9 @@ constraint Purchase.approved_if_large:
 example self_approved
   kind         reject
   title        Large purchase approved by its own actor
-  explanation  Sari is a manager, but she records and approves a purchase of
-               12,000,000 at the same time. The approver must be another
-               person.
+  explanation  Sari is a manager, but Sari records and approves a purchase of
+               12,000,000 at the same time. The approver must be someone
+               else.
   zone         WIB
   facts        recorded 2 Jan 2026 09:00
     sari   type      Person     valid 2 Jan 2026

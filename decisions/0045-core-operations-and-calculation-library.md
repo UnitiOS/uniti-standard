@@ -99,7 +99,7 @@ result different from the built-in operations.
 - *Content may add its own operations to the list.* Rejected: every
   implementation would have to know every new operation, and the meaning of
   that operation is not proven by examples.
-- *A helper accepts a binder (`x: u`) as an argument, like an operation.*
+- *A helper accepts a binding (`x: u`) as an argument, like an operation.*
   Postponed: the core becomes stronger and harder to check. For now, the user
   writes `median(each(k, x: x.duration))`.
 - *`allocate` in the library chooses its own order, like the old operation:
@@ -130,5 +130,5 @@ result different from the built-in operations.
 - Four new open questions in `06` §8:
   - examples for helpers without a concept;
   - the kinds of parameters and results of helpers;
-  - binders and named arguments for helpers;
+  - bindings and named arguments for helpers;
   - the calendar month.

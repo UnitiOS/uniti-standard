@@ -29,7 +29,7 @@ enough to write them.
 
 **Alternatives**
 - *Only the owner of a concept may write constraints.* Rejected: Rudi needs
-  his own business rules over vocabulary concepts.
+  Rudi's own business rules over vocabulary concepts.
 - *Every constraint must be met for all entities after every action.*
   Rejected: installing a new constraint over old data would lock every
   action.

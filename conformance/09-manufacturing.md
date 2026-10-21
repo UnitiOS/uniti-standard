@@ -102,7 +102,7 @@ example cyclic_structure
   kind         compute
   title        Wheel recorded as needing a bicycle
   explanation  Bicycle → wheel → bicycle. The result is not computable because
-               of a cycle, not stuck.
+               of a cycle, not because the calculation gets stuck.
   facts        as in pipes_for_ten_bicycles
     b6       type       BomLine           valid 1 Jan 2026   recorded 1 Oct 2026
     b6       assembly   wheel             valid 1 Jan 2026   recorded 1 Oct 2026

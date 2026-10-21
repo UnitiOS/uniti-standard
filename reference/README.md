@@ -27,10 +27,10 @@ Speed is not a goal.
   fractions (`fractions.Fraction`).
 - **No guessing.** A situation whose meaning the standard has not defined
   raises `NotDefined`. The calculator stops, and the situation is recorded as
-  a finding below. A proposal for a finding MAY be run provisionally so that
+  a finding below. A proposal for a finding may be run provisionally so that
   the result can be seen, and it is marked as such in the program and in the
   list of findings, until it is decided in the standard.
-- **Not every finding changes the standard.** A finding MAY change the form
+- **Not every finding changes the standard.** A finding may change the form
   only if it comes from a case and is about the form. The others become
   content, a fix of an example, or are postponed
   ([`decision 0046`](../decisions/0046-findings-gate.md)).
@@ -108,7 +108,7 @@ In step 3, the examples that are only told in the form document were written
 out in full: the accept example `adjoining_no_overlap`, the reject and accept
 examples for `approved_if_large`, and the clinic example that is not
 computable. Each example is run once more with a result that was changed on
-purpose, and it MUST fail, so that passing is meaningful.
+purpose, and it must fail, so that passing is meaningful.
 
 What the calculator does not run yet: the direction report before a rule is
 frozen (CALC-31), the level of a rule (CALC-11), and the checks of a card that
@@ -203,7 +203,7 @@ then decided in [`decision 0047`](../decisions/0047-constraints-and-backdated-ch
 - **Any other constraint** is read for every entity of its concept, at every
   valid time of the action and every later valid time of a fact (A18). An
   entity or a time whose result is the same before and after the action never
-  rejects (step 3), so an implementation MAY skip it if it can prove the
+  rejects (step 3), so an implementation may skip it if it can prove the
   result is the same.
 
 With that proposal the six examples and all the old cases pass. A time without
@@ -220,7 +220,7 @@ proposals were run, A28 while writing decision 0044, and A29 to A32 from
 step 4.
 
 **Findings gate (2026-10-20).** Findings that are not yet decided are
-classified according to [`decision 0046`](../decisions/0046-findings-gate.md). A finding MAY
+classified according to [`decision 0046`](../decisions/0046-findings-gate.md). A finding may
 change the form only if it comes from a case and is about the form. A18 and
 A31 pass, and were decided in step 6, together with the fix of the example
 for A30. A22 to A28 are postponed, because no case needs them. A29 is content,
@@ -267,7 +267,7 @@ example stays `20 Mar 2026 12:00`.
 | A2 | `up` and `down` for a negative number | `operations.round` | `up` goes to the larger number, `down` to the smaller | decided: CALC-22, then library content (0045) |
 | A3 | `allocate` with a total that is not a multiple of `to`, for instance 10.5 IDR with `to: 1 IDR`: the sum of the shares cannot be exactly equal to the total | `operations.allocate` | Not computable, needs rounding | decided: CALC-23, then library content (0045) |
 | A4 | How to round a `power` that is not a whole number to the precision `to` | `operations.power` | Rounded normally to a multiple of `to` | no longer applies: a fractional power is out of the core (0045) |
-| A5 | `percentile` with `p` outside 0 < p ≤ 1 | `operations.percentile` | `p` MUST be a fixed value, so that it is checked before the rule is frozen | decided: CALC-50, then library content (0045) |
+| A5 | `percentile` with `p` outside 0 < p ≤ 1 | `operations.percentile` | `p` must be a fixed value, so that it is checked before the rule is frozen | decided: CALC-50, then library content (0045) |
 | A6 | `range(a, b)` with `b` before `a` | `operations.range` | Not computable, with a new reason kind **reversed time** | decided: 06 §2.5, reason kind reversed time |
 | A7 | Shifting a date by less than one day, shifting an instant by months, and the difference of two instants in months | `operations.shift`, `operations.difference` | Month and year are only for dates. A date is only shifted by whole days, weeks, months, and years | decided: CALC-53 |
 | A8 | Median with an even number of data points for values that are not numbers, for instance dates | `operations.median` | `median` is only for numbers | decided: 06 §2.5, then library content (0045) |

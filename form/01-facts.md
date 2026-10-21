@@ -67,7 +67,7 @@ a replacing value?*
 | **Ending** | The target was true once; since the valid time of this fact, it no longer applies | no | yes |
 | **Correction** | The target was never true; this fact replaces it completely | yes | yes |
 | **Retraction** | The target was never true; there is no replacement | no | yes |
-| **Redaction** **[provisional]** | The target stays in force, but its value may no longer be read (§2.6) | no | yes |
+| **Redaction** **[provisional]** | The target stays in force, but its value must no longer be read (§2.6) | no | yes |
 
 The fact kind is form, and its list is closed. The **reason** for a change
 (typing mistake, court decision, customer report, audit result) is content, and
@@ -259,7 +259,7 @@ stops being a subscribed patient.
 
 - The price on 15 October is still Rp150,000. f10 is not wrong; the world
   changed.
-- On 15 October, Ani is no longer a subscribed patient. On 15 September she is
+- On 15 October, Ani is no longer a subscribed patient. On 15 September Ani is
   still a subscribed patient.
 
 **School, with an AI actor.** An AI assistant proposes exam scores from a
@@ -309,7 +309,7 @@ assistant", approver "Bu Rina", source "scan".
 1. **Redaction** (§2.6): the form needs to be reviewed together with parties who
    understand data protection law.
 2. **One entity in two organizations.** If Budi is recorded in two
-   organizations, he has two identifiers. The form of a "same as" fact between
+   organizations, Budi has two identifiers. The form of a "same as" fact between
    organizations, and who may state it, is not yet decided.
 3. **Facts about facts.** Besides provenance, is a form needed to state
    something about another fact, for example "this fact is disputed"?
