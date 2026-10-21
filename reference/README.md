@@ -33,7 +33,7 @@ Speed is not a goal.
 - **Not every finding changes the standard.** A finding MAY change the form
   only if it comes from a case and is about the form. The others become
   content, a fix of an example, or are postponed
-  ([`decision 0046`](../decisions/0046)).
+  ([`decision 0046`](../decisions/0046-findings-gate.md)).
 - **Three kinds of failure are told apart:** not computable (a legitimate
   result under 06 §2.9), not defined (a gap in the standard), and notation
   error (a rule or example that is written wrongly).
@@ -84,8 +84,8 @@ finding below), **notation error**, or **replaced** (PROOF-21).
 | `../conformance/15-change.md`, `../conformance/16-relations.md` | A new version, a user that moves to another version, behavior change, and a combined report across modules | stage 5 (cross-domain test <!-- ARCHIVE-LINK: ../02-lintas-domain.md -->) |
 | `../conformance/17-vocabulary.md` | The first vocabulary used by a rental shop and a school | stage 6 ([`content/README.md`](../content/README.md)) |
 | `../conformance/18-module-swap.md` | A shop changes cashier: the old and the new rentals are computed together, and the old rental is returned through the new cashier | stage 7, 7.1 (quick test <!-- ARCHIVE-LINK: ../03-uji-singkat.md -->) |
-| `../conformance/19-reading-facts.md` | A corrected history: a correction of a replacement, a change that became known later, a correction that moves a date, and a retraction | stage 7, 7.3 ([decision 0053](../decisions/0053)) |
-| `../conformance/20-written-choices.md` | Calendar month, `split`, an entity with two types, a property with many values, and a constraint whose result is empty | stage 7, 7.3 ([decision 0054](../decisions/0054)) |
+| `../conformance/19-reading-facts.md` | A corrected history: a correction of a replacement, a change that became known later, a correction that moves a date, and a retraction | stage 7, 7.3 ([decision 0053](../decisions/0053-reading-corrected-facts.md)) |
+| `../conformance/20-written-choices.md` | Calendar month, `split`, an entity with two types, a property with many values, and a constraint whose result is empty | stage 7, 7.3 ([decision 0054](../decisions/0054-reference-choices-into-text.md)) |
 | `tests/test_cases.py` | Every example in the cases and the content passes, and fails if its expected result is changed | 3 |
 
 The old experiments folder (`percobaan/`: the computation core and the
@@ -194,7 +194,7 @@ examples failed:
 | `small_after_old_large` | A small purchase without an approver is accepted, even though there is an old large purchase | Rejected by that old purchase, because the constraint is read for every purchase, with the approver of this action | A18 and A31 |
 
 The proposal that was run in `constraints.Checker._check_constraints`, and
-then decided in [`decision 0047`](../decisions/0047):
+then decided in [`decision 0047`](../decisions/0047-constraints-and-backdated-changes.md):
 
 - **A constraint that reads the action** (`before_action`, `this_action`) is
   about the action itself. It is read only for the entities the action
@@ -220,18 +220,18 @@ proposals were run, A28 while writing decision 0044, and A29 to A32 from
 step 4.
 
 **Findings gate (2026-10-20).** Findings that are not yet decided are
-classified according to [`decision 0046`](../decisions/0046). A finding MAY
+classified according to [`decision 0046`](../decisions/0046-findings-gate.md). A finding MAY
 change the form only if it comes from a case and is about the form. A18 and
 A31 pass, and were decided in step 6, together with the fix of the example
 for A30. A22 to A28 are postponed, because no case needs them. A29 is content,
-for stage 6, and was decided in [`decision 0050`](../decisions/0050) together
+for stage 6, and was decided in [`decision 0050`](../decisions/0050-code-lists.md) together
 with the code lists. The classification is also written in the "Program"
 column.
 
 **Decided (2026-10-19).** The proposals A1 to A20 were first run provisionally
 in the program, so that the result could be seen before they were decided: 128
 tests and 16 examples still passed. After that, all of them were decided in
-[`decision 0044`](../decisions/0044), except A18. The "Program" column states
+[`decision 0044`](../decisions/0044-additions-from-reference-calculator.md), except A18. The "Program" column states
 the current state of the program:
 
 - **decided**: the program follows the rule named.
@@ -242,7 +242,7 @@ the current state of the program:
 not to be about the grammar of calculation, but about the way inside one
 operation. An operation like that was moved out of the operation list into the
 calculation library, that is, content
-([`decision 0045`](../decisions/0045)). The experiment is not included in this
+([`decision 0045`](../decisions/0045-core-operations-and-calculation-library.md)). The experiment is not included in this
 repository (see above). <!-- ARCHIVE-LINK: percobaan/README.md -->
 
 After that decision, the program uses the core, and the old ways of computing

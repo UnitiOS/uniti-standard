@@ -1,140 +1,142 @@
-# Isi
+# Content
 
-Status: draf; tahap 6 selesai
-Dibuka: 2026-10-20
+Status: draft; stage 6 done
+Opened: 2026-10-20
 
-Bagian B standar: isi yang dipakai bersama. Bentuknya mengikuti bagian A,
-dan isinya boleh terus bertambah tanpa mengubah bentuk
-([`keputusan/0002`](../keputusan/0002-bentuk-tetap-isi-bebas.md)).
+Part B of the standard: content that is used in common. Its form follows part
+A, and its content may keep growing without changing the form
+([`decisions/0002`](../decisions/0002-fixed-form-free-content.md)).
 
-## 1. Tujuan tahap 6
+## 1. Purpose of stage 6
 
-Tahap 6 ([`keputusan/0004`](../keputusan/0004-cara-menulis.md)) menulis isi
-awal: templat kartu, daftar kode, pustaka hitung, dan kamus pertama. Isi awal
-ini juga menguji satu hal yang belum pernah diuji, yaitu modul dalam **bentuk
-lengkap**, yang akan dibekukan di tahap 7.
+Stage 6 ([`decisions/0004`](../decisions/0004-how-to-write.md)) writes the
+first content: the card templates, the code lists, the calculation library, and
+the first vocabulary. This first content also tests one thing that has never
+been tested, which is a module in the **full form**, which will be frozen in
+stage 7.
 
-Cakupannya sengaja sempit. Kamus pertama hanya memuat isi yang sudah
-dibutuhkan kasus dari minimal dua domain. Isi lain menunggu sesudah v0.1, dan
-masuk lewat aturan masuk kamus (§3).
+The scope is deliberately narrow. The first vocabulary holds only content that
+cases from at least two domains already need. Other content waits until after
+v0.1, and enters through the vocabulary entry rules (§3).
 
-## 2. Peta isi
+## 2. Map of the content
 
-| No | Berkas | Isinya | Modul |
+| No | File | Contents | Module |
 |---|---|---|---|
-| B1 | `isi/README.md` | Berkas ini: peta isi dan aturan masuk kamus | — |
-| B2 | [`templat-kartu.md`](templat-kartu.md) | Templat kartu konsep, kartu sifat, daftar pilihan, sifat hitungan, syarat, dan bantu, dalam notasi acuan | — |
-| B3 | [`daftar-kode.md`](daftar-kode.md) | Daftar kode luar yang dipakai: mata uang (ISO 4217), satuan (UCUM, hanya yang dipakai), dan bahasa (BCP 47), ditambah daftar besaran | `uniti/satuan@v1` |
-| B4 | [`hitung.md`](hitung.md) | Pustaka hitung, dipindah dari `uji/acuan/pustaka/hitung.md` dan ditulis dalam bentuk lengkap. Aturannya tidak berubah | `uniti/hitung@v1` |
-| B5 | [`kamus/`](kamus/) | Kamus pertama: tiga modul di §4 | `uniti/pihak@v1`, `uniti/barang@v1`, `uniti/pembayaran@v1` |
-| B6 | Uji | Penghitung acuan memeriksa bentuk lengkap, membaca daftar kode, dan menjalankan kasus [`17-kamus.md`](../uji/acuan/kasus/17-kamus.md) | — |
+| B1 | `content/README.md` | This file: the map of the content and the vocabulary entry rules | — |
+| B2 | [`card-templates.md`](card-templates.md) | Templates for the concept card, property card, choice list, computed property, constraint, and helper, in the reference notation | — |
+| B3 | [`code-lists.md`](code-lists.md) | The external code lists in use: currencies (ISO 4217), units (UCUM, only those in use), and languages (BCP 47), plus the list of quantities | `uniti/unit@v1` |
+| B4 | [`calc.md`](calc.md) | The calculation library, moved from `uji/acuan/pustaka/hitung.md` and written in the full form. Its rules do not change | `uniti/calc@v1` |
+| B5 | [`vocabulary/`](vocabulary/) | The first vocabulary: three modules in §4 | `uniti/party@v1`, `uniti/item@v1`, `uniti/payment@v1` |
+| B6 | Tests | The reference calculator checks the full form, reads the code lists, and runs the cases of [`17-vocabulary.md`](../conformance/17-vocabulary.md) | — |
 
-Semua modul isi dibekukan sebagai v1 saat v0.1 dikunci (tahap 8).
+All content modules are frozen as v1 when v0.1 is locked (stage 8).
 
-## 3. Aturan masuk kamus
+## 3. Vocabulary entry rules
 
-Syaratnya sudah ada di bagian A. Tahap 6 hanya mengumpulkannya di satu
-tempat, ditambah satu syarat dari gerbang temuan
-([`keputusan/0046`](../keputusan/0046-gerbang-temuan.md)):
+The requirements already exist in part A. Stage 6 only gathers them in one
+place, plus one requirement from the findings gate
+([`decisions/0046`](../decisions/0046-findings-gate.md)):
 
-1. **Dibutuhkan, bukan dibayangkan.** Konsep atau sifat masuk kamus hanya
-   bila sudah dibutuhkan modul dari minimal dua domain yang berbeda.
-2. **Kartu lengkap.** Yang termasuk dan yang tidak termasuk diambil dari
-   minimal dua domain (KONSEP-2).
-3. **Contoh dari dua domain** untuk setiap sifat hitungan, sumbangan, dan
-   syarat (BUKTI-16).
-4. **Jembatan** ke standar luar bila padanannya ada (HUBUNGAN-11).
+1. **Needed, not imagined.** A concept or property enters the vocabulary only
+   if modules from at least two different domains already need it.
+2. **Complete card.** The includes and the excludes are taken from at least
+   two domains (CONCEPT-2).
+3. **Examples from two domains** for every computed property, contribution,
+   and constraint (PROOF-16).
+4. **Bridge** to an external standard if a counterpart exists (RELATION-11).
 
-Siapa yang memutuskan sebuah usulan masuk kamus termasuk tata kelola, dan
-ditunda ke v0.2 bersama `09-kepemilikan`
-([`keputusan/0048`](../keputusan/0048-kepemilikan-ke-v02.md)).
+Who decides whether a proposal enters the vocabulary is part of governance,
+and is deferred to v0.2 together with `09-ownership`
+([`decisions/0048`](../decisions/0048-ownership-to-v02.md)).
 
-## 4. Kamus pertama
+## 4. The first vocabulary
 
-Hanya isi yang lolos syarat 1 menurut kasus yang sudah ada di
-[`uji/acuan/kasus/`](../uji/acuan/kasus/):
+Only content that passes requirement 1 according to the cases that already
+exist in [`conformance/`](../conformance/):
 
-| Modul | Isi | Kasus yang membutuhkannya |
+| Module | Contents | Cases that need it |
 |---|---|---|
-| [`uniti/pihak`](kamus/pihak.md) | Pihak, Orang, Organisasi | organisasi (o2), keuangan (k2), klinik (c2), dan peran di penggajian, langganan, sekolah, dan loyalitas, misalnya karyawan, pelanggan, dan siswa |
-| [`uniti/barang`](kamus/barang.md) | Barang, sifat `barang` | persediaan (p1 sampai p4), penyewaan (s1, s4), manufaktur (m1) |
-| [`uniti/pembayaran`](kamus/pembayaran.md) | Pembayaran, sifat `jumlah`, `tanggal`, dan `cara_bayar`, daftar CaraBayar | pinjaman (j2, j3), klinik dan apotek (16), faktur (13) |
+| [`uniti/party`](vocabulary/party.md) | Party, Person, Organization | organization (o2), finance (k2), clinic (c2), and roles in payroll, subscription, school, and loyalty, for example employee, customer, and student |
+| [`uniti/item`](vocabulary/item.md) | Item, property `item` | inventory (p1 to p4), rental (s1, s4), manufacturing (m1) |
+| [`uniti/payment`](vocabulary/payment.md) | Payment, properties `amount`, `date`, and `method`, list PaymentMethod | loans (j2, j3), clinic and pharmacy (16), invoice (13) |
 
-Sifat untuk ketiga konsep itu masuk kamus hanya bila sifat yang sama dipakai
-kasus dari dua domain. Sifat lainnya tetap di modul pemakainya, lewat
-"berlaku untuk" (04 §2.3). Karena itu Pihak belum punya sifat apa pun: belum
-ada kasus yang mencatat nama atau sifat lain sebuah pihak.
+Properties for these three concepts enter the vocabulary only if the same
+property is used by cases from two domains. Other properties stay in the module
+that uses them, through "applies to" (04 §2.3). For this reason Party does not
+have any property yet: no case yet records the name or any other property of a
+party.
 
-Yang **tidak** masuk kamus pertama:
-- `uniti/umum` dengan sifat `nama` dan `catatan`: disebut sebagai contoh di
-  04 dan 05, tetapi belum ada kasus yang membutuhkannya;
-- `Transaksi`: disebut sebagai contoh induk di 04, tetapi belum ada kasus;
-- `Kelas` dan daftar alasan tidak hadir: disebut sebagai contoh kamus di 03,
-  04, dan 05, tetapi baru dibutuhkan satu domain.
+What does **not** enter the first vocabulary:
+- `uniti/common` with the properties `name` and `note`: mentioned as an example
+  in 04 and 05, but no case needs it yet;
+- `Transaction`: mentioned as an example parent in 04, but there is no case
+  yet;
+- `Class` and the list of reasons are absent: mentioned as vocabulary examples
+  in 03, 04, and 05, but only one domain needs them so far.
 
-## 5. Celah
+## 5. Gaps
 
-I1 sampai I3 sudah terlihat sebelum isi ditulis. I4 sampai I7 ditemukan saat
-menulisnya.
+I1 to I3 were visible before the content was written. I4 to I7 were found
+while writing it.
 
-| No | Celah | Golongan menurut 0046 | Usulan |
+| No | Gap | Kind according to 0046 | Proposal |
 |---|---|---|---|
-| I1 | Kode dari standar luar memakai huruf besar dan tanda yang tidak boleh ada di nama pilihan (ALAMAT-2), misalnya `IDR`, `Cel`, dan `[in_i]`. UCUM juga membedakan huruf besar dan kecil, jadi kodenya tidak bisa diubah menjadi huruf kecil. Akibatnya pilihan dari daftar kode tidak bisa diberi alamat (A29) | **Lolos.** Muncul dari kasus K2 (kurs), dan mesin tidak bisa memutuskan apakah alamat seperti itu sah | Pilihan dari daftar kode memakai kode aslinya, persis. Alamatnya alamat modul, lalu kodenya: `uniti/satuan/IDR`. Ditambah satu kata di baris kepala: `daftar Satuan, kode`. Diputuskan di [`keputusan/0050`](../keputusan/0050-daftar-kode.md) |
-| I2 | Lampiran A §2.4 menyebut UCUM `mo` dan `a` sebagai padanan `bulan` dan `tahun`. Padahal di UCUM keduanya panjang rata-rata, yaitu 30,4375 hari dan 365,25 hari, sedangkan bulan dan tahun Uniti adalah bulan dan tahun kalender | Isi: daftar kode | `bulan` dan `tahun` menjadi kode milik Uniti di daftar kode, dengan catatan tentang UCUM |
-| I3 | Dokumen bentuk memakai alamat kamus yang tidak seragam: `uniti/barang/Barang` dan `uniti/persediaan/Barang`, `uniti/barang/nama` dan `uniti/umum/nama` | Perbaikan contoh | Disamakan dengan kamus pertama |
-| I4 | Versi daftar kode yang berlaku bagi modul yang menulis satuan tanpa memakai `uniti/satuan` | Ditunda | Contoh hanya memakai kode di versi pertama |
-| I5 | Bagian wajib kartu daftar pilihan tidak disebut, sehingga dua implementasi bisa berbeda tentang boleh tidaknya sebuah modul dibekukan | **Lolos.** Muncul saat menulis `CaraBayar`, `CaraBulat`, dan `CaraSisa` | Label dan arti wajib, seperti kartu sifat (NILAI-19) |
-| I6 | Jembatan untuk daftar pilihan tidak punya cara tulis | Ditunda: HUBUNGAN-11 hanya anjuran | — |
-| I7 | Arah jumlah pembayaran berbeda antarkasus: `berkurang` di pinjaman, `bertambah` di klinik | Isi | Di kamus jumlahnya tanpa arah |
+| I1 | Codes from external standards use capital letters and signs that must not be in a choice name (ADDRESS-2), for example `IDR`, `Cel`, and `[in_i]`. UCUM also distinguishes capital and small letters, so its codes cannot be changed to small letters. As a result a choice from a code list cannot be given an address (A29) | **Passes.** It came from case K2 (exchange rate), and the machine cannot decide whether such an address is valid | A choice from a code list uses its original code, exactly. Its address is the module address, then the code: `uniti/unit/IDR`. One word is added in the head line: `choice_list Unit, code`. Decided in [`decisions/0050`](../decisions/0050-code-lists.md) |
+| I2 | Appendix A §2.4 names the UCUM `mo` and `a` as counterparts of `month` and `year`. But in UCUM both are average lengths, 30.4375 days and 365.25 days, while the Uniti month and year are the calendar month and year | Content: code lists | `month` and `year` become Uniti-owned codes in the code list, with a note about UCUM |
+| I3 | The form documents use vocabulary addresses that are not uniform: `uniti/item/Item` and `uniti/inventory/Item`, `uniti/item/name` and `uniti/common/name` | Fix of examples | Made the same as the first vocabulary |
+| I4 | The version of the code list that applies to a module that writes a unit without using `uniti/unit` | Deferred | Examples use only the codes in the first version |
+| I5 | The required parts of the choice list card are not named, so two implementations could differ on whether a module may be frozen | **Passes.** It came up while writing `PaymentMethod`, `RoundingMode`, and `RemainderRule` | Label and definition required, like the property card (VALUE-19) |
+| I6 | A bridge for a choice list has no way to be written | Deferred: RELATION-11 is only a recommendation | — |
+| I7 | The direction of the payment amount differs between cases: `decrease` in loans, `increase` in clinic | Content | In the vocabulary the amount has no direction |
 
-Daftar kode luar dipakai langsung, tidak dibuat ulang (P8). Uniti hanya
-memilih kode yang dipakai dan menyebut cara menulisnya di notasi acuan,
-misalnya `hari` untuk UCUM `d`. Faktor antarsatuan diambil dari UCUM.
-Kalau daftarnya bertambah, yang berubah adalah isi, bukan bentuk.
+External code lists are used directly, not made again (P8). Uniti only chooses
+the codes in use and names how to write them in the reference notation, for
+example `day` for the UCUM `d`. The factors between units are taken from UCUM.
+If the list grows, what changes is the content, not the form.
 
-## 6. Yang tidak dikerjakan di tahap 6
+## 6. What stage 6 does not do
 
-- Daftar negara, dan zona waktu menurut wilayah (IANA). Belum ada kasus yang
-  membutuhkannya. Zona waktu tetap ditulis sebagai selisih dari UTC di
-  lampiran A.
-- Proses dan pemutus usulan kamus: v0.2.
-- Terjemahan bahasa Inggris: sesudah v0.1 stabil.
-- Konsep kamus selain yang ada di §4.
+- A list of countries, and time zones by region (IANA). No case needs them yet.
+  Time zones are still written as an offset from UTC in appendix A.
+- The process and the decider for vocabulary proposals: v0.2.
+- English translation: after v0.1 is stable.
+- Vocabulary concepts other than those in §4.
 
-## 7. Kriteria selesai
+## 7. Completion criteria
 
-1. B1 sampai B5 tertulis. Setiap modul kamus dan pustaka lolos pemeriksaan
-   kartu bentuk lengkap oleh penghitung acuan.
-2. Setiap kartu konsep kamus memuat yang termasuk dan yang tidak termasuk
-   dari dua domain. Ini diperiksa dengan membaca, karena mesin tidak tahu
-   domain sebuah kalimat.
-3. Satu kasus dengan dua domain yang memakai kamus pertama lulus, dan semua
-   contoh lama tetap lulus.
-4. A29 selesai, dan lampiran A §2.4 tidak lagi bertanda [sementara].
-5. Setiap temuan sudah digolongkan menurut 0046.
+1. B1 to B5 are written. Every vocabulary module and the library pass the
+   full-form card check by the reference calculator.
+2. Every vocabulary concept card holds the includes and the excludes from two
+   domains. This is checked by reading, because the machine does not know the
+   domain of a sentence.
+3. One case with two domains that uses the first vocabulary passes, and all old
+   examples still pass.
+4. A29 is done, and appendix A §2.4 is no longer marked [provisional].
+5. Every finding has been classified according to 0046.
 
-## 8. Hasil
+## 8. Result
 
-Kelima kriteria terpenuhi.
+All five criteria are met.
 
-1. Keempat modul `uniti/*` di isi lolos pemeriksaan bentuk lengkap
-   (`program/lengkap.py`). Pustaka hitung ditulis ulang dalam bentuk lengkap
-   karena TULIS-17. Aturannya tidak berubah, dan 6.400 perbandingan acak
-   dengan operasi lama masih sama.
-2. Setiap kartu konsep kamus memuat yang termasuk dan yang tidak termasuk
-   dari dua domain. Domainnya ditulis di awal kalimat, dan uji kecil
-   memeriksa bahwa awalannya berbeda.
-3. Kasus [`17-kamus.md`](../uji/acuan/kasus/17-kamus.md) lulus: toko
-   penyewaan dan sekolah memakai kamus yang sama. Kasus 16 kini memakai kamus
-   pembayaran yang sebenarnya. Seluruhnya 139 contoh dan 172 uji lulus.
-4. A29 selesai. K2 kembali seperti uji kertas, dengan mata uang asal dan
-   tujuan kurs sebagai pilihan. Lampiran A §2.4 tidak lagi bertanda
-   [sementara].
-5. Temuannya ada di §5. Dua lolos gerbang: I1 diputuskan di
-   [`keputusan/0050`](../keputusan/0050-daftar-kode.md), dan I5 di
-   [`keputusan/0051`](../keputusan/0051-pelengkap-dari-isi-awal.md). Sisanya
-   isi, perbaikan contoh, atau ditunda.
+1. The four `uniti/*` modules in the content pass the full-form check
+   (`calculator/completeness.py`). The calculation library was rewritten in the
+   full form because of NOTATION-17. Its rules do not change, and 6,400 random
+   comparisons with the old operations are still the same.
+2. Every vocabulary concept card holds the includes and the excludes from two
+   domains. The domain is written at the start of the sentence, and a small test
+   checks that the prefixes differ.
+3. Case [`17-vocabulary.md`](../conformance/17-vocabulary.md) passes: the
+   rental shop and the school use the same vocabulary. Case 16 now uses the
+   real payment vocabulary. In all, 139 examples and 172 tests pass.
+4. A29 is done. K2 is back as in the paper test, with the source and target
+   currencies of the exchange rate as choices. Appendix A §2.4 is no longer
+   marked [provisional].
+5. The findings are in §5. Two pass the gate: I1 is decided in
+   [`decisions/0050`](../decisions/0050-code-lists.md), and I5 in
+   [`decisions/0051`](../decisions/0051-additions-from-first-content.md). The
+   rest are content, fixes of examples, or deferred.
 
-Penghitung acuan juga kini memeriksa dua aturan yang sudah ada sebelumnya:
-NILAI-13, pilihan dari modul lain hanya masuk ke daftar terbuka, dan
-KONSEP-8, sifat milik pihak lain tidak boleh dinyatakan wajib.
+The reference calculator also now checks two rules that already existed:
+VALUE-13, a choice from another module enters only an open list, and
+CONCEPT-8, a property owned by another party must not be declared required.

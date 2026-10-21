@@ -31,7 +31,7 @@ applies to Expenditure:
   cash         required
   outflow      required
 
-computed Cash.balance : number (money, level), closed:
+computed Cash.balance : number (money, position), closed:
   sum(all(Receipt, p: p.cash = this), p: p.inflow)
   − sum(all(Expenditure, k: k.cash = this), k: k.outflow)
 
@@ -103,7 +103,7 @@ property date : date
 property price : number (money, increase)
 property from_unit : choice Unit
 property to_unit : choice Unit
-property value : number (money/money, level)
+property value : number (money/money, position)
 
 applies to Sale:
   date         required
@@ -254,9 +254,9 @@ module paper/k4@v1
 
 concept Asset
 
-property price : number (money, level)
-property residual_value : number (money, level)
-property lifespan : number (duration, level)
+property price : number (money, position)
+property residual_value : number (money, position)
+property lifespan : number (duration, position)
 property start_of_use : date
 
 applies to Asset:
@@ -274,10 +274,10 @@ helper Asset.depreciation : collection:
 computed Asset.depreciation_this_month : number (money, increase), closed:
   sum(this.depreciation, p: if T in p.member then p.share else 0 IDR)
 
-computed Asset.accumulated_depreciation : number (money, level), closed:
+computed Asset.accumulated_depreciation : number (money, position), closed:
   sum(this.depreciation, p: if p.member.start ≤ T then p.share else 0 IDR)
 
-computed Asset.book_value : number (money, level), closed:
+computed Asset.book_value : number (money, position), closed:
   this.price − this.accumulated_depreciation
 
 example accumulated_march
@@ -338,7 +338,7 @@ concept Cost
 concept Department
 
 property amount : number (money, increase)
-property area : number (length², level)
+property area : number (length², position)
 
 applies to Cost:
   amount       required
@@ -445,9 +445,9 @@ module paper/k6@v1
 
 concept Contract
 
-property value : number (money, level)
+property value : number (money, position)
 property start_date : date
-property term : number (duration, level)
+property term : number (duration, position)
 
 applies to Contract:
   value        required
@@ -463,10 +463,10 @@ helper Contract.schedule : collection:
 computed Contract.revenue_this_month : number (money, increase), closed:
   sum(this.schedule, p: if T in p.member then p.share else 0 IDR)
 
-computed Contract.recognized : number (money, level), closed:
+computed Contract.recognized : number (money, position), closed:
   sum(this.schedule, p: if p.member.start ≤ T then p.share else 0 IDR)
 
-computed Contract.unrecognized : number (money, level), closed:
+computed Contract.unrecognized : number (money, position), closed:
   this.value − this.recognized
 
 example recognized_june

@@ -1,14 +1,15 @@
-# Pihak
+# Party
 
-Status: draf
+Status: draft
 
-Siapa yang bertindak, memiliki, atau berjanji: orang dan organisasi. Peran
-seperti pelanggan, karyawan, dan siswa bukan konsep di sini. Peran dicatat
-sebagai rujukan dari hal lain ke sebuah pihak
-([`04-konsep`](../../bentuk/04-konsep.md) §2.5, KONSEP-13).
+Who acts, owns, or promises: people and organizations. Roles such as
+customer, employee, and student are not concepts here. A role is recorded as a
+reference from another entity to a party
+([`04-concepts`](../../form/04-concepts.md) §2.5, CONCEPT-13).
 
-Kamus ini belum memuat sifat apa pun. Belum ada sifat pihak yang dipakai
-kasus dari dua domain, termasuk nama ([`isi/README.md`](../README.md) §3).
+This vocabulary does not yet hold any property. No party property has been
+used by cases from two domains, including the name
+([`content/README.md`](../README.md) §3).
 
 ```uniti
 module uniti/party@v1

@@ -25,7 +25,7 @@ choice_list MovementKind, closed
 property member : reference Member
 property date : date
 property kind : choice MovementKind
-property amount : number (level)
+property amount : number (position)
 property expiry : date
 
 applies to PointMovement:
@@ -60,7 +60,7 @@ helper spend_points(layers, n) : collection:
   if h.needed > 0 then not_computable("not enough points")
   else h.layers
 
-computed Member.point_balance : number (level), closed:
+computed Member.point_balance : number (position), closed:
   sum(this.point_layers, l: if l.expiry > T then l.amount else 0)
 
 example balance_february_2027

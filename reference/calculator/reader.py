@@ -706,7 +706,7 @@ def parse_text(text: str, default_zone=None, lineno: int = 0) -> object:
 
 VALUE_TYPES = frozenset({"text", "number", "yes_no", "date", "instant", "choice", "reference"})
 INTERMEDIATE_TYPES = frozenset({"collection", "record", "range"})
-DIRECTIONS = frozenset({"increase", "decrease", "no_direction", "level"})
+DIRECTIONS = frozenset({"increase", "decrease", "no_direction", "position"})
 
 
 @dataclass(frozen=True)
@@ -862,7 +862,7 @@ _VALUE_TYPE_RE = re.compile(
 
 
 def _parse_value_type(text: str, lineno: int, intermediate: bool) -> tuple[ValueType, list[str]]:
-    """`number (money/duration, level)`, `reference Party, many`, … together
+    """`number (money/duration, position)`, `reference Party, many`, … together
     with the marks after it: `many`, `open`, `closed`."""
     m = _VALUE_TYPE_RE.match(text.strip())
     if not m:

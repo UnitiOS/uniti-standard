@@ -17,9 +17,9 @@ module paper/p1-inventory@v1
 concept Item
 
 property item : reference Item
-property amount : number (level)
+property amount : number (position)
 
-computed Item.available : number (level), open:
+computed Item.available : number (position), open:
   sum(contributions)
 
 module paper/p1-purchasing@v1
@@ -172,8 +172,8 @@ choice_list MovementKind, closed
 property item : reference Item
 property date : date
 property kind : choice MovementKind
-property amount : number (level)
-property price : number (money, level)
+property amount : number (position)
+property price : number (money, position)
 
 applies to Movement:
   item         required
@@ -207,7 +207,7 @@ helper take_out(k, n) : record:
 computed Item.cogs : number (money, increase), closed:
   this.fifo.cogs
 
-computed Item.inventory_value : number (money, level), closed:
+computed Item.inventory_value : number (money, position), closed:
   sum(this.fifo.layers, l: l.amount × l.price)
 
 example cogs_first_issue
@@ -283,8 +283,8 @@ choice_list MovementKind, closed
 property item : reference Item
 property date : date
 property kind : choice MovementKind
-property amount : number (level)
-property price : number (money, level)
+property amount : number (position)
+property price : number (money, position)
 
 applies to Movement:
   item         required
@@ -304,10 +304,10 @@ helper Item.moving_average : record:
                value: k.value − k.value × m.amount ÷ k.amount,
                cogs: k.cogs + k.value × m.amount ÷ k.amount})
 
-computed Item.stock : number (level), closed:
+computed Item.stock : number (position), closed:
   this.moving_average.amount
 
-computed Item.inventory_value : number (money, level), closed:
+computed Item.inventory_value : number (money, position), closed:
   this.moving_average.value
 
 computed Item.cogs : number (money, increase), closed:
@@ -399,9 +399,9 @@ module paper/p4@v1
 concept Item
 concept Rental
 
-property stock : number (level)
+property stock : number (position)
 property item : reference Item
-property amount : number (level)
+property amount : number (position)
 property start_date : date
 property end_date : date
 
@@ -417,7 +417,7 @@ applies to Rental:
 helper Rental.term : range:
   range(this.start_date, this.end_date)
 
-computed Item.available : number (level), closed:
+computed Item.available : number (position), closed:
   this.stock − sum(all(Rental, s: s.item = this and T in s.term), s: s.amount)
 
 constraint Rental.enough_stock

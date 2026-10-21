@@ -3,7 +3,7 @@
 Cases B1 to B4 of the paper test (`uji/01-hitung.md`)<!-- ARCHIVE-LINK: ../../01-hitung.md -->
 §4.M. These cases are deliberately not calculated: the result is a decision or
 an estimate, and it is recorded as a fact through an action
-([`decisions/0025`](../decisions/0025)). What is tested is that the fact can be
+([`decisions/0025`](../decisions/0025-three-kinds-of-numbers.md)). What is tested is that the fact can be
 recorded, with the actor and the approver, and then read back like any other
 property.
 
@@ -23,7 +23,7 @@ concept Shift
 
 property product : reference Product
 property month : date
-property quantity : number (level)
+property quantity : number (position)
 property number : text
 property invoice : reference Invoice
 property nurse : reference Nurse

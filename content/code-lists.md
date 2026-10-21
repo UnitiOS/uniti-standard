@@ -1,31 +1,31 @@
-# Daftar kode
+# Code lists
 
-Status: draf
+Status: draft
 
-## 1. Tujuan
+## 1. Purpose
 
-Daftar kode yang sudah baku dipakai langsung, tidak dibuat ulang
-([`00-prinsip`](../00-prinsip.md) P8). Dokumen ini menyebut daftar kode luar
-yang dipakai standar, kode mana yang dipakai, dan alamatnya, supaya kode itu
-bisa menjadi nilai pilihan seperti pilihan lain
-([`03-nilai`](../bentuk/03-nilai.md) §2.3 dan §2.6).
+Code lists that are already standard are used directly, not made again
+([`00-principles`](../00-principles.md) P8). This document names the external
+code lists that the standard uses, which codes are used, and their address, so
+that these codes can be choice values like any other choice
+([`03-values`](../form/03-values.md) §2.3 and §2.6).
 
-## 2. Daftar kode luar yang dipakai
+## 2. External code lists in use
 
-| Daftar | Standar luar | Dipakai untuk | Alamat |
+| List | External standard | Used for | Address |
 |---|---|---|---|
-| Mata uang | ISO 4217 | Satuan uang | `uniti/satuan/Satuan` |
-| Satuan lain | UCUM (*Unified Code for Units of Measure*) | Satuan massa, panjang, dan lama waktu | `uniti/satuan/Satuan` |
-| Bahasa | BCP 47 | Kode bahasa di label dan teks | belum diberi alamat |
+| Currencies | ISO 4217 | Units of money | `uniti/unit/Unit` |
+| Other units | UCUM (*Unified Code for Units of Measure*) | Units of mass, length, and duration | `uniti/unit/Unit` |
+| Languages | BCP 47 | Language codes in labels and text | no address yet |
 
-Mata uang dan satuan lain ada di satu daftar, karena `satuan(n)` memberi
-satuan sebuah angka sebagai pilihan dari satu daftar
-([`06-aturan-hitung`](../bentuk/06-aturan-hitung.md) §2.5).
+Currencies and other units are in one list, because `unit_of(n)` gives the
+unit of a number as a choice from one list
+([`06-calculation-rules`](../form/06-calculation-rules.md) §2.5).
 
-Kode bahasa hanya dipakai di cara menulis label dan teks. Belum ada kasus yang
-mencatat bahasa sebagai nilai, jadi daftarnya belum diberi alamat.
+Language codes are used only in the way labels and text are written. No case
+records a language as a value yet, so the list has no address yet.
 
-## 3. Daftar satuan
+## 3. The unit list
 
 ```uniti
 module uniti/unit@v1
@@ -55,53 +55,55 @@ choice_list Unit, code
     km
 ```
 
-Arti setiap kode, dan cara menulisnya di notasi acuan:
+The meaning of each code, and how it is written in the reference notation:
 
-| Kode | Besaran | Ditulis di notasi acuan | Hubungan tetap | Asal kode |
+| Code | Quantity | Written in the reference notation | Fixed relation | Source of the code |
 |---|---|---|---|---|
 | `IDR` | money | `IDR` | — | ISO 4217 |
 | `USD` | money | `USD` | — | ISO 4217 |
-| `s` | duration | `second` | satuan dasar | UCUM |
+| `s` | duration | `second` | base unit | UCUM |
 | `min` | duration | `minute` | 1 min = 60 s | UCUM |
 | `h` | duration | `hour` | 1 h = 60 min | UCUM |
 | `d` | duration | `day` | 1 d = 24 h | UCUM |
 | `wk` | duration | `week` | 1 wk = 7 d | UCUM |
-| `month` | duration | `month` | satuan dasar kalender | Uniti |
-| `year` | duration | `year` | 1 tahun = 12 bulan | Uniti |
-| `g` | mass | `g` | satuan dasar | UCUM |
-| `kg` | mass | `kg` | 1 kg = 1.000 g | UCUM |
-| `mm` | length | `mm` | 1.000 mm = 1 m | UCUM |
+| `month` | duration | `month` | calendar base unit | Uniti |
+| `year` | duration | `year` | 1 year = 12 months | Uniti |
+| `g` | mass | `g` | base unit | UCUM |
+| `kg` | mass | `kg` | 1 kg = 1,000 g | UCUM |
+| `mm` | length | `mm` | 1,000 mm = 1 m | UCUM |
 | `cm` | length | `cm` | 100 cm = 1 m | UCUM |
-| `m` | length | `m` | satuan dasar | UCUM |
-| `km` | length | `km` | 1 km = 1.000 m | UCUM |
+| `m` | length | `m` | base unit | UCUM |
+| `km` | length | `km` | 1 km = 1,000 m | UCUM |
 
-Satuan hanya bisa diubah ke satuan lain yang hubungannya tetap
-(06 §2.5, `ubah`). Uang tidak punya hubungan tetap, karena kurs dicatat sebagai
-fakta. Bulan dan tahun juga tidak punya hubungan tetap dengan hari, karena
-panjang bulan berbeda-beda.
+A unit can be converted only to another unit with which it has a fixed relation
+(06 §2.5, `convert`). Money has no fixed relation, because the exchange rate is
+recorded as a fact. Months and years also have no fixed relation with days,
+because months differ in length.
 
-**Bulan dan tahun kalender** adalah kode milik Uniti. Kode UCUM `mo` dan `a`
-artinya panjang rata-rata, 30,4375 hari dan 365,25 hari, dan tidak sama
-dengan satu bulan atau satu tahun kalender. UCUM tidak punya kode untuk bulan
-kalender.
+**Calendar months and years** are codes owned by Uniti. The UCUM codes `mo` and
+`a` mean average lengths, 30.4375 days and 365.25 days, and are not the same as
+one calendar month or one calendar year. UCUM has no code for the calendar
+month.
 
-## 4. Besaran
+## 4. Quantities
 
-| Besaran | Satuan |
+| Quantity | Units |
 |---|---|
-| `money` | Kode mata uang |
+| `money` | Currency codes |
 | `duration` | `s`, `min`, `h`, `d`, `wk`, `month`, `year` |
 | `mass` | `g`, `kg` |
 | `length` | `mm`, `cm`, `m`, `km` |
 
-Besaran turunan ditulis dengan cara yang sama seperti satuannya, misalnya
-`panjang²` untuk luas dan `uang/lama_waktu` untuk tarif (lampiran A §2.4).
+A derived quantity is written in the same way as its units, for example
+`length²` for area and `money/duration` for a rate (appendix A §2.4).
 
-## 5. Menambah kode
+## 5. Adding codes
 
-Daftar ini isi. Kode baru ditambahkan lewat versi baru `uniti/satuan`, tanpa
-mengubah bentuk:
-- kode dari standar luar ditulis persis seperti di standar luarnya;
-- kode milik Uniti hanya dibuat bila standar luarnya tidak punya padanan,
-  seperti bulan dan tahun kalender;
-- kode dipilih karena dibutuhkan, bukan karena ada di standar luar.
+This list is content. A new code is added through a new version of
+`uniti/unit`, without changing the form:
+- a code from an external standard is written exactly as in that external
+  standard;
+- a code owned by Uniti is made only when the external standard has no
+  counterpart, such as calendar months and years;
+- a code is chosen because it is needed, not because it exists in an external
+  standard.

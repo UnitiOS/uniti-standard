@@ -15,7 +15,7 @@ concept ProductionOrder
 
 property assembly : reference Item
 property component : reference Item
-property amount : number (level)
+property amount : number (position)
 property product : reference Item
 
 applies to BomLine:
@@ -41,7 +41,7 @@ helper scale(entries, n) : collection:
 helper ProductionOrder.needs : collection:
   scale(this.product.base_materials, this.amount)
 
-computed ProductionOrder.material_need(item) : number (level), closed:
+computed ProductionOrder.material_need(item) : number (position), closed:
   sum(this.needs, x: if x.item = item then x.amount else 0)
 
 example pipes_for_ten_bicycles
@@ -121,12 +121,12 @@ structure facts.
 module paper/m2@v1
   uses paper/m1@v1
 
-property own_cost : number (money, level)
+property own_cost : number (money, position)
 
 applies to Item:
   own_cost
 
-computed Item.standard_cost : number (money, level), closed:
+computed Item.standard_cost : number (money, position), closed:
   this.own_cost
   + sum(all(BomLine, b: b.assembly = this), b: b.amount × b.component.standard_cost)
 

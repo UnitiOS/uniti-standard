@@ -15,12 +15,12 @@ module paper/x1@v1
 concept Service
 concept Package
 
-property rate_per_kg : number (money/mass, level)
+property rate_per_kg : number (money/mass, position)
 property service : reference Service
-property weight : number (mass, level)
-property length : number (length, level)
-property width : number (length, level)
-property height : number (length, level)
+property weight : number (mass, position)
+property length : number (length, position)
+property width : number (length, position)
+property height : number (length, position)
 
 applies to Service:
   rate_per_kg required

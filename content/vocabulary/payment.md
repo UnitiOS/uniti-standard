@@ -1,15 +1,16 @@
-# Pembayaran
+# Payment
 
-Status: draf
+Status: draft
 
-Uang yang berpindah dari satu pihak ke pihak lain. Jumlahnya **tanpa
-arah**, karena pembayaran yang sama adalah uang keluar bagi pembayarnya dan
-uang masuk bagi penerimanya
-([`03-nilai`](../../bentuk/03-nilai.md) §2.3). Modul pemakainya menentukan
-arahnya dengan sifatnya sendiri, misalnya pinjaman atau sewa yang dibayar.
+Money that moves from one party to another. Its amount has **no direction**,
+because the same payment is money out for the payer and money in for the
+recipient
+([`03-values`](../../form/03-values.md) §2.3). The module that uses it sets
+the direction with its own property, for example a loan or a rental that is
+paid.
 
-Hanya jumlah yang wajib. Tanggal dan cara bayar boleh dicatat, tetapi tidak
-wajib, karena tidak semua kasus mencatatnya.
+Only the amount is required. The date and the payment method may be recorded,
+but are not required, because not every case records them.
 
 ```uniti
 module uniti/payment@v1

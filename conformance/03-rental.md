@@ -14,7 +14,7 @@ concept Item
 concept Rental
 
 property item : reference Item
-property daily_rate : number (money/duration, level)
+property daily_rate : number (money/duration, position)
 property start_date : date
 property end_date : date
 

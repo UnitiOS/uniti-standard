@@ -1,19 +1,21 @@
-# Pustaka hitung
+# Calculation library
 
-Status: draf
+Status: draft
 
-Pustaka hitung yang pertama: bantu tanpa konsep di modul kamus
-`uniti/hitung`, ditulis hanya dengan inti hitung
-([`06-aturan-hitung`](../bentuk/06-aturan-hitung.md) §2.5;
-[`keputusan/0045`](../keputusan/0045-inti-dan-pustaka-hitung.md)).
+The first calculation library: helpers without a concept in the vocabulary
+module `uniti/calc`, written only with the core operations
+([`06-calculation-rules`](../form/06-calculation-rules.md) §2.5;
+[`decisions/0045`](../decisions/0045-core-operations-and-calculation-library.md)).
 
-Isinya arti `rata`, `median`, `persentil`, `bulatkan`, `bagi_habis`, dan
-pengubahan mata uang yang dulu menjadi operasi. Asalnya percobaan di
-[`uji/acuan/percobaan/`](../uji/acuan/percobaan/README.md). Contohnya
-dijalankan penghitung acuan bersama kasus, dan ujinya ada di
-[`uji/acuan/operasi/uji_pustaka.py`](../uji/acuan/operasi/uji_pustaka.py).
+It holds the meaning of `average`, `median`, `percentile`, `round`,
+`allocate`, and currency conversion, which used to be operations. Its origin
+is the experiments in `uji/acuan/percobaan/`
+<!-- ARCHIVE-LINK: uji/acuan/percobaan/README.md -->. Its examples are run by
+the reference calculator together with the cases, and its tests are in
+`uji/acuan/operasi/uji_pustaka.py`
+<!-- ARCHIVE-LINK: uji/acuan/operasi/uji_pustaka.py -->.
 
-## Pustaka
+## Library
 
 ```uniti
 module uniti/calc@v1
@@ -131,11 +133,11 @@ helper allocate(total, list, to, remainder) : collection
       {member: b.member, share: sign × (b.base + extra) × to})
 ```
 
-## Pemakaian dan contoh
+## Use and examples
 
-Contoh di bawah memakai pustaka dari modul lain, seperti modul domain
-nantinya. Bantu tanpa konsep tidak bisa ditanyakan langsung di contoh, jadi
-setiap bantu dicontohkan lewat sifat hitungan.
+The examples below use the library from another module, as a domain module
+will later. A helper without a concept cannot be asked directly in an
+example, so each helper is exemplified through a computed property.
 
 ```uniti
 module example/user@v1
@@ -147,11 +149,11 @@ concept Room
 concept ExchangeRate
 
 property in_group : reference Group
-property value : number (level)
-property area : number (length², level)
-property price : number (money, level)
-property exchange_rate : number (money/money, level)
-property rent : number (money, level)
+property value : number (position)
+property area : number (length², position)
+property price : number (money, position)
+property exchange_rate : number (money/money, position)
+property rent : number (money, position)
 
 applies to DataPoint:
   in_group     required
@@ -170,19 +172,19 @@ applies to Group:
 helper Group.values : collection:
   each(all(DataPoint, d: d.in_group = this), d: d.value)
 
-computed Group.median_value : number (level), closed:
+computed Group.median_value : number (position), closed:
   median(this.values)
 
-computed Group.p90 : number (level), closed:
+computed Group.p90 : number (position), closed:
   percentile(this.values, 0.9)
 
-computed Group.rounded_average : number (level), closed:
+computed Group.rounded_average : number (position), closed:
   round(average(this.values), 1, nearest)
 
-computed Group.price_idr : number (money, level), closed:
+computed Group.price_idr : number (money, position), closed:
   convert_money(this.price, IDR, single(all(ExchangeRate)).exchange_rate)
 
-computed Room.rent_share : number (money, level), closed:
+computed Room.rent_share : number (money, position), closed:
   let g = single(all(Group))
   sum(allocate(g.rent, by_member(each(all(Room), r: {member: r, weight: r.area})),
                1 IDR, largest_fraction),

@@ -3,7 +3,7 @@
 Stage 7, quick test 7.3 (`uji/03-uji-singkat.md`)<!-- ARCHIVE-LINK: ../../03-uji-singkat.md -->,
 for obstacles P5 to P10. Before, these choices only existed in the program;
 now they are written in the form documents
-([`decisions/0054`](../decisions/0054)).
+([`decisions/0054`](../decisions/0054-reference-choices-into-text.md)).
 P7 for contributions and P9 are tested in `operasi/uji_hitung.py`, because the
 result cannot be written as an example.
 
@@ -24,10 +24,10 @@ applies to Contract:
   start_date
   end_date
 
-computed Contract.length_in_months : number (duration, level), closed:
+computed Contract.length_in_months : number (duration, position), closed:
   difference(this.start_date, this.end_date, month)
 
-computed Contract.last_slice : number (duration, level), closed:
+computed Contract.last_slice : number (duration, position), closed:
   span(fold(split(range(this.start_date, this.end_date), step: 1 month),
             initial: range(this.start_date, this.start_date),
             step: (s, p): p),
@@ -119,7 +119,7 @@ module reference/two-types@v1
 concept Report
 concept Supplier
 concept Customer
-property number : number (level)
+property number : number (position)
 
 applies to Supplier:
   number
@@ -127,7 +127,7 @@ applies to Supplier:
 applies to Customer:
   number
 
-computed Report.customer_order : number (level), closed:
+computed Report.customer_order : number (position), closed:
   fold(all(Customer), order_by: p: 0, initial: 0, step: (s, p): s × 10 + p.number)
 
 example customer_who_was_a_supplier_first

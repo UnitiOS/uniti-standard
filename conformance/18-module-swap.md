@@ -32,7 +32,7 @@ module komunitas-sewa/base@v1
 concept Rental
 concept Return
 
-property quantity : number (level)
+property quantity : number (position)
 property rental : reference Rental
 
 applies to Rental:
@@ -42,7 +42,7 @@ applies to Rental:
 applies to Return:
   rental       required
 
-computed Item.currently_rented : number (level), closed:
+computed Item.currently_rented : number (position), closed:
   sum(all(Rental, s: s.item = this
                     and count(all(Return, k: k.rental = s)) = 0),
       s: s.quantity)

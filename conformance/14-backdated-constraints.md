@@ -18,7 +18,7 @@ concept Receipt
 concept Sale
 
 property item : reference Item
-property quantity : number (level)
+property quantity : number (position)
 
 applies to Receipt:
   item         required
@@ -28,7 +28,7 @@ applies to Sale:
   item         required
   quantity     required
 
-computed Item.stock : number (level), closed:
+computed Item.stock : number (position), closed:
   sum(all(Receipt, p: p.item = this), p: p.quantity)
   − sum(all(Sale, j: j.item = this), j: j.quantity)
 

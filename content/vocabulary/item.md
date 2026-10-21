@@ -1,11 +1,12 @@
-# Barang
+# Item
 
-Status: draf
+Status: draft
 
-Barang yang disimpan, dijual, disewakan, atau dibuat. Kamus hanya memuat
-konsep Barang dan rujukan ke barang. Sifat lain, seperti stok, tarif sewa,
-atau biaya produksi, ditulis di modul pemakainya dengan "berlaku untuk"
-([`04-konsep`](../../bentuk/04-konsep.md) §2.3).
+An item that is stored, sold, rented out, or made. The vocabulary holds only
+the concept Item and the reference to an item. Other properties, such as
+stock, rental rate, or production cost, are written in the module that uses
+them with "applies to"
+([`04-concepts`](../../form/04-concepts.md) §2.3).
 
 ```uniti
 module uniti/item@v1

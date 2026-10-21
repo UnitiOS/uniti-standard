@@ -1,18 +1,19 @@
-# Templat kartu
+# Card templates
 
-Status: draf
+Status: draft
 
-Templat untuk menulis kartu dalam bentuk lengkap, yaitu bentuk untuk modul
-yang akan dibekukan (lampiran A §2.8, TULIS-17). Bagian yang wajib menurut
-standar diberi tanda *wajib*. Bagian lain boleh ditulis atau ditinggalkan.
+Templates for writing cards in the full form, which is the form for a module
+that will be frozen (appendix A §2.8, NOTATION-17). The parts that the
+standard requires are marked *required*. The other parts may be written or
+left out.
 
-Tulisan di antara `‹ ›` diganti dengan isinya. Contoh yang sudah terisi ada di
-[`kamus/`](kamus/).
+Text between `‹ ›` is replaced with its content. Filled-in examples are in
+[`vocabulary/`](vocabulary/).
 
-Penghitung acuan memeriksa bagian yang wajib dengan
-`python -m program.lengkap ‹berkas›`, dari folder `uji/acuan`.
+The reference calculator checks the required parts with
+`python -m calculator.completeness ‹file›`, from the `reference` folder.
 
-## Kartu konsep
+## Concept card
 
 ```
 concept ‹ConceptName›
@@ -26,11 +27,11 @@ concept ‹ConceptName›
   note.en        ‹extra remarks›
 ```
 
-Di kamus, yang termasuk dan yang tidak termasuk masing-masing diambil dari
-minimal dua domain (KONSEP-2). Domainnya ditulis di awal kalimat, misalnya
-"Klinik: …", supaya mudah diperiksa saat membaca.
+In the vocabulary, the includes and the excludes are each taken from at least
+two domains (CONCEPT-2). The domain is written at the start of the sentence,
+for example "Clinic: ...", so that it is easy to check when reading.
 
-## Kartu sifat
+## Property card
 
 ```
 property ‹property_name› : ‹value type›                  # required, CONCEPT-3
@@ -41,11 +42,11 @@ property ‹property_name› : ‹value type›                  # required, CON
   note.en        ‹extra remarks›
 ```
 
-Jenis nilai ditulis di baris kepala: `teks`, `angka (‹besaran›, ‹arah›)`,
-`ya_tidak`, `tanggal`, `saat`, `pilihan ‹Daftar›`, atau `rujukan ‹Konsep›`,
-ditambah `, banyak` untuk sifat yang banyak nilainya (lampiran A §2.8).
+The value type is written in the head line: `text`, `number (‹quantity›,
+‹direction›)`, `yes_no`, `date`, `instant`, `choice ‹List›`, or `reference
+‹Concept›`, plus `, many` for a property with many values (appendix A §2.8).
 
-## Kartu daftar pilihan
+## Choice list card
 
 ```
 choice_list ‹ListName›, ‹open, closed, or code›
@@ -56,7 +57,7 @@ choice_list ‹ListName›, ‹open, closed, or code›
     ‹second_choice›
 ```
 
-## Sifat hitungan
+## Computed property
 
 ```
 computed ‹Concept›.‹name›(‹parameters›) : ‹value type›, ‹open or closed›
@@ -67,7 +68,7 @@ computed ‹Concept›.‹name›(‹parameters›) : ‹value type›, ‹open 
     ‹expression›
 ```
 
-## Syarat
+## Constraint
 
 ```
 constraint ‹Concept›.‹name›
@@ -78,7 +79,7 @@ constraint ‹Concept›.‹name›
     ‹yes/no expression›
 ```
 
-## Bantu
+## Helper
 
 ```
 helper ‹name›(‹parameters›) : ‹result type›
@@ -87,5 +88,5 @@ helper ‹name›(‹parameters›) : ‹result type›
     ‹expression›
 ```
 
-Bantu tidak punya bagian kartu yang wajib, tetapi tetap ditulis dalam bentuk
-lengkap di modul yang akan dibekukan.
+A helper has no required card parts, but it is still written in the full form
+in a module that will be frozen.

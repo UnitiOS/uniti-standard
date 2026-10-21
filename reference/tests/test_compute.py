@@ -22,9 +22,9 @@ INVENTORY = """
 module uniti/inventory@v1
 
 concept Item
-property initial_stock : number (level)
+property initial_stock : number (position)
 
-computed Item.available : number (level), open:
+computed Item.available : number (position), open:
   this.initial_stock + sum(contributions)
 
 example without_rental_module
@@ -95,7 +95,7 @@ class Contributions(unittest.TestCase):
         self.assertEqual(status(text)["without_rental_module"][0], "notation error")
 
     def test_contribution_in_closed_computed(self):
-        text = INVENTORY.replace("number (level), open:", "number (level), closed:")
+        text = INVENTORY.replace("number (position), open:", "number (position), closed:")
         self.assertEqual(status(text)["one_rented"][0], "notation error")
 
     def test_contribution_reason_independent_of_install_order(self):
@@ -110,9 +110,9 @@ TWO_CONTRIBUTIONS = """
 module ref/total@v1
 
 concept Item
-property price : number (level)
+property price : number (position)
 
-computed Item.total : number (level), open:
+computed Item.total : number (position), open:
   sum(contributions)
 
 module ref/divide@v1
@@ -124,7 +124,7 @@ contribution divided_by_zero to Item.total:
 module ref/empty@v1
   uses ref/total@v1
 
-property remaining : number (level)
+property remaining : number (position)
 
 contribution from_empty to Item.total:
   this.remaining + 1
@@ -166,9 +166,9 @@ example c
 COST = """
 concept Part
 property component : reference Part, many
-property own_cost : number (money, level)
+property own_cost : number (money, position)
 
-computed Part.cost : number (money, level), closed:
+computed Part.cost : number (money, position), closed:
   this.own_cost + sum(this.component, k: k.cost)
 """
 
@@ -197,51 +197,51 @@ class Recursion(unittest.TestCase):
 
 PRICE = """
 concept Item
-property price : number (money, level)
+property price : number (money, position)
 property movement : number (money, no_direction)
 
-computed Item.third : number (money, level), closed:
+computed Item.third : number (money, position), closed:
   this.price ÷ 3
 
-computed Item.rounded_third : number (money, level), closed:
+computed Item.rounded_third : number (money, position), closed:
   floor_multiple(this.price ÷ 3, of: 1 IDR)
 
 computed Item.price_difference : number (money, no_direction), closed:
   this.movement − this.price
 
-computed Item.with_reserve : number (money, level), closed:
+computed Item.with_reserve : number (money, position), closed:
   let reserve = this.price ÷ 0
   this.price
 
-computed Item.reserve_used : number (money, level), closed:
+computed Item.reserve_used : number (money, position), closed:
   let reserve = this.price ÷ 0
   reserve
 
-computed Item.total_expensive : number (money, level), closed:
+computed Item.total_expensive : number (money, position), closed:
   sum(all(Item, x: x.price > 1,000 IDR), x: x.price)
 
 helper first(a, b) : number:
   a
 
-computed Item.argument_unused : number (money, level), closed:
+computed Item.argument_unused : number (money, position), closed:
   first(this.price, this.price ÷ 0)
 
-computed Item.argument_used : number (money, level), closed:
+computed Item.argument_used : number (money, position), closed:
   first(this.price ÷ 0, this.price)
 
 helper itself(n) : number:
   itself(n)
 
-computed Item.helper_uses_itself : number (money, level), closed:
+computed Item.helper_uses_itself : number (money, position), closed:
   itself(this.price)
 
-computed Item.helper_in_helper_argument : number (money, level), closed:
+computed Item.helper_in_helper_argument : number (money, position), closed:
   first(first(this.price, 0 IDR), 0 IDR)
 
-computed Item.rate_times_days : number (money, level), closed:
+computed Item.rate_times_days : number (money, position), closed:
   this.price ÷ 1 day × 3 days
 
-computed Item.rate_times_hours : number (money, level), closed:
+computed Item.rate_times_hours : number (money, position), closed:
   this.price ÷ 1 day × 72 hours
 """
 

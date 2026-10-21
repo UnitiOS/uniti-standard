@@ -15,7 +15,7 @@ concept Plan
 concept Subscription
 concept Bill
 
-property monthly_price : number (money, level)
+property monthly_price : number (money, position)
 property plan : reference Plan
 property subscription : reference Subscription
 property date : date
@@ -85,12 +85,12 @@ concept Customer
 concept PriceTable
 concept RateTier
 
-property usage : number (level)
+property usage : number (position)
 property price_table : reference PriceTable
 property table : reference PriceTable
-property lower_limit : number (level)
-property upper_limit : number (level)
-property rate : number (money, level)
+property lower_limit : number (position)
+property upper_limit : number (position)
+property rate : number (money, position)
 
 applies to Customer:
   usage

@@ -26,7 +26,7 @@ concept Rental
 property item : reference Item
 property start_date : date
 property end_date : date
-property daily_rate : number (money/duration, level)
+property daily_rate : number (money/duration, position)
 
 applies to Item:
   daily_rate   required
@@ -62,7 +62,7 @@ concept Rental
 property item : reference Item
 property start_date : date
 property end_date : date
-property daily_rate : number (money/duration, level)
+property daily_rate : number (money/duration, position)
 property promised_return_date : date
 
 applies to Item:
@@ -164,8 +164,8 @@ module uniti/depreciation@v3
 
 concept Asset
 
-property price : number (money, level)
-property useful_life : number (duration, level)
+property price : number (money, position)
+property useful_life : number (duration, position)
 property start_of_use : date
 
 applies to Asset:
@@ -179,7 +179,7 @@ helper Asset.depreciation : collection:
                 b: {member: b, weight: 1}),
            1 IDR, last)
 
-computed Asset.accumulated_depreciation : number (money, level), closed:
+computed Asset.accumulated_depreciation : number (money, position), closed:
   sum(this.depreciation, p: if p.member.start ≤ T then p.share else 0 IDR)
 
 computed Asset.current_month_depreciation : number (money, increase), closed:
@@ -213,8 +213,8 @@ module uniti/depreciation@v4
 
 concept Asset
 
-property price : number (money, level)
-property useful_life : number (duration, level)
+property price : number (money, position)
+property useful_life : number (duration, position)
 property start_of_use : date
 
 applies to Asset:
@@ -228,7 +228,7 @@ helper Asset.depreciation : collection:
                 b: {member: b, weight: 1}),
            1 IDR, first)
 
-computed Asset.accumulated_depreciation : number (money, level), closed:
+computed Asset.accumulated_depreciation : number (money, position), closed:
   sum(this.depreciation, p: if p.member.start ≤ T then p.share else 0 IDR)
 
 computed Asset.current_month_depreciation : number (money, increase), closed:

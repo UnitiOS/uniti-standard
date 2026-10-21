@@ -15,16 +15,16 @@ module paper/j1@v1
 
 concept Loan
 
-property principal : number (money, level)
-property monthly_interest : number (level)
-property tenor_months : number (level)
+property principal : number (money, position)
+property monthly_interest : number (position)
+property tenor_months : number (position)
 
 applies to Loan:
   principal         required
   monthly_interest  required
   tenor_months      required
 
-computed Loan.final_value : number (money, level), closed:
+computed Loan.final_value : number (money, position), closed:
   round(this.principal × power(1 + this.monthly_interest, this.tenor_months), 1 IDR, nearest)
 
 example compound_one_year
@@ -53,8 +53,8 @@ module paper/j2@v1
 concept Loan
 concept Payment
 
-property principal : number (money, level)
-property annual_interest : number (level)
+property principal : number (money, position)
+property annual_interest : number (position)
 property loan : reference Loan
 property amount : number (money, decrease)
 
@@ -66,7 +66,7 @@ applies to Payment:
   loan         required
   amount       required
 
-computed Loan.balance : number (money, level), closed:
+computed Loan.balance : number (money, position), closed:
   this.principal − sum(all(Payment, b: b.loan = this), b: b.amount)
 
 computed Loan.interest(period) : number (money, increase), closed:
@@ -110,7 +110,7 @@ concept Payment
 property loan : reference Loan
 property due_date : date
 property date : date
-property amount : number (money, level)
+property amount : number (money, position)
 
 applies to Installment:
   loan         required
@@ -139,7 +139,7 @@ helper apply_payment(entries, n) : collection:
          {cash: a.cash − take, rows: append(a.rows, d with remaining = d.remaining − take)}
   ).rows
 
-computed Installment.remaining : number (money, level), closed:
+computed Installment.remaining : number (money, position), closed:
   sum(this.loan.installment_balances, d: if d.installment = this then d.remaining else 0 IDR)
 
 example c1_paid_off

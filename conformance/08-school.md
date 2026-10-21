@@ -20,9 +20,9 @@ concept Assessment
 
 property student : reference Student
 property subject : reference Subject
-property assignment : number (level)
-property midterm : number (level)
-property final_exam : number (level)
+property assignment : number (position)
+property midterm : number (position)
+property final_exam : number (position)
 
 applies to Assessment:
   student      required
@@ -31,7 +31,7 @@ applies to Assessment:
   midterm
   final_exam
 
-computed Student.final_grade(subject) : number (level), closed:
+computed Student.final_grade(subject) : number (position), closed:
   let n = single(all(Assessment, x: x.student = this and x.subject = subject))
   round(0.3 × n.assignment + 0.3 × n.midterm + 0.4 × n.final_exam, 1, nearest)
 
@@ -61,13 +61,13 @@ concept Class
 concept Student
 
 property class : reference Class
-property average_grade : number (level)
+property average_grade : number (position)
 
 applies to Student:
   class        required
   average_grade
 
-computed Student.rank : number (level), closed:
+computed Student.rank : number (position), closed:
   1 + count(all(Student, s: s.class = this.class
                             and s.average_grade > this.average_grade))
 
@@ -128,14 +128,14 @@ module paper/e3@v1
 
 concept Student
 
-property attended : number (level)
-property sessions : number (level)
+property attended : number (position)
+property sessions : number (position)
 
 applies to Student:
   attended
   sessions
 
-computed Student.attendance_percent : number (level), closed:
+computed Student.attendance_percent : number (position), closed:
   round(this.attended ÷ this.sessions, 0.1%, nearest)
 
 example attended_90_of_96

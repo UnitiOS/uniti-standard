@@ -16,12 +16,12 @@ concept Employee
 concept TaxTable
 concept TaxBracket
 
-property taxable_income : number (money, level)
+property taxable_income : number (money, position)
 property tax_table : reference TaxTable
 property table : reference TaxTable
-property lower_limit : number (money, level)
-property upper_limit : number (money, level)
-property rate : number (level)
+property lower_limit : number (money, position)
+property upper_limit : number (money, position)
+property rate : number (position)
 
 applies to Employee:
   taxable_income
@@ -87,10 +87,10 @@ concept Contract
 concept Attendance
 
 property contract : reference Contract
-property hourly_wage : number (money/duration, level)
+property hourly_wage : number (money/duration, position)
 property employee : reference Employee
 property date : date
-property hours : number (duration, level)
+property hours : number (duration, position)
 
 applies to Employee:
   contract     required
@@ -155,7 +155,7 @@ concept Employee
 concept Contract
 
 property contract : reference Contract
-property monthly_salary : number (money, level)
+property monthly_salary : number (money, position)
 
 applies to Employee:
   contract     required

@@ -62,7 +62,7 @@ module a/rate@v1
 concept Rate
 
 property per : choice Unit
-property price : number (money/duration, level)
+property price : number (money/duration, position)
 
 computed Rate.daily : yes_no, closed:
   this.per = unit_of(1 day) and unit_of(this.price × 1 day) = IDR
@@ -110,7 +110,7 @@ class FullForm(unittest.TestCase):
                 self.assertEqual(completeness.check(m), [])
 
     def test_short_form_is_incomplete(self):
-        (m,) = read("module a/b@v1\n\nconcept Rental\n\ncomputed Rental.n : number (level), closed:\n  1\n")
+        (m,) = read("module a/b@v1\n\nconcept Rental\n\ncomputed Rental.n : number (position), closed:\n  1\n")
         self.assertEqual(completeness.check(m), [
             "a/b/Rental: concept without label (CONCEPT-1)",
             "a/b/Rental: concept without definition (CONCEPT-1)",

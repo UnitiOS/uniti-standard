@@ -38,7 +38,7 @@ property end_date : date
   definition.en  The day the item is returned. This day is not counted.
   personal     no
 
-property daily_rate : number (money/duration, level)
+property daily_rate : number (money/duration, position)
   label.en     Daily rate
   definition.en  The rental price of an item for one day.
   personal     no
@@ -201,7 +201,7 @@ property date : date
 property amount : number (money, increase)
 property start_date : date
 property end_date : date
-property cap : number (money, level)
+property cap : number (money, position)
 
 applies to Policy:
   start_date   required
@@ -304,13 +304,13 @@ module example/school@v1
 concept Class
 concept Student
 property class : reference Class
-property average_score : number (level)
+property average_score : number (position)
 
 applies to Student:
   class          required
   average_score
 
-computed Student.rank : number (level), closed:
+computed Student.rank : number (position), closed:
   1 + count(all(Student, s: s.class = this.class
                                and s.average_score > this.average_score))
 

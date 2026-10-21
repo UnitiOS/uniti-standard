@@ -19,7 +19,7 @@ property date : date
 property amount : number (money, increase)
 property start_date : date
 property end_date : date
-property cap : number (money, level)
+property cap : number (money, position)
 
 applies to Policy:
   start_date   required
@@ -130,10 +130,10 @@ helper Clinic.waiting_times(period) : collection:
   each(all(Visit, k: k.clinic = this and k.arrived in period),
        k: difference(k.arrived, k.called, minute))
 
-computed Clinic.waiting_time_median(period) : number (duration, level), closed:
+computed Clinic.waiting_time_median(period) : number (duration, position), closed:
   median(this.waiting_times(period))
 
-computed Clinic.waiting_time_average(period) : number (duration, level), closed:
+computed Clinic.waiting_time_average(period) : number (duration, position), closed:
   average(this.waiting_times(period))
 
 example median_five_visits
