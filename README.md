@@ -6,56 +6,96 @@ community, a company, or an institution in any domain, can make content that
 is immediately usable together with content made by others, without knowing
 each other and without conflict.
 
-> **Status: v0.1, draft. Being written step by step.**
-> No part is stable yet. All content may still change until v0.1 is frozen.
+> **Status: v0.1, draft.** All parts of v0.1 are written. The next step is to
+> lock v0.1 ([`decisions/0052`](decisions/0052-quick-test-then-lock.md)).
+> Until then, any part may still change.
 
 ---
+
+## The idea in one minute
+
+- An organization stores only **facts**: what happened and what is true,
+  each with the time it is true and the time it was recorded. Facts are never
+  edited or deleted; a correction is a new fact.
+- Everything else, such as a balance, a total due, or a stock level, is
+  **calculated** from the facts by written rules.
+- The standard fixes the **form**, the way anything is written, and leaves
+  the **content**, the words and logic of a domain, free.
+- Every rule carries **examples**: facts and the result that must come out.
+  A machine runs them, so a rule is accepted only when it is proven.
 
 ## Two parts
 
 | Part | Contents | Nature |
 |---|---|---|
-| **A. Form** (`form/`) | The way to record anything: the form of facts, addresses, values, concepts, relations, calculation rules, change, proof, ownership | **Fixed.** Applies to all domains. May only grow, never be changed |
-| **B. Content** (`content/`) | The first shared vocabulary (starting from the enterprise) and the outside code lists that are used | **Flexible.** May follow outside standards, may be made by oneself, and keeps growing |
+| **A. Form** ([`form/`](form/01-facts.md)) | The way to record anything: the form of facts, addresses, values, concepts, relations, calculation rules, change, and proof | **Fixed.** Applies to all domains. May only grow, never be changed |
+| **B. Content** ([`content/`](content/README.md)) | The first shared vocabulary, the card templates, the outside code lists that are used, and the calculation library | **Flexible.** May follow outside standards, may be made by oneself, and keeps growing |
 
 An analogy: the form is the **grammar**, the vocabulary is the **shared
 words**, and a module is the **story** that each person writes with that
 grammar and those words. The full explanation is in
 [`00-principles.md`](00-principles.md).
 
-## How to read
+## Start here
 
-1. [`00-principles.md`](00-principles.md): the purpose, scope, and principles
-   that bind the whole standard.
-2. [`01-glossary.md`](01-glossary.md): the meaning of every term. Terms are
-   used with the same meaning in all documents.
-3. `form/`: part A, read in order. How to write it is in `appendix/`.
-4. `content/`: part B.
-5. `uji/`: proof that the form can be used in different domains.
-6. `decisions/`: the reasons behind every decision, including the alternatives
-   that were rejected.
-7. `kajian/`: study material for matters that cannot be decided yet, such as
-   law, governance, and ownership. **Not part of the standard.**
+Pick the path that fits you. Each path starts short and goes deeper.
 
-## Map of contents
+| You are | Read in this order |
+|---|---|
+| **New to the standard**, or deciding whether it fits | [`guide/tour.md`](guide/tour.md), one small story through every part → [`guide/overview.md`](guide/overview.md), a map of the whole standard → [`00-principles.md`](00-principles.md) |
+| **Building software** that follows the standard | [`guide/overview.md`](guide/overview.md) → [`guide/implementing.md`](guide/implementing.md) → [`form/01-facts.md`](form/01-facts.md) to [`form/08-proof.md`](form/08-proof.md) and [`appendix/A-notation.md`](appendix/A-notation.md) → [`conformance/README.md`](conformance/README.md) → [`reference/README.md`](reference/README.md) |
+| **Writing content**: a module or a vocabulary | [`00-principles.md`](00-principles.md) → [`01-glossary.md`](01-glossary.md) → [`form/04-concepts.md`](form/04-concepts.md), [`form/06-calculation-rules.md`](form/06-calculation-rules.md), and [`form/08-proof.md`](form/08-proof.md) → [`appendix/A-notation.md`](appendix/A-notation.md) → [`content/README.md`](content/README.md) and [`content/card-templates.md`](content/card-templates.md) |
+| **A code agent** | [`AGENTS.md`](AGENTS.md) |
+| **Looking for one rule** | [`rules.md`](rules.md), the index of all rules, by ID |
+| **Asking why** something is as it is | [`decisions/`](decisions/README.md), one decision per file, with the alternatives that were rejected |
 
-| Document | Contents | Status |
-|---|---|---|
-| `00-principles.md` | Purpose, scope, principles, requirement keywords | draft |
-| `01-glossary.md` | List of terms | draft |
-| `form/01-facts.md` | The form of one fact | draft |
-| `form/02-addresses.md` | Unique and permanent addresses | draft |
-| `form/03-values.md` | Value types, numbers and units, dates and instants, choice lists | draft |
-| `form/04-concepts.md` | Concept cards and property cards, child concepts, types and roles | draft |
-| `form/05-relations.md` | How content points to other content, including bridges | draft |
-| `form/06-calculation-rules.md` | Computed properties, core operations and calculation library, constraints, projections | draft; its paper test is in `uji/01-hitung.md` (Indonesian archive) |
-| `form/07-change.md` | How to change without breaking what is old | draft |
-| `form/08-proof.md` | Examples as contracts, and conformance tests | draft |
-| `form/09-ownership.md` | Who may write what, and how the form changes | postponed to v0.2, waiting for `kajian/01-ekosistem.md` (Indonesian archive) ([`decisions/0048`](decisions/0048-ownership-to-v02.md)) |
-| `appendix/A-notation.md` | Reference notation: how to write rules, examples, and cards | draft |
-| `content/` | The first vocabulary, card templates, code lists, calculation library ([`content/README.md`](content/README.md)) | draft |
-| `uji/` | Paper tests and other tests; not part of the standard (Indonesian archive, `uji/README.md`) | `01-hitung` draft |
-| `kajian/` | Study material: ecosystem, intellectual property, licensing, governance | not the standard |
+The normative documents are read in this order: `00` → `01` → `form/01` to
+`form/08` → `appendix/A` → `content/`. Each of them has a navigation line at
+the top with the previous and next document.
+
+## What is normative
+
+| Normative: this is the standard | Not normative: this helps you read and use it |
+|---|---|
+| [`00-principles.md`](00-principles.md) | [`guide/`](guide/overview.md): the tour, the overview, the implementer guide |
+| [`01-glossary.md`](01-glossary.md) | [`rules.md`](rules.md): an index made from the text |
+| [`form/`](form/01-facts.md): part A | [`decisions/`](decisions/README.md): the reasons |
+| [`appendix/A-notation.md`](appendix/A-notation.md): the reference notation | [`reference/`](reference/README.md): the reference calculator, a program for comparison |
+| [`content/`](content/README.md): part B | |
+| The examples in [`conformance/`](conformance/README.md): the conformance tests of [`form/08-proof.md`](form/08-proof.md) §2.9 | |
+
+When a guide or an index differs from the normative text, the normative text
+is right, and the guide is what must be fixed.
+
+## Map of the repository
+
+| Place | Contents |
+|---|---|
+| [`00-principles.md`](00-principles.md) | Purpose, scope, the three layers, the principles, requirement keywords, conformance |
+| [`01-glossary.md`](01-glossary.md) | The one meaning of every term |
+| [`form/01-facts.md`](form/01-facts.md) | The form of one fact, and reading facts at two times |
+| [`form/02-addresses.md`](form/02-addresses.md) | Unique and permanent addresses |
+| [`form/03-values.md`](form/03-values.md) | Value types, numbers and units, dates and instants, choice lists |
+| [`form/04-concepts.md`](form/04-concepts.md) | Concept cards and property cards, child concepts, types and roles |
+| [`form/05-relations.md`](form/05-relations.md) | How content points to other content, including bridges |
+| [`form/06-calculation-rules.md`](form/06-calculation-rules.md) | Computed properties, core operations and calculation library, constraints, projections |
+| [`form/07-change.md`](form/07-change.md) | How to change without breaking what is old |
+| [`form/08-proof.md`](form/08-proof.md) | Examples as contracts, and conformance tests |
+| `form/09-ownership.md` | Who may write what, and how the form changes. Postponed to v0.2 ([`decisions/0048`](decisions/0048-ownership-to-v02.md)) |
+| [`appendix/A-notation.md`](appendix/A-notation.md) | The reference notation: how to write rules, examples, and cards |
+| [`content/`](content/README.md) | The first vocabulary, card templates, code lists, calculation library |
+| [`conformance/`](conformance/README.md) | 21 case files with 163 examples, run as tests, with how to run them per level |
+| [`guide/`](guide/overview.md) | Reading aids: tour, overview, implementer guide |
+| [`rules.md`](rules.md) | The index of all 218 rules |
+| [`decisions/`](decisions/README.md) | 55 decision records |
+| [`reference/`](reference/README.md) | The reference calculator in Python, and its tests |
+| [`AGENTS.md`](AGENTS.md) | Working rules for code agents in this repository |
+
+To run all tests, from this folder (Python 3):
+
+```
+python -m unittest discover -s reference/tests -t reference
+```
 
 ## The standard and software
 
@@ -70,7 +110,8 @@ language.**
   in the conformance tests, is detailed in
   [`appendix/A-notation.md`](appendix/A-notation.md). Other formats (for
   example YAML or RDF) may be used if the meaning is exactly the same. The
-  form is the same, whatever the format.
+  form is the same, whatever the format. A machine format for exchange is
+  postponed ([`decisions/0055`](decisions/0055-locked-in-english.md)).
 
 ---
 
@@ -139,15 +180,16 @@ The list of what is marked [provisional] at present:
 
 Every decision that shapes the standard is recorded in `decisions/`, one
 decision per file, with what was decided, the reasons, and the alternatives
-that were rejected. The main documents only need to contain the outcome.
+that were rejected. The main documents only need to contain the outcome. A
+finding changes the form only through the findings gate
+([`decisions/0046`](decisions/0046-findings-gate.md)).
 
-The version history of the standard is in `PERUBAHAN.md` (Indonesian archive).
+### Language and the Indonesian archive
 
-### Language
-
-The standard is written in **Indonesian** while it is being shaped. When v0.1
-is locked, all of it is translated into **English** and moves to its own
-directory. This Indonesian text becomes the archive
-([`decisions/0055`](decisions/0055-locked-in-english.md)). The English
-equivalent of every term has been included since the start in
-[`01-glossary.md`](01-glossary.md).
+English is the only normative text
+([`decisions/0055`](decisions/0055-locked-in-english.md)). The standard was
+shaped in Indonesian up to v0.1. That text, with its paper tests (`uji/`),
+studies (`kajian/`), and version history (`PERUBAHAN.md`), is kept as an
+archive outside this repository. A note such as "(Indonesian archive,
+`uji/01-hitung.md`)" points to a file in that archive. Labels in other
+languages, such as `label.id`, are content and stay where they are.

@@ -151,7 +151,7 @@ RELATION-11).
 | Place | What it is |
 |---|---|
 | [`decisions/`](../decisions/) | 55 decision records: why things are as they are |
-| [`conformance/`](../conformance/) | Worked cases in the reference notation, with expected results |
+| [`conformance/README.md`](../conformance/README.md) | How to run the worked cases, per file and per level. The cases themselves are the conformance tests of [`form/08-proof.md`](../form/08-proof.md) §2.9 and belong to the standard |
 | [`reference/`](../reference/README.md) | The reference calculator (Python) and its tests |
 | [`rules.md`](../rules.md) | Generated index of all 218 rules |
 | [`tour.md`](tour.md) | One small story, from a fact to a rejection |
