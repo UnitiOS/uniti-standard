@@ -76,8 +76,8 @@ September, October, November, December. They may be abbreviated to three
 letters: Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec.
 
 **Thousands comma and separating comma.** A comma between two digits without a
-space is a thousands comma. A comma that separates arguments is always
-followed by a space: `min(1, 500)` is two arguments, while `min(1,500)` is one
+space is a thousands comma, and exactly three digits follow it; `1,5` is not a
+number. A comma that separates arguments is always followed by a space: `min(1, 500)` is two arguments, while `min(1,500)` is one
 number.
 
 A **reference** has no fixed value in rules, because the identifier of an
@@ -106,8 +106,8 @@ written with their English names:
 | `day`, `days` | `d` |
 | `week`, `weeks` | `wk` |
 
-Calendar months and years are written `month` and `year` (and `months` and
-`years`), which are also their codes.
+Calendar months and years are written `month` and `year`, which are also their
+codes, or in the plural `months` and `years`.
 
 A quantity is written with its name in the code list, and a derived quantity
 is written the same way as its unit: `length²` for area, `money/duration`
@@ -520,8 +520,9 @@ What is not written in this summary, and is set in the text:
 - **NOTATION-7.** An instant inside a rule MUST state its time zone. An
   instant inside an example that does not state a zone MUST be read according
   to the default time zone of that example.
-- **NOTATION-8.** A unit MUST be written with a code from the code list, or
-  with the duration name in §2.4.
+- **NOTATION-8.** A unit MUST be written with a code from the code list or a
+  name in §2.4, singular or plural. The duration codes `s`, `min`, `h`, `d`,
+  and `wk` are not written.
 
 **Names**
 
@@ -729,8 +730,8 @@ The date `recorded 1 Dec 2026` is read as the start of the day in the zone
 
 ## 5. Not examples
 
-- **`1,5` for one and a half.** The comma is the thousands separator. Written
-  `1.5`.
+- **`1,5` for one and a half.** Not a number: a thousands comma is followed by
+  three digits. Written `1.5`.
 - **`price - discount`** with a hyphen. Written `price − discount`.
 - **`min(1,500)` for two numbers.** That is one number. Written `min(1, 500)`.
 - **`6 Oct` in an example**, without a year. Written `6 Oct 2026`.
@@ -748,10 +749,10 @@ The date `recorded 1 Dec 2026` is read as the start of the day in the zone
 - **Mathematical symbols, not ASCII letters.** `×`, `÷`, and `−` are read the
   same by everyone, and do not collide with the hyphen in module names or the
   slash in addresses and units.
-- **Decimal point and English month names.** The reference notation is read by
-  business owners in the examples, and is written with the same conventions
-  as the whole standard. A machine format that uses ISO 8601 and a decimal
-  point may be made in another appendix.
+- **Decimal point, colon in times, and English month names.** The reference
+  notation is read by business owners in the examples, and is written with the
+  same conventions as the whole standard. A machine format that uses ISO 8601
+  may be made in another appendix.
 - **Fixed call forms.** Because the core operations are closed, `x:` can always
   be told apart as a named argument or a binding, without an extra sign.
 - **`let` per line.** It is the easiest to read, and needs no new separator

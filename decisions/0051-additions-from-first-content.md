@@ -57,7 +57,8 @@ made the same as the first vocabulary, `uniti/item/Item` and
   requires both.
 - *Every choice must also have a label.* Rejected: a choice inside a list has
   no card, and adding a way to write it would mean adding to the form (see
-  0049, L3).
+  0049, and L3 in the cross-domain test report, `uji/02-lintas-domain.md`
+  <!-- ARCHIVE-LINK: uji/02-lintas-domain.md -->).
 
 **Consequences**
 - `form/03-values.md` §2.6 and §3: VALUE-19.
