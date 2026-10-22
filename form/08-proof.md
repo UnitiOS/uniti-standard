@@ -2,6 +2,11 @@
 
 Status: draft
 
+> [Uniti Standard](../README.md) › Part A: form, 8 of 8
+> · Previous: [Change](07-change.md)
+> · Next: [Appendix A. Notation](../appendix/A-notation.md)
+> · [Rules PROOF-n](../rules.md#proof)
+
 ## 1. Purpose
 
 Every piece of content that holds logic must prove itself
@@ -223,9 +228,8 @@ The conformance tests are addressed under the owner `standard` and are kept in
 
 Who may use the Uniti name for a statement like this, and whether there is
 certification, has not been decided
-(`kajian/01-ekosistem.md`, B7)
-<!-- ARCHIVE-LINK: kajian/01-ekosistem.md -->. The conformance tests are the
-technical basis, whatever that decision is.
+(Indonesian archive, `kajian/01-ekosistem.md`, B7). The conformance tests are
+the technical basis, whatever that decision is.
 
 ## 3. Rules
 
@@ -367,9 +371,8 @@ that reads the share of that claim from `Policy.payments`
 ([`06-calculation-rules.md`](06-calculation-rules.md) §4). Result: not
 computable, kind of reason **empty value**.
 
-More examples, from 12 domains, are in `uji/01-hitung.md`
-<!-- ARCHIVE-LINK: uji/01-hitung.md -->. Every case there will later be
-rewritten in this form.
+More examples, from 12 domains, are in `uji/01-hitung.md` (Indonesian
+archive). Every case there will later be rewritten in this form.
 
 ## 5. Not an example
 
@@ -422,8 +425,7 @@ rewritten in this form.
 1. **Who runs the examples at freeze time.** If freezing happens on a machine
    owned by the module's author, how can others trust that the examples are
    really proven? Depends on the list of ecosystem modules
-   (`kajian/01-ekosistem.md`, C4)
-   <!-- ARCHIVE-LINK: kajian/01-ekosistem.md -->.
+   (Indonesian archive, `kajian/01-ekosistem.md`, C4).
 2. **Large examples.** Scale tests need millions of generated facts. May an
    example be a data generator instead of a list of facts?
 3. **Examples for bridges.** Does a "same as" bridge between two modules need
@@ -440,5 +442,4 @@ rewritten in this form.
 5. **Who marks a behavior change in the vocabulary.** For the vocabulary, does
    marking an example replaced need the approval of more than one party?
    Discussed together with governance
-   (`kajian/01-ekosistem.md`, A2)
-   <!-- ARCHIVE-LINK: kajian/01-ekosistem.md -->.
+   (Indonesian archive, `kajian/01-ekosistem.md`, A2).

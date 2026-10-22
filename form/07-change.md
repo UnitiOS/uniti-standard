@@ -2,6 +2,10 @@
 
 Status: draft
 
+> [Uniti Standard](../README.md) › Part A: form, 7 of 8
+> · Previous: [Calculation rules](06-calculation-rules.md)
+> · Next: [Proof](08-proof.md) · [Rules CHANGE-n](../rules.md#change)
+
 ## 1. Purpose
 
 Content always evolves: modules get new concepts, calculation rules are

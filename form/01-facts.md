@@ -2,6 +2,10 @@
 
 Status: draft
 
+> [Uniti Standard](../README.md) › Part A: form, 1 of 8
+> · Previous: [Glossary](../01-glossary.md) · Next: [Addresses](02-addresses.md)
+> · [Rules FACT-n](../rules.md#facts)
+
 ## 1. Purpose
 
 Facts are the only thing an organization really stores. All numbers, reports,

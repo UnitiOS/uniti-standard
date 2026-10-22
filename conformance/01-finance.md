@@ -1,6 +1,6 @@
 # Finance and accounting
 
-Cases K1 to K6 from the paper test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases K1 to K6 from the paper test (Indonesian archive, `uji/01-hitung.md`
 §4.A), written in the reference notation with the core and the calculation
 library. Each case has its own module, `paper/‹case›@v1`. The expected results
 are taken from the paper test, not from the output of the calculator

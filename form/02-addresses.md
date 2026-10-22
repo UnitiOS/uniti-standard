@@ -2,6 +2,10 @@
 
 Status: draft
 
+> [Uniti Standard](../README.md) › Part A: form, 2 of 8
+> · Previous: [Facts](01-facts.md) · Next: [Values](03-values.md)
+> · [Rules ADDRESS-n](../rules.md#addresses)
+
 ## 1. Purpose
 
 Content is made by many makers who do not know each other, and the facts

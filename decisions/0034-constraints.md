@@ -35,7 +35,7 @@ enough to write them.
   action.
 - *Permissions and status transitions as a separate machine*, as in the PoC.
   Rejected: both can be written as constraints that read the action
-  (`uji/01-hitung.md`<!-- ARCHIVE-LINK: uji/01-hitung.md -->, O2 and O3).
+  (Indonesian archive, `uji/01-hitung.md`, O2 and O3).
 
 **Consequences**
 - How to check constraints after a correction whose valid time is far in the

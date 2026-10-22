@@ -1,6 +1,6 @@
 # Payroll
 
-Cases G1 to G3 from the paper test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases G1 to G3 from the paper test (Indonesian archive, `uji/01-hitung.md`
 §4.D), written in the reference notation with the core and the calculation
 library. The tax brackets and the overtime rule here are content examples, not
 tax or labor provisions.

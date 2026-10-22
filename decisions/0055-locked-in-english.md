@@ -8,7 +8,7 @@ According to 0052 item 3, stage 8 locks, translates, and packages v0.1.
 ‹root› must be decided, and `keputusan/`, `kajian/`, and `uji/` remain in
 Indonesian. The quick test added one more thing that the owner must decide:
 the language for names read by machines
-(`uji/03-uji-singkat.md` <!-- ARCHIVE-LINK: uji/03-uji-singkat.md -->
+(Indonesian archive, `uji/03-uji-singkat.md`
 §6.2).
 
 Three things mean that the plan of 0052 needs to be made firm:
@@ -113,7 +113,7 @@ Three things mean that the plan of 0052 needs to be made firm:
   `01-glossary`: Root. `README.md`: the [provisional] marker, the status
   **locked**, and the language.
 - The tidy-ups R1, R2, R4, and R5
-  (`uji/03-uji-singkat.md` <!-- ARCHIVE-LINK: uji/03-uji-singkat.md -->
+  (Indonesian archive, `uji/03-uji-singkat.md`
   §6.3) are done together with this decision, before translation:
   - **R1.** References to `09-ownership` become v0.2.
   - **R2.** The `uniti/*` modules become v1.

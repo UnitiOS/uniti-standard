@@ -9,11 +9,9 @@ module `uniti/calc`, written only with the core operations
 
 It holds the meaning of `average`, `median`, `percentile`, `round`,
 `allocate`, and currency conversion, which used to be operations. Its origin
-is the experiments in `uji/acuan/percobaan/`
-<!-- ARCHIVE-LINK: uji/acuan/percobaan/README.md -->. Its examples are run by
-the reference calculator together with the cases, and its tests are in
-`uji/acuan/operasi/uji_pustaka.py`
-<!-- ARCHIVE-LINK: uji/acuan/operasi/uji_pustaka.py -->.
+is the experiments in `uji/acuan/percobaan/` (Indonesian archive). Its
+examples are run by the reference calculator together with the cases, and its
+tests are in `uji/acuan/operasi/uji_pustaka.py` (Indonesian archive).
 
 ## Library
 

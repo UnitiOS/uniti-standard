@@ -1,6 +1,6 @@
 # Reading facts whose history was corrected
 
-Stage 7, quick test 7.3 (`uji/03-uji-singkat.md`)<!-- ARCHIVE-LINK: ../../03-uji-singkat.md -->,
+Stage 7, quick test 7.3 (Indonesian archive, `uji/03-uji-singkat.md`),
 for obstacles P1 to P4. The decisions are
 [`decisions/0053`](../decisions/0053-reading-corrected-facts.md)
 and [`decisions/0054`](../decisions/0054-reference-choices-into-text.md).

@@ -15,8 +15,8 @@ standard**. If this program and the standard differ, the standard is right.
 
 1. To prove that the text of the standard is clear enough for a machine to run.
 2. To prove the numbers in the paper test with a machine, including the
-   boundary points that were not tested yet (review of the paper test §5
-   <!-- ARCHIVE-LINK: ../periksa/01-hitung.md -->).
+   boundary points that were not tested yet (review of the paper test §5,
+   Indonesian archive, `uji/periksa/01-hitung.md`).
 3. To serve as a comparison for a second implementation.
 
 Speed is not a goal.
@@ -81,17 +81,18 @@ finding below), **notation error**, or **replaced** (PROOF-21).
 | `../conformance/00-form-examples.md` | Examples from `06` §4, `08` §4, and appendix A §4 | 3 |
 | `../conformance/01-finance.md` to `13-outside-calculation.md` | 38 paper-test cases from 12 domains, rewritten in the reference notation with the core and the calculation library, one module per case | 4 |
 | `../conformance/14-backdated-constraints.md` | A constraint with backdated corrections, and a constraint that reads the action | 6 |
-| `../conformance/15-change.md`, `../conformance/16-relations.md` | A new version, a user that moves to another version, behavior change, and a combined report across modules | stage 5 (cross-domain test <!-- ARCHIVE-LINK: ../02-lintas-domain.md -->) |
+| `../conformance/15-change.md`, `../conformance/16-relations.md` | A new version, a user that moves to another version, behavior change, and a combined report across modules | stage 5 (cross-domain test, Indonesian archive, `uji/02-lintas-domain.md`) |
 | `../conformance/17-vocabulary.md` | The first vocabulary used by a rental shop and a school | stage 6 ([`content/README.md`](../content/README.md)) |
-| `../conformance/18-module-swap.md` | A shop changes cashier: the old and the new rentals are computed together, and the old rental is returned through the new cashier | stage 7, 7.1 (quick test <!-- ARCHIVE-LINK: ../03-uji-singkat.md -->) |
+| `../conformance/18-module-swap.md` | A shop changes cashier: the old and the new rentals are computed together, and the old rental is returned through the new cashier | stage 7, 7.1 (quick test, Indonesian archive, `uji/03-uji-singkat.md`) |
 | `../conformance/19-reading-facts.md` | A corrected history: a correction of a replacement, a change that became known later, a correction that moves a date, and a retraction | stage 7, 7.3 ([decision 0053](../decisions/0053-reading-corrected-facts.md)) |
 | `../conformance/20-written-choices.md` | Calendar month, `split`, an entity with two types, a property with many values, and a constraint whose result is empty | stage 7, 7.3 ([decision 0054](../decisions/0054-reference-choices-into-text.md)) |
 | `tests/test_cases.py` | Every example in the cases and the content passes, and fails if its expected result is changed | 3 |
+| `tools/rules_index.py`, `tests/test_rules_index.py` | Makes [`../rules.md`](../rules.md), the index of all rules, from the form documents and appendix A; the test fails when the index no longer matches them. Run `python -m tools.rules_index` after a rule changes | stage 8 |
 
 The old experiments folder (`percobaan/`: the computation core and the
 calculation library on which decision 0045 is based, with the old operations
 as a comparison, run separately with `python -m percobaan.inti`) is not
-included in this repository. <!-- ARCHIVE-LINK: percobaan/ -->
+included in this repository (Indonesian archive, `uji/acuan/percobaan/`).
 
 ## Steps
 
@@ -160,7 +161,7 @@ yet.
   rule stack of its caller.
 
 In step 5, the five boundary points of the review report
-(review of the paper test §5 <!-- ARCHIVE-LINK: ../periksa/01-hitung.md -->),
+(review of the paper test §5, Indonesian archive, `uji/periksa/01-hitung.md`),
 which were already tested as small tests in step 2, were written as full
 examples in the file of their case. This step was limited to those five points
 on purpose.
@@ -243,7 +244,7 @@ not to be about the grammar of calculation, but about the way inside one
 operation. An operation like that was moved out of the operation list into the
 calculation library, that is, content
 ([`decision 0045`](../decisions/0045-core-operations-and-calculation-library.md)). The experiment is not included in this
-repository (see above). <!-- ARCHIVE-LINK: percobaan/README.md -->
+repository (see above).
 
 After that decision, the program uses the core, and the old ways of computing
 are run from the calculation library, now

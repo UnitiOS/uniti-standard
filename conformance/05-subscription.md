@@ -1,6 +1,6 @@
 # Subscription
 
-Cases L1 and L2 of the paper test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases L1 and L2 of the paper test (Indonesian archive, `uji/01-hitung.md`
 §4.E), written in the reference notation.
 
 ## L1. Moving up a plan in the middle of a period

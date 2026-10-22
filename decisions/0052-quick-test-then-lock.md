@@ -26,7 +26,7 @@ implementation.
 1. **Stage 7 is a quick test**, mostly on paper. Its purpose is to make sure
    that the standard makes sense, and is logically better than the
    prototype. There are three questions, and the results are written in
-   `uji/03-uji-singkat.md` <!-- ARCHIVE-LINK: uji/03-uji-singkat.md -->:
+   `uji/03-uji-singkat.md` (Indonesian archive):
    - **7.1** Does the standard solve the problems found in the prototype? The
      list is closed, plus one module swap case run by the reference
      calculator.
@@ -93,7 +93,7 @@ implementation.
   translated, packaged) is added.
 - 0048 item 4 is replaced. The scale test and the second implementation move
   to the first system.
-- `uji/01-hitung.md`<!-- ARCHIVE-LINK: uji/01-hitung.md --> §7 and
-  `uji/README.md`<!-- ARCHIVE-LINK: uji/README.md --> follow this decision.
+- `uji/01-hitung.md` §7 (Indonesian archive) and
+  `uji/README.md` (Indonesian archive) follow this decision.
 - `README.md`: the meaning of the status "locked" is written in stage 8, when
   v0.1 is locked.

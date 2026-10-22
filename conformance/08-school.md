@@ -1,6 +1,6 @@
 # School
 
-Cases E1 to E3 of the paper test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases E1 to E3 of the paper test (Indonesian archive, `uji/01-hitung.md`
 §4.H), written in the reference notation with the core and the calculation
 library. E2 is also in [`00-form-examples.md`](00-form-examples.md).
 

@@ -1,6 +1,6 @@
 # Loans
 
-Cases J1 to J3 of the paper test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases J1 to J3 of the paper test (Indonesian archive, `uji/01-hitung.md`
 §4.F), written in the reference notation with the core and the calculation
 library.
 

@@ -100,7 +100,8 @@ If the list grows, what changes is the content, not the form.
 - A list of countries, and time zones by region (IANA). No case needs them yet.
   Time zones are still written as an offset from UTC in appendix A.
 - The process and the decider for vocabulary proposals: v0.2.
-- English translation: after v0.1 is stable.
+- English translation: done in stage 8
+  ([`decisions/0055`](../decisions/0055-locked-in-english.md)).
 - Vocabulary concepts other than those in §4.
 
 ## 7. Completion criteria

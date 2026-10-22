@@ -4,7 +4,7 @@ Date: 2026-10-20
 Status: accepted
 
 **Context**
-Quick test 7.3 (`uji/03-uji-singkat.md` <!-- ARCHIVE-LINK: uji/03-uji-singkat.md -->
+Quick test 7.3 (Indonesian archive, `uji/03-uji-singkat.md`
 §6) found three blockers in the way facts are read. The emergency brake of
 0052 applies because all three are in `01-facts`. All three were proven with
 examples that can be run, and all failed with the earlier reference

@@ -1,6 +1,6 @@
 # Outside the calculation rules
 
-Cases B1 to B4 of the paper test (`uji/01-hitung.md`)<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases B1 to B4 of the paper test (Indonesian archive, `uji/01-hitung.md`)
 §4.M. These cases are deliberately not calculated: the result is a decision or
 an estimate, and it is recorded as a fact through an action
 ([`decisions/0025`](../decisions/0025-three-kinds-of-numbers.md)). What is tested is that the fact can be

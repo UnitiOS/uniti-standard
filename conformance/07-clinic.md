@@ -1,6 +1,6 @@
 # Clinic
 
-Cases C1 and C2 of the paper test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases C1 and C2 of the paper test (Indonesian archive, `uji/01-hitung.md`
 §4.G), written in the reference notation with the core and the calculation
 library. The rule of C1 is the same as the clinic example in
 [`00-form-examples.md`](00-form-examples.md); here the month of the claim

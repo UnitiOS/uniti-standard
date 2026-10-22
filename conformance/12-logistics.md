@@ -1,6 +1,6 @@
 # Logistics
 
-Case X1 of the paper test (`uji/01-hitung.md`)<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Case X1 of the paper test (Indonesian archive, `uji/01-hitung.md`)
 §4.L, written in the reference notation with the core and the calculation
 library.
 

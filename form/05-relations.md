@@ -2,6 +2,11 @@
 
 Status: draft
 
+> [Uniti Standard](../README.md) › Part A: form, 5 of 8
+> · Previous: [Concepts and properties](04-concepts.md)
+> · Next: [Calculation rules](06-calculation-rules.md)
+> · [Rules RELATION-n](../rules.md#relations)
+
 ## 1. Purpose
 
 Content is made by many authors, and every piece of content depends on other

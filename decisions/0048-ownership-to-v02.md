@@ -29,8 +29,8 @@ questions wait for it.
      provisional.
 3. Stage 4 is finished for v0.1 with `06` and `08`. The order of stages stays:
    5, then 6, then 7.
-4. The scale test and the second implementation test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: uji/01-hitung.md -->
-   §7) are done in stage 7, together with the comparison with the system.
+4. The scale test and the second implementation test (Indonesian archive,
+   `uji/01-hitung.md` §7) are done in stage 7, together with the comparison with the system.
    Uniti's own implementation could become the second implementation by
    running the same examples as the reference calculator.
 
@@ -44,4 +44,4 @@ questions wait for it.
 **Consequences**
 - `README.md`: the status of 09 becomes "postponed to v0.2".
 - Decision 0004 is partly replaced: ownership moves from stage 4 to v0.2.
-- `uji/01-hitung.md`<!-- ARCHIVE-LINK: uji/01-hitung.md --> §7: the scale test and the second implementation in stage 7.
+- `uji/01-hitung.md` §7 (Indonesian archive): the scale test and the second implementation in stage 7.

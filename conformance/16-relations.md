@@ -1,6 +1,6 @@
 # Relations across modules
 
-Stage 5, test U4 (`uji/02-lintas-domain.md`)<!-- ARCHIVE-LINK: ../../02-lintas-domain.md -->,
+Stage 5, test U4 (Indonesian archive, `uji/02-lintas-domain.md`),
 from the clinic and cashier example in 05 §4.
 
 The payment vocabulary

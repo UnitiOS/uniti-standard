@@ -6,7 +6,7 @@ content of the calculation library, and fractional power leaves the operation
 list.
 
 **Context**
-The paper test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: uji/01-hitung.md -->,
+The paper test (Indonesian archive, `uji/01-hitung.md`,
 findings T7 to T10) showed that decimal numbers alone are not enough:
 1,000,000 ÷ 3 cannot be written as a terminating decimal, and divisions that
 are rounded separately lose or add one rupiah.

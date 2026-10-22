@@ -1,6 +1,6 @@
 # Loyalty
 
-Case R1 of the paper test (`uji/01-hitung.md`)<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Case R1 of the paper test (Indonesian archive, `uji/01-hitung.md`)
 §4.K, written in the reference notation.
 
 ## R1. Expired points, used from the oldest

@@ -1,6 +1,6 @@
 # Rental
 
-Cases S1 to S4 from the paper test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases S1 to S4 from the paper test (Indonesian archive, `uji/01-hitung.md`
 §4.C), written in the reference notation. S1, S2, and S3 are also in
 [`00-form-examples.md`](00-form-examples.md) with the module from appendix A;
 here they are written again exactly according to the paper test.

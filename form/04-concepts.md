@@ -2,6 +2,10 @@
 
 Status: draft
 
+> [Uniti Standard](../README.md) › Part A: form, 4 of 8
+> · Previous: [Values](03-values.md) · Next: [Relations](05-relations.md)
+> · [Rules CONCEPT-n](../rules.md#concepts-and-properties)
+
 ## 1. Purpose
 
 Concepts and properties are the words used to record facts. The concept form

@@ -2,6 +2,8 @@
 
 Status: draft
 
+> [Uniti Standard](README.md) › Principles · Next: [Glossary](01-glossary.md)
+
 This document binds the whole standard. Every form in part A and every piece of
 content in part B must be explainable by the principles here. When a rule
 contradicts a principle, the rule is what gets fixed.
@@ -138,13 +140,13 @@ standard changes or disappears, the Uniti concept still means the same.
 The rules in this standard use the following five words, written in capital
 letters when used as rules:
 
-| Word | Meaning | Indonesian equivalent |
-|---|---|---|
-| **MUST** | Must be met, without exception | WAJIB |
-| **MUST NOT** | Forbidden, without exception | TIDAK BOLEH |
-| **SHOULD** | Met unless there is a strong reason that is recorded | SEBAIKNYA |
-| **SHOULD NOT** | Avoided unless there is a strong reason that is recorded | SEBAIKNYA TIDAK |
-| **MAY** | Permitted, not required | BOLEH |
+| Word | Meaning |
+|---|---|
+| **MUST** | Must be met, without exception |
+| **MUST NOT** | Forbidden, without exception |
+| **SHOULD** | Met unless there is a strong reason that is recorded |
+| **SHOULD NOT** | Avoided unless there is a strong reason that is recorded |
+| **MAY** | Permitted, not required |
 
 The words follow the convention of international standard documents (RFC
 2119).

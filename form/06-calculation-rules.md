@@ -2,6 +2,38 @@
 
 Status: draft
 
+> [Uniti Standard](../README.md) › Part A: form, 6 of 8
+> · Previous: [Relations](05-relations.md) · Next: [Change](07-change.md)
+> · [Rules CALC-n](../rules.md#calculation-rules)
+
+**Contents**
+
+- [1. Purpose](#1-purpose)
+- [2. Definitions](#2-definitions)
+  - [2.1 Three kinds of numbers](#21-three-kinds-of-numbers)
+  - [2.2 Three kinds of rules](#22-three-kinds-of-rules)
+  - [2.3 Computed property](#23-computed-property)
+  - [2.4 How to write a rule](#24-how-to-write-a-rule)
+  - [2.5 Operation list: core and library](#25-operation-list-core-and-library)
+  - [2.6 Intermediate values](#26-intermediate-values)
+  - [2.7 Time in calculation](#27-time-in-calculation)
+  - [2.8 Numbers in calculation](#28-numbers-in-calculation)
+  - [2.9 Empty and not computable](#29-empty-and-not-computable)
+  - [2.10 Direction in calculation](#210-direction-in-calculation)
+  - [2.11 Open computed properties and contributions](#211-open-computed-properties-and-contributions)
+  - [2.12 Constraint](#212-constraint)
+  - [2.13 Rejection record](#213-rejection-record)
+  - [2.14 Computed value](#214-computed-value)
+  - [2.15 Projection](#215-projection)
+  - [2.16 Results reported outside](#216-results-reported-outside)
+  - [2.17 What calculation rules cannot do](#217-what-calculation-rules-cannot-do)
+- [3. Rules](#3-rules)
+- [4. Examples](#4-examples)
+- [5. Not examples](#5-not-examples)
+- [6. Reasons](#6-reasons)
+- [7. Outside standards](#7-outside-standards)
+- [8. Open questions](#8-open-questions)
+
 ## 1. Purpose
 
 An organization needs numbers that are not recorded directly: balance, stock,
@@ -866,7 +898,7 @@ again by anyone.
 ## 4. Examples
 
 The full cases, 38 cases from 12 domains, are in the paper test
-`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../uji/01-hitung.md -->. Three of them:
+`uji/01-hitung.md` (Indonesian archive). Three of them:
 
 **Rental: a rate that changes in the middle of the rental term.** The rate of
 a tent is 50,000 a day, replaced with 60,000 from 1 November. A rental from
@@ -1042,7 +1074,7 @@ by themselves, without a "sort" operation.
    ([`decisions/0048`](../decisions/0048-ownership-to-v02.md)).
 9. **Retention of rejection records.** A rejection record can contain personal
    data from the action that was tried. How long is it kept, and can it be
-   redacted (`kajian/01-ekosistem.md`<!-- ARCHIVE-LINK: ../kajian/01-ekosistem.md -->,
+   redacted (Indonesian archive, `kajian/01-ekosistem.md`,
    D2)?
 10. **Examples for a helper without a concept.** [`08-proof.md`](08-proof.md)
     knows only the question `entity.property`, so library helpers are

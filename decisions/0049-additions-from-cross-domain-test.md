@@ -7,7 +7,7 @@ Status: accepted
 Stage 5 tested the parts of the form that the 125 examples of the reference
 calculator had not touched: `07-change`, bridges and cross-module choices in
 `05-relations`, and the contract between versions and between modules in
-`08` §2.7 and §2.8 (`uji/02-lintas-domain.md`<!-- ARCHIVE-LINK: ../uji/02-lintas-domain.md -->).
+`08` §2.7 and §2.8 (Indonesian archive, `uji/02-lintas-domain.md`).
 All four tests, U1 to U4, passed without a new form.
 
 The contract between versions also needs no new form. An example has an

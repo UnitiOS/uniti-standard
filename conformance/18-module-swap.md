@@ -1,6 +1,6 @@
 # Swapping a module
 
-Stage 7, quick test 7.1 (`uji/03-uji-singkat.md`)<!-- ARCHIVE-LINK: ../../03-uji-singkat.md -->.
+Stage 7, quick test 7.1 (Indonesian archive, `uji/03-uji-singkat.md`).
 The story comes from the prototype. The Happy Camp shop records rentals with a
 module owned by Alex, then moves to the RentPro cashier. Two things have to
 stay true:

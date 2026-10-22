@@ -1,6 +1,6 @@
 # Inventory
 
-Cases P1 to P4 of the paper test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases P1 to P4 of the paper test (Indonesian archive, `uji/01-hitung.md`
 §4.B), written in the reference notation with the core and the calculation
 library.
 

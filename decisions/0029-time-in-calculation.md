@@ -25,7 +25,7 @@ implementation.
   any fact changing, and cannot be read back as the state was then.
 - *Ranges closed at both ends.* Rejected: rentals 10–13 and 13–15 would count
   as overlapping, and a day could be counted twice
-  (`uji/01-hitung.md`<!-- ARCHIVE-LINK: uji/01-hitung.md -->, S2 and S3).
+  (Indonesian archive, `uji/01-hitung.md`, S2 and S3).
 - *A rule may read facts as of another R.* Rejected: what was known then is
   read by giving R, and what was reported then is recorded as a fact
   (decision 0033).

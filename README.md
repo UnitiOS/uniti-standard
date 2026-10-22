@@ -48,13 +48,13 @@ grammar and those words. The full explanation is in
 | `form/03-values.md` | Value types, numbers and units, dates and instants, choice lists | draft |
 | `form/04-concepts.md` | Concept cards and property cards, child concepts, types and roles | draft |
 | `form/05-relations.md` | How content points to other content, including bridges | draft |
-| `form/06-calculation-rules.md` | Computed properties, core operations and calculation library, constraints, projections | draft; its paper test is in `uji/01-hitung.md` <!-- ARCHIVE-LINK: uji/01-hitung.md --> |
+| `form/06-calculation-rules.md` | Computed properties, core operations and calculation library, constraints, projections | draft; its paper test is in `uji/01-hitung.md` (Indonesian archive) |
 | `form/07-change.md` | How to change without breaking what is old | draft |
 | `form/08-proof.md` | Examples as contracts, and conformance tests | draft |
-| `form/09-ownership.md` | Who may write what, and how the form changes | postponed to v0.2, waiting for `kajian/01-ekosistem.md` <!-- ARCHIVE-LINK: kajian/01-ekosistem.md --> ([`decisions/0048`](decisions/0048-ownership-to-v02.md)) |
+| `form/09-ownership.md` | Who may write what, and how the form changes | postponed to v0.2, waiting for `kajian/01-ekosistem.md` (Indonesian archive) ([`decisions/0048`](decisions/0048-ownership-to-v02.md)) |
 | `appendix/A-notation.md` | Reference notation: how to write rules, examples, and cards | draft |
 | `content/` | The first vocabulary, card templates, code lists, calculation library ([`content/README.md`](content/README.md)) | draft |
-| `uji/` | Paper tests and other tests; not part of the standard (`uji/README.md` <!-- ARCHIVE-LINK: uji/README.md -->) | `01-hitung` draft |
+| `uji/` | Paper tests and other tests; not part of the standard (Indonesian archive, `uji/README.md`) | `01-hitung` draft |
 | `kajian/` | Study material: ecosystem, intellectual property, licensing, governance | not the standard |
 
 ## The standard and software
@@ -133,7 +133,7 @@ The list of what is marked [provisional] at present:
 | `form/01-facts.md` §2.6, FACT-23 to 25: redaction | Review of data protection law; ecosystem study, topic D2 |
 | `form/04-concepts.md` §2.8, CONCEPT-20: personal data mark | Review of data protection law, together with redaction |
 | `form/06-calculation-rules.md` §2.9 and §2.15: redacted values inside calculation and projections | Following redaction |
-| `form/02-addresses.md` §2.5, ADDRESS-15: the provisional ‹root› `https://uniti.example` | The real domain; ecosystem study, topic C1 (`kajian/01-ekosistem.md` <!-- ARCHIVE-LINK: kajian/01-ekosistem.md -->). To be replaced once before v0.1 is stable |
+| `form/02-addresses.md` §2.5, ADDRESS-15: the provisional ‹root› `https://uniti.example` | The real domain; ecosystem study, topic C1 (Indonesian archive, `kajian/01-ekosistem.md`). To be replaced once before v0.1 is stable |
 
 ### Changing the standard
 
@@ -141,7 +141,7 @@ Every decision that shapes the standard is recorded in `decisions/`, one
 decision per file, with what was decided, the reasons, and the alternatives
 that were rejected. The main documents only need to contain the outcome.
 
-The version history of the standard is in `PERUBAHAN.md` <!-- ARCHIVE-LINK: PERUBAHAN.md -->.
+The version history of the standard is in `PERUBAHAN.md` (Indonesian archive).
 
 ### Language
 

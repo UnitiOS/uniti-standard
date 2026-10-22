@@ -1,6 +1,6 @@
 # Reference calculator choices that are now written
 
-Stage 7, quick test 7.3 (`uji/03-uji-singkat.md`)<!-- ARCHIVE-LINK: ../../03-uji-singkat.md -->,
+Stage 7, quick test 7.3 (Indonesian archive, `uji/03-uji-singkat.md`),
 for obstacles P5 to P10. Before, these choices only existed in the program;
 now they are written in the form documents
 ([`decisions/0054`](../decisions/0054-reference-choices-into-text.md)).

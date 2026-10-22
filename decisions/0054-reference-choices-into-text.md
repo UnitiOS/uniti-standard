@@ -4,7 +4,7 @@ Date: 2026-10-20
 Status: accepted
 
 **Context**
-Quick test 7.3 (`uji/03-uji-singkat.md` <!-- ARCHIVE-LINK: uji/03-uji-singkat.md -->
+Quick test 7.3 (Indonesian archive, `uji/03-uji-singkat.md`
 §6) found seven blockers, P4 to P10, that are not design mistakes. The text
 could be read two ways, and the reference calculator had already chosen one
 of them without writing it down. Two implementations that read only the text
@@ -81,5 +81,5 @@ While fixing them, two more things were found:
 - Their examples are in
   [`conformance/19-reading-facts.md`](../conformance/19-reading-facts.md)
   (P4), [`conformance/20-written-choices.md`](../conformance/20-written-choices.md),
-  and two tests in `uji/acuan/operasi/uji_hitung.py`<!-- ARCHIVE-LINK: uji/acuan/operasi/uji_hitung.py -->,
+  and two tests in `uji/acuan/operasi/uji_hitung.py` (Indonesian archive),
   for contributions and units.

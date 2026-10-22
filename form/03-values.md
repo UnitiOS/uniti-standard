@@ -2,6 +2,11 @@
 
 Status: draft
 
+> [Uniti Standard](../README.md) › Part A: form, 3 of 8
+> · Previous: [Addresses](02-addresses.md)
+> · Next: [Concepts and properties](04-concepts.md)
+> · [Rules VALUE-n](../rules.md#values)
+
 ## 1. Purpose
 
 A value is the content of a fact: a name, a price, a date, or another entity

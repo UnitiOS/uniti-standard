@@ -18,7 +18,7 @@ inside one operation:
 - the method of the percentile;
 - the median for dates.
 
-The experiment in `uji/acuan/percobaan/`<!-- ARCHIVE-LINK: uji/acuan/percobaan/ -->
+The experiment in `uji/acuan/percobaan/` (Indonesian archive)
 wrote `average`, `median`, `percentile`, `round`, `allocate`, and currency
 conversion as helpers without a concept, using only other operations. The
 result: 23 examples pass, and out of 6,400 random inputs not one gave a
@@ -120,9 +120,9 @@ result different from the built-in operations.
 - `01-glossary`: core operations and calculation library.
 - Decisions 0026, 0041, and 0044 are partly replaced by this decision.
 - The **first calculation library** is written in `content/` in stage 6.
-  Until then, its draft is in `uji/acuan/pustaka/hitung.md`<!-- ARCHIVE-LINK: uji/acuan/pustaka/hitung.md -->,
-  and that draft is not part of the standard.
-- `uji/01-hitung.md`<!-- ARCHIVE-LINK: uji/01-hitung.md --> stays written with
+  Until then, its draft is in `uji/acuan/pustaka/hitung.md` (Indonesian
+  archive), and that draft is not part of the standard.
+- `uji/01-hitung.md` (Indonesian archive) stays written with
   the old operations, as a record of the paper test. Its cases are rewritten
   with the core and the library in step 4 of the reference calculator.
 - The reference calculator follows this decision. Tests for operations that

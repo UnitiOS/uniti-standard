@@ -1,6 +1,6 @@
 # Organization and governance
 
-Cases O1 to O3 of the paper test (`uji/01-hitung.md`)<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases O1 to O3 of the paper test (Indonesian archive, `uji/01-hitung.md`)
 §4.J, written in the reference notation. O2 is also in
 [`00-form-examples.md`](00-form-examples.md); here its five rows are written
 exactly as in the paper test, with Sam as staff.

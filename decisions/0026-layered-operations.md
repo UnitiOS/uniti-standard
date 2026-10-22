@@ -31,7 +31,7 @@ language that is too narrow cannot hold reality.
 - New operations are added through standard versions, based on real cases that
   have been tested.
 - Before `06-calculation-rules` is frozen, the operation list is tested with
-  hard cases from many domains (`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../uji/01-hitung.md -->),
+  hard cases from many domains (Indonesian archive, `uji/01-hitung.md`),
   then with the reference calculator, a scale test, and a second
   implementation.
 
@@ -49,4 +49,4 @@ language that is too narrow cannot hold reality.
 - The paper test becomes a condition for writing `06-calculation-rules` and
   `08-proof`.
 - The conformance level becomes the technical basis of the conformance tests
-  (`kajian/01-ekosistem.md`<!-- ARCHIVE-LINK: ../kajian/01-ekosistem.md -->, B7).
+  (Indonesian archive, `kajian/01-ekosistem.md`, B7).

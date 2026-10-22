@@ -1,6 +1,6 @@
 # Manufacturing
 
-Cases M1 and M2 of the paper test (`uji/01-hitung.md`<!-- ARCHIVE-LINK: ../../01-hitung.md -->
+Cases M1 and M2 of the paper test (Indonesian archive, `uji/01-hitung.md`
 §4.I), written in the reference notation. Both are level 3: the rule uses
 itself for another entity, namely its components.
 

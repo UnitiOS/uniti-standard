@@ -1,6 +1,6 @@
 # Change between versions
 
-Stage 5, tests U1 to U3 (`uji/02-lintas-domain.md`)<!-- ARCHIVE-LINK: ../../02-lintas-domain.md -->:
+Stage 5, tests U1 to U3 (Indonesian archive, `uji/02-lintas-domain.md`):
 `07-change`, and the contracts between versions and between modules in `08`
 §2.7 and §2.8.
 
