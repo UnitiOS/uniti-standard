@@ -18,14 +18,14 @@ An address is given to **content**:
 
 | What is given an address | Example |
 |---|---|
-| **Owner** | `rudi` |
-| **Module** | `rudi/rental` |
-| **Concept** | `rudi/rental/Rental` |
-| **Property** | `rudi/rental/rental_date` |
-| **Choice list** | `dewi/guarantee/GuaranteeMethod` |
-| **Choice** in a choice list | `dewi/guarantee/cash` |
-| **Calculation rule**: helper, constraint, contribution | `rudi/rental/no_overlap` |
-| **Example** | `rudi/rental/three_night_rental` |
+| **Owner** | `alex` |
+| **Module** | `alex/rental` |
+| **Concept** | `alex/rental/Rental` |
+| **Property** | `alex/rental/rental_date` |
+| **Choice list** | `lena/guarantee/GuaranteeMethod` |
+| **Choice** in a choice list | `lena/guarantee/cash` |
+| **Calculation rule**: helper, constraint, contribution | `alex/rental/no_overlap` |
+| **Example** | `alex/rental/three_night_rental` |
 | **Part of the form**, such as the basic property *type* | `standard/type` |
 
 **Entities are not given addresses.** An entity has an identifier (see
@@ -41,12 +41,12 @@ names *what is recorded with that content*.
 | Part | Meaning |
 |---|---|
 | **‹root›** **[provisional]** | The beginning of the address that is the same for the whole ecosystem. For now `https://uniti.example` (§2.5) |
-| **‹owner›** | The name of an owner registered in the ecosystem, for example `rudi`, `kemahceria`, `uniti` |
+| **‹owner›** | The name of an owner registered in the ecosystem, for example `alex`, `happycamp`, `uniti` |
 | **‹module›** | The name of a module that belongs to that owner, for example `rental` |
 | **‹name›** | The name of a concept, property, choice list, or choice inside that module |
 
-Full example: `‹root›/rudi/rental/Rental`, which with the temporary root becomes
-`https://uniti.example/rudi/rental/Rental`.
+Full example: `‹root›/alex/rental/Rental`, which with the temporary root becomes
+`https://uniti.example/alex/rental/Rental`.
 
 Three owners are reserved by the standard: **`standard`** for the parts of the
 form, **`uniti`** for the shared vocabulary, and **`example`** for content that
@@ -55,20 +55,20 @@ is made only as an example or exercise.
 ### 2.3 An address does not contain a version
 
 The address of a concept or property is **the same in all versions of its
-module**. Rudi's concept `Rental` has the same address in versions 1, 2, and 3,
+module**. Alex's concept `Rental` has the same address in versions 1, 2, and 3,
 so a fact that is recorded with version 1 is still recognized in version 3. The
 version that was used when a fact was stated is recorded in the fact itself
 (*version used*).
 
 When a version needs to be referred to, for example when one module uses
 another module, the reference is a pair of **module address and version
-number**. Written for humans as `rudi/rental@v3`.
+number**. Written for humans as `alex/rental@v3`.
 
 ### 2.4 Letters that are used
 
 | Part | Allowed letters | Example |
 |---|---|---|
-| ‹owner› and ‹module› | lowercase a–z, digits, hyphen in the middle | `kemah-ceria`, `rental` |
+| ‹owner› and ‹module› | lowercase a–z, digits, hyphen in the middle | `happy-camp`, `rental` |
 | ‹name› of a concept and of a choice list | starts with an uppercase letter, then letters and digits | `Rental`, `Appointment`, `PaymentMethod` |
 | ‹name› of a property, choice, calculation rule, and example | lowercase letters, digits, underscore in the middle | `rental_date`, `cash`, `no_overlap` |
 | ‹name› of a choice in a code list ([`03-values.md`](03-values.md) §2.6) | the code from its outside standard, exactly: basic Latin letters and digits | `IDR`, `kg`, `d` |
@@ -86,7 +86,7 @@ The domain for the root does not exist yet. Until it exists, the root is
 real address.
 
 So that the root can be replaced without touching content and facts, an address
-is stored and written **without the root**, for example `rudi/rental/Rental`.
+is stored and written **without the root**, for example `alex/rental/Rental`.
 The root is put in front only when an address is written in full, for example
 to be opened (ADDRESS-12). Replacing the root means replacing that one value
 only.
@@ -147,18 +147,18 @@ the root never changes again, like the other parts of an address.
 
 ## 4. Examples
 
-**Equipment rental.** Rudi and the maker of the cashier SewaPro both make a
+**Equipment rental.** Alex and the maker of the cashier RentPro both make a
 concept named `Rental`. Their addresses do not clash:
 
-- `‹root›/rudi/rental/Rental`
-- `‹root›/sewapro/cashier/Rental`
+- `‹root›/alex/rental/Rental`
+- `‹root›/rentpro/cashier/Rental`
 
 A shop that uses both still knows exactly which rental was recorded through
 which module.
 
-**Clinic.** The module `klinik-sehat/schedule` version 1 has the concept
+**Clinic.** The module `healthy-clinic/schedule` version 1 has the concept
 `Visit`. In version 4, its label is changed from "Visit" to "Patient
-appointment". Its address stays `‹root›/klinik-sehat/schedule/Visit`, and all
+appointment". Its address stays `‹root›/healthy-clinic/schedule/Visit`, and all
 the visit records since version 1 can still be read.
 
 **Shared vocabulary.** The concept party in the vocabulary:
@@ -168,8 +168,8 @@ the visit records since version 1 can still be read.
 
 - **`7f3a9c…` as an address.** That is the identifier of an entity, not an
   address of content.
-- **`‹root›/rudi/rental/v2/Rental`.** An address does not contain a version.
-- **`‹root›/rudi/rental/Equipment_Rental`** as a replacement of `Rental` only
+- **`‹root›/alex/rental/v2/Rental`.** An address does not contain a version.
+- **`‹root›/alex/rental/Equipment_Rental`** as a replacement of `Rental` only
   because a clearer name is wanted. That is a label, not a new address.
 - **The label "Rental date".** A label is a name for humans, not an address.
 

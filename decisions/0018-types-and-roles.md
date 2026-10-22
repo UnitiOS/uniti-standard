@@ -4,7 +4,7 @@ Date: 2026-10-17
 Status: accepted
 
 **Context**
-Budi is a person. He is also a customer of Rudi and an employee elsewhere. If
+Sam is a person. He is also a customer of Alex and an employee elsewhere. If
 every role is made a type, one person can be recorded as several things, or
 the type has to be replaced every time the role changes.
 
@@ -13,7 +13,7 @@ the type has to be replaced every time the role changes.
   not change. A type fact may only be corrected or retracted, not replaced and
   not ended.
 - A **role** (customer, employee, patient) is recorded as a **reference from
-  another entity**, for example "the customer of rental R1 is Budi".
+  another entity**, for example "the customer of rental R1 is Sam".
 - An entity may have more than one type if that is truly its basic nature and
   the types are not subtypes of each other, but it is better to have one.
 
@@ -21,7 +21,7 @@ the type has to be replaced every time the role changes.
 - *One type only, forever.* Rejected: too rigid for an entity that really has
   two basic natures.
 - *Many types, added and ended at any time.* Rejected: the type becomes a mix
-  of what the entity is and what it is doing, and the question "who are Rudi's
+  of what the entity is and what it is doing, and the question "who are Alex's
   customers" loses its context.
 
 **Consequences**

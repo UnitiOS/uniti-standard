@@ -68,15 +68,15 @@ The statement "applies to" may be written by anyone, in their own module:
 
 | Who writes | Example | May be required? |
 |---|---|---|
-| **Concept owner**, using their own property | `rudi/rental/rental_date` applies to `rudi/rental/Rental` | yes |
-| **Concept owner**, using someone else's property | `uniti/common/note` applies to `klinik-sehat/records/MedicalRecord` | yes |
-| **Another party**, adding a property to a concept that is not theirs | `rudi/rental/plate_number` applies to `uniti/item/Item` | **no** |
+| **Concept owner**, using their own property | `alex/rental/rental_date` applies to `alex/rental/Rental` | yes |
+| **Concept owner**, using someone else's property | `uniti/common/note` applies to `healthy-clinic/records/MedicalRecord` | yes |
+| **Another party**, adding a property to a concept that is not theirs | `alex/rental/plate_number` applies to `uniti/item/Item` | **no** |
 
-The third way is the key to modularity: Rudi adds what Rudi needs without
+The third way is the key to modularity: Alex adds what Alex needs without
 changing the vocabulary and without creating a new concept. The addition must
 not be required, because other modules that record an Item know nothing about
-`plate_number`. When Rudi needs a required property, Rudi makes a child concept
-of Rudi's own, for example `rudi/rental/Car` with the parent Item.
+`plate_number`. When Alex needs a required property, Alex makes a child concept
+of Alex's own, for example `alex/rental/Car` with the parent Item.
 
 A statement "applies to" only applies to an organization that installs the
 module in which the statement is written.
@@ -109,11 +109,11 @@ recorded as a **reference from another entity**:
 
 | Not like this | But like this |
 |---|---|
-| Budi has the type Customer | rental R1 → customer → Budi |
-| Budi has the type Employee | contract K5 → employee → Budi |
+| Sam has the type Customer | rental R1 → customer → Sam |
+| Sam has the type Employee | contract K5 → employee → Sam |
 
 This way one person stays one entity, whatever the roles, and every role has
-its own start and end time. The question "who are Rudi's customers" is
+its own start and end time. The question "who are Alex's customers" is
 answered by reading references, not by checking types.
 
 An entity **may** have more than one type, if both are what the entity
@@ -282,7 +282,7 @@ separately, so that users know before they install that version.
 **Equipment rental.**
 
 ```
-Concept  rudi/rental/Rental
+Concept  alex/rental/Rental
 Label    Sewa (id) · Rental (en)
 Definition  Agreement to lend an item for a certain term, for a fee.
 Parent   uniti/transaction/Transaction
@@ -293,7 +293,7 @@ Properties    rental_date (required) · customer (required) · uniti/common/note
 ```
 
 ```
-Property rudi/rental/customer
+Property alex/rental/customer
 Label    Pelanggan (id) · Customer (en)
 Definition  The party that rents.
 Value type      reference → uniti/party/Party
@@ -301,27 +301,26 @@ Number of values one
 Personal data   no (the value is a reference; the personal data is in the properties of Party)
 ```
 
-Rudi also adds `plate_number` to `uniti/item/Item`, not required. Other shops
-that install the vocabulary but do not install Rudi's module do not see that
+Alex also adds `plate_number` to `uniti/item/Item`, not required. Other shops
+that install the vocabulary but do not install Alex's module do not see that
 property.
 
-**Clinic.** The concept `klinik-sehat/records/Patient` is not created. Ani is a
-Person, and Ani's role as a patient is recorded through
-`MedicalRecord R-201 → patient → Ani`. When Ani also works as a nurse at that
-clinic, Ani is still one entity, which is referred to by
-`Contract K-12 → employee → Ani`.
+**Clinic.** The concept `healthy-clinic/records/Patient` is not created. Maria
+is a Person, and Maria's role as a patient is recorded through `MedicalRecord
+R-201 → patient → Maria`. When Maria also works as a nurse at that clinic, Maria
+is still one entity, which is referred to by `Contract K-12 → employee → Maria`.
 
 **School.** The vocabulary has the concept `uniti/education/Class`. A school
 adds the property `homeroom_teacher` (a reference to Party) to Class in its own
 module, not required. A school that wants the homeroom teacher to be required
-makes a child `sekolah-bahari/academic/RegularClass` with the parent Class, and
+makes a child `seaside-school/academic/RegularClass` with the parent Class, and
 then declares `homeroom_teacher` required for that child.
 
 ## 5. Non-examples
 
 - **The properties `customer_name` and `item_name`** whose meaning is both
   "name". One property `name` that applies to both is enough.
-- **The concept Customer as a type of Budi.** Customer is a role.
+- **The concept Customer as a type of Sam.** Customer is a role.
 - **A concept with two parents**, for example Rental that is at the same time a
   child of Transaction and a child of Promise.
 - **A concept card whose definition is "rental data"** without explaining what

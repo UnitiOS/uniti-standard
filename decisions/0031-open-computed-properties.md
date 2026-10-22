@@ -6,7 +6,7 @@ Status: accepted
 **Context**
 One number is often formed by modules from different makers. The stock of an
 item increases through the purchasing module, decreases through the sales
-module, and decreases while rented through Rudi's rental module. The owner of
+module, and decreases while rented through Alex's rental module. The owner of
 the calculation in the vocabulary cannot possibly know all those modules.
 
 **Decision**

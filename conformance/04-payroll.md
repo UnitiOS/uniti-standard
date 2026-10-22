@@ -67,10 +67,10 @@ example tax_three_brackets
     l4    table        tp               valid 1 Jan 2026
     l4    lower_limit  500,000,000 IDR  valid 1 Jan 2026
     l4    rate         30%              valid 1 Jan 2026
-    budi  type                  Employee          valid 1 Jan 2026
-    budi  tax_table             tp                valid 1 Jan 2026
-    budi  taxable_income        300,000,000 IDR   valid 1 Jan 2026
-  ask          budi.annual_tax   T: 31 Dec 2026   R: 31 Dec 2026
+    sam  type                  Employee          valid 1 Jan 2026
+    sam  tax_table             tp                valid 1 Jan 2026
+    sam  taxable_income        300,000,000 IDR   valid 1 Jan 2026
+  ask          sam.annual_tax   T: 31 Dec 2026   R: 31 Dec 2026
   result       44,000,000 IDR
 ```
 
@@ -114,31 +114,31 @@ example overtime_one_week
                hours; 6 × 1.5 × 50,000 = 450,000.
   zone         WIB
   facts        recorded 9 Oct 2026 18:00
-    budi  type          Employee          valid 1 Jan 2026
-    budi  contract      kb                valid 1 Jan 2026
+    sam  type          Employee          valid 1 Jan 2026
+    sam  contract      kb                valid 1 Jan 2026
     kb    type          Contract          valid 1 Jan 2026
     kb    hourly_wage   50,000 IDR/hour   valid 1 Jan 2026
     h1    type          Attendance        valid 5 Oct 2026
-    h1    employee      budi              valid 5 Oct 2026
+    h1    employee      sam              valid 5 Oct 2026
     h1    date          5 Oct 2026        valid 5 Oct 2026
     h1    hours         8 hours           valid 5 Oct 2026
     h2    type          Attendance        valid 6 Oct 2026
-    h2    employee      budi              valid 6 Oct 2026
+    h2    employee      sam              valid 6 Oct 2026
     h2    date          6 Oct 2026        valid 6 Oct 2026
     h2    hours         10 hours          valid 6 Oct 2026
     h3    type          Attendance        valid 7 Oct 2026
-    h3    employee      budi              valid 7 Oct 2026
+    h3    employee      sam              valid 7 Oct 2026
     h3    date          7 Oct 2026        valid 7 Oct 2026
     h3    hours         9 hours           valid 7 Oct 2026
     h4    type          Attendance        valid 8 Oct 2026
-    h4    employee      budi              valid 8 Oct 2026
+    h4    employee      sam              valid 8 Oct 2026
     h4    date          8 Oct 2026        valid 8 Oct 2026
     h4    hours         8 hours           valid 8 Oct 2026
     h5    type          Attendance        valid 9 Oct 2026
-    h5    employee      budi              valid 9 Oct 2026
+    h5    employee      sam              valid 9 Oct 2026
     h5    date          9 Oct 2026        valid 9 Oct 2026
     h5    hours         11 hours          valid 9 Oct 2026
-  ask          budi.overtime_pay(range(5 Oct 2026, 12 Oct 2026))   T: 11 Oct 2026   R: 11 Oct 2026
+  ask          sam.overtime_pay(range(5 Oct 2026, 12 Oct 2026))   T: 11 Oct 2026   R: 11 Oct 2026
   result       450,000 IDR
 ```
 
@@ -176,11 +176,11 @@ example october_salary
                4,800,000 = 9,154,838.709…, rounded to 9,154,839.
   zone         WIB
   facts        recorded 1 Oct 2026 09:00
-    budi     type            Employee        valid 1 Jan 2026
-    budi     contract        kb              valid 1 Jan 2026
+    sam     type            Employee        valid 1 Jan 2026
+    sam     contract        kb              valid 1 Jan 2026
     kb       type            Contract        valid 1 Jan 2026
     f1: kb   monthly_salary  9,000,000 IDR   valid 1 Jan 2026
     f2: kb   monthly_salary  9,300,000 IDR   valid 16 Oct 2026   replaces f1
-  ask          budi.salary(range(1 Oct 2026, 1 Nov 2026))   T: 31 Oct 2026   R: 1 Nov 2026
+  ask          sam.salary(range(1 Oct 2026, 1 Nov 2026))   T: 31 Oct 2026   R: 1 Nov 2026
   result       9,154,839 IDR
 ```

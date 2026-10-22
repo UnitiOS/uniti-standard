@@ -47,21 +47,21 @@ def module_only(text, address):
 
 class KindsOfChange(unittest.TestCase):
     def test_new_property_is_one_addition(self):  # U1, 07 §4
-        h = compare(CHANGE, "rudi/rental@v1", "rudi/rental@v2")
-        self.assertEqual(h.added, ["rudi/rental/promised_return_date"])
+        h = compare(CHANGE, "alex/rental@v1", "alex/rental@v2")
+        self.assertEqual(h.added, ["alex/rental/promised_return_date"])
         self.assertEqual((h.modified, h.removed, h.meaning_changed, h.became_required, h.uses),
                          ([], [], [], [], []))
 
     def test_user_moves_version(self):  # U2
-        h = compare(CHANGE, "kemah-ceria/shop@v1", "kemah-ceria/shop@v2")
-        self.assertEqual(h.added, ["kemah-ceria/shop/promised_return_old_rental"])
-        self.assertEqual(h.uses, ["rudi/rental: v1 → v2"])
+        h = compare(CHANGE, "happy-camp/shop@v1", "happy-camp/shop@v2")
+        self.assertEqual(h.added, ["happy-camp/shop/promised_return_old_rental"])
+        self.assertEqual(h.uses, ["alex/rental: v1 → v2"])
 
     def test_user_bound_to_exact_version(self):  # CHANGE-14, 15
         s = build_set(CHANGE)
         module = {m.full_name: m for m in s.all_modules()}
-        self.assertIn(module["rudi/rental@v1"], s.installed_modules(module["kemah-ceria/shop@v1"]))
-        self.assertNotIn(module["rudi/rental@v2"], s.installed_modules(module["kemah-ceria/shop@v1"]))
+        self.assertIn(module["alex/rental@v1"], s.installed_modules(module["happy-camp/shop@v1"]))
+        self.assertNotIn(module["alex/rental@v2"], s.installed_modules(module["happy-camp/shop@v1"]))
 
     def test_behavior_change(self):  # U3, PROOF-22
         h = compare(CHANGE, "uniti/depreciation@v3", "uniti/depreciation@v4")
@@ -91,28 +91,28 @@ class KindsOfChange(unittest.TestCase):
         self.assertEqual(result[("uniti/depreciation/march_accumulated", "v4")], "failed")
 
     def test_version_jump(self):  # CHANGE-2
-        text = CHANGE.replace("module rudi/rental@v2", "module rudi/rental@v3")
+        text = CHANGE.replace("module alex/rental@v2", "module alex/rental@v3")
         with self.assertRaisesRegex(NotationError, "CHANGE-2"):
-            compare(text.replace("uses rudi/rental@v2", "uses rudi/rental@v3"),
-                    "rudi/rental@v1", "rudi/rental@v3")
+            compare(text.replace("uses alex/rental@v2", "uses alex/rental@v3"),
+                    "alex/rental@v1", "alex/rental@v3")
 
     def test_meaning_changed(self):  # CHANGE-7, 04 §2.9
-        old = module_only(CHANGE, "rudi/rental@v1")
+        old = module_only(CHANGE, "alex/rental@v1")
         new = (old.replace("@v1", "@v2")
                .replace("property start_date : date", "property start_date : instant"))
         text = "```uniti\n" + old + "\n" + new + "\n```\n"
-        h = compare(text, "rudi/rental@v1", "rudi/rental@v2")
-        self.assertEqual(h.meaning_changed, ["rudi/rental/start_date"])
+        h = compare(text, "alex/rental@v1", "alex/rental@v2")
+        self.assertEqual(h.meaning_changed, ["alex/rental/start_date"])
 
     def test_became_required(self):  # 04 §2.9
-        old = module_only(CHANGE, "rudi/rental@v1")
+        old = module_only(CHANGE, "alex/rental@v1")
         old = re.sub(r"\nexample .*", "", old, flags=re.DOTALL)
         new = (old.replace("@v1", "@v2")
                .replace("  end_date     required\n", "  end_date     required\n  daily_rate   required\n"))
         text = "```uniti\n" + old + "\n" + new + "\n```\n"
-        h = compare(text, "rudi/rental@v1", "rudi/rental@v2")
+        h = compare(text, "alex/rental@v1", "alex/rental@v2")
         self.assertEqual(h.became_required, ["daily_rate for Rental"])
-        self.assertEqual(h.modified, ["rudi/rental/applies to Rental: daily_rate"])
+        self.assertEqual(h.modified, ["alex/rental/applies to Rental: daily_rate"])
 
 
 class Bridges(unittest.TestCase):
@@ -121,8 +121,8 @@ class Bridges(unittest.TestCase):
 
     def test_bridge_read_on_card(self):
         s = build_set(RELATIONS)
-        cashier = next(m for m in s.all_modules() if m.address == "klinik-sehat/cashier")
-        self.assertEqual(cashier.content["bpjs"].bridges, [("same_as", "apotek-ria/cashier/bpjs")])
+        cashier = next(m for m in s.all_modules() if m.address == "healthy-clinic/cashier")
+        self.assertEqual(cashier.content["national_insurance"].bridges, [("same_as", "city-pharmacy/cashier/national_insurance")])
 
     def test_bridge_to_external_standard(self):  # RELATION-8
         text = "module example/a@v1\n\nconcept Class\n  similar      https://schema.org/Course\n"
@@ -134,18 +134,18 @@ class Bridges(unittest.TestCase):
             read(text)
 
     def test_bridge_of_different_kind(self):  # RELATION-12
-        text = RELATIONS.replace("same_as      apotek-ria/cashier/bpjs",
+        text = RELATIONS.replace("same_as      city-pharmacy/cashier/national_insurance",
                                  "same_as      uniti/payment/Payment")
         with self.assertRaisesRegex(NotationError, "RELATION-12"):
             build_set(text)
 
     def test_choice_of_uninstalled_module(self):  # RELATION-5
-        text = RELATIONS.replace("module klinik-sehat/report@v1\n  uses uniti/payment@v1\n"
-                                 "  uses klinik-sehat/cashier@v1\n  uses apotek-ria/cashier@v1\n",
-                                 "module klinik-sehat/report@v1\n  uses uniti/payment@v1\n"
-                                 "  uses klinik-sehat/cashier@v1\n")
+        text = RELATIONS.replace("module healthy-clinic/report@v1\n  uses uniti/payment@v1\n"
+                                 "  uses healthy-clinic/cashier@v1\n  uses city-pharmacy/cashier@v1\n",
+                                 "module healthy-clinic/report@v1\n  uses uniti/payment@v1\n"
+                                 "  uses healthy-clinic/cashier@v1\n")
         result = status(text)
-        self.assertEqual(result[("klinik-sehat/report/combined_bpjs_october", "v1")],
+        self.assertEqual(result[("healthy-clinic/report/combined_national_insurance_october", "v1")],
                          "notation error")
 
 

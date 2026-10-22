@@ -43,7 +43,7 @@ mathematical symbols:
 | `+` `=` `<` `>` | plus, equals, less than, greater than | |
 
 The hyphen `-` is used only inside owner and module names, for example
-`kemah-ceria`. The slash `/` is used only inside addresses and inside units,
+`happy-camp`. The slash `/` is used only inside addresses and inside units,
 for example `IDR/day`.
 
 **Lines.** Writing consists of **sections**: a module, a card, a rule, or an
@@ -125,7 +125,7 @@ properties, choices, rules, examples, parameters, and local names use
 lowercase letters (`daily_rate`).
 
 **Short name and full address.** A piece of content may be named by its short
-name (`Rental`) or by its full address (`rudi/rental/Rental`). A short name is
+name (`Rental`) or by its full address (`alex/rental/Rental`). A short name is
 looked up in the module where the writing is and in the modules it uses. If a
 short name is found in more than one module, the full address must be used.
 ‹root› is not written.
@@ -266,7 +266,7 @@ are written with their exact version
 ([`02-addresses.md`](../form/02-addresses.md), ADDRESS-11):
 
 ```
-module rudi/rental@v3
+module alex/rental@v3
   uses uniti/item@v1
 ```
 
@@ -307,9 +307,9 @@ because it is usually content in a module that is not in use, or a full IRI
 for an outside standard (RELATION-8):
 
 ```
-choice bpjs to uniti/payment/PaymentMethod
-  label.en     BPJS Kesehatan
-  same_as      apotek-ria/cashier/bpjs
+choice national_insurance to uniti/payment/PaymentMethod
+  label.en     National health insurance
+  same_as      city-pharmacy/cashier/national_insurance
 
 concept Class
   similar      https://schema.org/Course
@@ -326,7 +326,7 @@ concept Class
 | Property with many values | `property phone : text, many` |
 | Choice list | `choice_list Position, closed` |
 | Code list | `choice_list Unit, code` |
-| Choice for an open list owned by someone else | `choice qris to uniti/payment/PaymentMethod` |
+| Choice for an open list owned by someone else | `choice qr_payment to uniti/payment/PaymentMethod` |
 | Applies to | `applies to Rental:` |
 | Computed property | `computed Rental.total_due : number (money, increase), closed` |
 | Computed property with a parameter | `computed Employee.salary(month) : number (money, increase), closed` |
@@ -349,7 +349,7 @@ closed`. The result of a helper may also be an intermediate value:
 rule applies to, which may be a full address. The name after the dot is the
 name of the rule itself, and its address is always in the module where it is
 written. So `computed uniti/item/Item.rental_value` in the module
-`rudi/rental` creates the computed property `rudi/rental/rental_value` for a
+`alex/rental` creates the computed property `alex/rental/rental_value` for a
 concept owned by `uniti`.
 
 In the heading line of a contribution, `to Item.available` points to an
@@ -426,8 +426,8 @@ there are any, then `T:` and `R:`. A parameter is written as an expression:
 `ask org.revenue(range(1 Oct 2026, 1 Nov 2026))  T: 31 Oct 2026  R: 1 Nov 2026`.
 
 **Action.** The `action` line states its recorded time, and the actor and the
-approver if a rule checks them: `action recorded 12 Oct 2026 09:00, actor sari,
-approver sari`. A part that is not written is filled by the default example
+approver if a rule checks them: `action recorded 12 Oct 2026 09:00, actor eva,
+approver eva`. A part that is not written is filled by the default example
 action. The facts of the action are written below it, without `recorded`.
 
 **Expected result:**
@@ -567,7 +567,7 @@ What is not written in this summary, and is set in the text:
 **Rental: a module in the full form.**
 
 ```
-module rudi/rental@v3
+module alex/rental@v3
   uses uniti/item@v1
 
 concept Rental
@@ -695,23 +695,23 @@ computed Student.rank : number (position), closed:
 example tied_scores
   kind         compute
   title        Two students with the same score
-  explanation  Budi 88, Ani and Citra both 84.9, Dodi 70. Ani and Citra are
-               both at rank 2, and Dodi is at rank 4.
+  explanation  Sam 88, Maria and Nina both 84.9, Leo 70. Maria and Nina are
+               both at rank 2, and Leo is at rank 4.
   facts        recorded 1 Dec 2026
     k7a    type           Class     valid 1 Jul 2026
-    budi   type           Student   valid 1 Jul 2026
-    budi   class          k7a       valid 1 Jul 2026
-    budi   average_score  88        valid 1 Dec 2026
-    ani    type           Student   valid 1 Jul 2026
-    ani    class          k7a       valid 1 Jul 2026
-    ani    average_score  84.9      valid 1 Dec 2026
-    citra  type           Student   valid 1 Jul 2026
-    citra  class          k7a       valid 1 Jul 2026
-    citra  average_score  84.9      valid 1 Dec 2026
-    dodi   type           Student   valid 1 Jul 2026
-    dodi   class          k7a       valid 1 Jul 2026
-    dodi   average_score  70        valid 1 Dec 2026
-  ask          citra.rank   T: 1 Dec 2026   R: 1 Dec 2026
+    sam   type           Student   valid 1 Jul 2026
+    sam   class          k7a       valid 1 Jul 2026
+    sam   average_score  88        valid 1 Dec 2026
+    maria    type           Student   valid 1 Jul 2026
+    maria    class          k7a       valid 1 Jul 2026
+    maria    average_score  84.9      valid 1 Dec 2026
+    nina  type           Student   valid 1 Jul 2026
+    nina  class          k7a       valid 1 Jul 2026
+    nina  average_score  84.9      valid 1 Dec 2026
+    leo   type           Student   valid 1 Jul 2026
+    leo   class          k7a       valid 1 Jul 2026
+    leo   average_score  70        valid 1 Dec 2026
+  ask          nina.rank   T: 1 Dec 2026   R: 1 Dec 2026
   result       2
 ```
 

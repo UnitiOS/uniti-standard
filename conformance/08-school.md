@@ -40,15 +40,15 @@ example final_grade_85
   title        Final grade, rounded
   explanation  0.3 × 85 + 0.3 × 78 + 0.4 × 90 = 84.9, rounded to 85.
   facts        recorded 20 Dec 2026
-    ani   type        Student      valid 1 Jul 2026
+    maria   type        Student      valid 1 Jul 2026
     math  type        Subject      valid 1 Jul 2026
     n1    type        Assessment   valid 15 Dec 2026
-    n1    student     ani          valid 15 Dec 2026
+    n1    student     maria          valid 15 Dec 2026
     n1    subject     math         valid 15 Dec 2026
     n1    assignment  85           valid 15 Dec 2026
     n1    midterm     78           valid 15 Dec 2026
     n1    final_exam  90           valid 15 Dec 2026
-  ask          ani.final_grade(math)   T: 20 Dec 2026   R: 20 Dec 2026
+  ask          maria.final_grade(math)   T: 20 Dec 2026   R: 20 Dec 2026
   result       85
 ```
 
@@ -71,49 +71,49 @@ computed Student.rank : number (position), closed:
   1 + count(all(Student, s: s.class = this.class
                             and s.average_grade > this.average_grade))
 
-example rank_budi
+example rank_sam
   kind         compute
   title        The highest grade
-  explanation  Budi 88, Ani and Citra 84.9, Dodi 70. No one is above Budi.
+  explanation  Sam 88, Maria and Nina 84.9, Leo 70. No one is above Sam.
   facts        recorded 1 Dec 2026
     c7a    type           Class     valid 1 Jul 2026
-    budi   type           Student   valid 1 Jul 2026
-    budi   class          c7a       valid 1 Jul 2026
-    budi   average_grade  88        valid 1 Dec 2026
-    ani    type           Student   valid 1 Jul 2026
-    ani    class          c7a       valid 1 Jul 2026
-    ani    average_grade  84.9      valid 1 Dec 2026
-    citra  type           Student   valid 1 Jul 2026
-    citra  class          c7a       valid 1 Jul 2026
-    citra  average_grade  84.9      valid 1 Dec 2026
-    dodi   type           Student   valid 1 Jul 2026
-    dodi   class          c7a       valid 1 Jul 2026
-    dodi   average_grade  70        valid 1 Dec 2026
-  ask          budi.rank   T: 1 Dec 2026   R: 1 Dec 2026
+    sam   type           Student   valid 1 Jul 2026
+    sam   class          c7a       valid 1 Jul 2026
+    sam   average_grade  88        valid 1 Dec 2026
+    maria    type           Student   valid 1 Jul 2026
+    maria    class          c7a       valid 1 Jul 2026
+    maria    average_grade  84.9      valid 1 Dec 2026
+    nina  type           Student   valid 1 Jul 2026
+    nina  class          c7a       valid 1 Jul 2026
+    nina  average_grade  84.9      valid 1 Dec 2026
+    leo   type           Student   valid 1 Jul 2026
+    leo   class          c7a       valid 1 Jul 2026
+    leo   average_grade  70        valid 1 Dec 2026
+  ask          sam.rank   T: 1 Dec 2026   R: 1 Dec 2026
   result       1
 
-example rank_ani
+example rank_maria
   kind         compute
-  title        Equal grade, equal rank: Ani
-  explanation  Only Budi is higher than Ani.
-  facts        as in rank_budi
-  ask          ani.rank   T: 1 Dec 2026   R: 1 Dec 2026
+  title        Equal grade, equal rank: Maria
+  explanation  Only Sam is higher than Maria.
+  facts        as in rank_sam
+  ask          maria.rank   T: 1 Dec 2026   R: 1 Dec 2026
   result       2
 
-example rank_citra
+example rank_nina
   kind         compute
-  title        Equal grade, equal rank: Citra
-  explanation  Citra is equal to Ani, so also rank 2.
-  facts        as in rank_budi
-  ask          citra.rank   T: 1 Dec 2026   R: 1 Dec 2026
+  title        Equal grade, equal rank: Nina
+  explanation  Nina is equal to Maria, so also rank 2.
+  facts        as in rank_sam
+  ask          nina.rank   T: 1 Dec 2026   R: 1 Dec 2026
   result       2
 
-example rank_dodi
+example rank_leo
   kind         compute
   title        Rank after two equal grades
-  explanation  Three students are above Dodi, so Dodi is at rank 4, not 3.
-  facts        as in rank_budi
-  ask          dodi.rank   T: 1 Dec 2026   R: 1 Dec 2026
+  explanation  Three students are above Leo, so Leo is at rank 4, not 3.
+  facts        as in rank_sam
+  ask          leo.rank   T: 1 Dec 2026   R: 1 Dec 2026
   result       4
 ```
 
@@ -143,10 +143,10 @@ example attended_90_of_96
   title        Attended 90 of 96 sessions
   explanation  90 ÷ 96 = 93.75%, rounded to 0.1% gives 93.8%.
   facts        recorded 20 Dec 2026
-    ani   type      Student   valid 1 Jul 2026
-    ani   attended  90        valid 20 Dec 2026
-    ani   sessions  96        valid 20 Dec 2026
-  ask          ani.attendance_percent   T: 20 Dec 2026   R: 20 Dec 2026
+    maria   type      Student   valid 1 Jul 2026
+    maria   attended  90        valid 20 Dec 2026
+    maria   sessions  96        valid 20 Dec 2026
+  ask          maria.attendance_percent   T: 20 Dec 2026   R: 20 Dec 2026
   result       93.8%
 
 example attended_77_of_80
@@ -156,9 +156,9 @@ example attended_77_of_80
                Rounding to even would give 96.2%, so this example tells the
                two apart; 93.75% above does not.
   facts        recorded 20 Dec 2026
-    budi  type      Student   valid 1 Jul 2026
-    budi  attended  77        valid 20 Dec 2026
-    budi  sessions  80        valid 20 Dec 2026
-  ask          budi.attendance_percent   T: 20 Dec 2026   R: 20 Dec 2026
+    sam  type      Student   valid 1 Jul 2026
+    sam  attended  77        valid 20 Dec 2026
+    sam  sessions  80        valid 20 Dec 2026
+  ask          sam.attendance_percent   T: 20 Dec 2026   R: 20 Dec 2026
   result       96.3%
 ```

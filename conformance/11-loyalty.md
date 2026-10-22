@@ -71,25 +71,25 @@ example balance_february_2027
                2027. If taken from the youngest first, this balance is 0.
   zone         WIB
   facts        recorded 5 Jun 2026 12:00
-    ani   type    Member          valid 1 Jan 2026
+    maria   type    Member          valid 1 Jan 2026
     m1    type    PointMovement   valid 15 Jan 2026
-    m1    member  ani             valid 15 Jan 2026
+    m1    member  maria             valid 15 Jan 2026
     m1    date    15 Jan 2026     valid 15 Jan 2026
     m1    kind    earn            valid 15 Jan 2026
     m1    amount  100             valid 15 Jan 2026
     m1    expiry  15 Jan 2027     valid 15 Jan 2026
     m2    type    PointMovement   valid 10 Mar 2026
-    m2    member  ani             valid 10 Mar 2026
+    m2    member  maria             valid 10 Mar 2026
     m2    date    10 Mar 2026     valid 10 Mar 2026
     m2    kind    earn            valid 10 Mar 2026
     m2    amount  50              valid 10 Mar 2026
     m2    expiry  10 Mar 2027     valid 10 Mar 2026
     m3    type    PointMovement   valid 5 Jun 2026
-    m3    member  ani             valid 5 Jun 2026
+    m3    member  maria             valid 5 Jun 2026
     m3    date    5 Jun 2026      valid 5 Jun 2026
     m3    kind    spend           valid 5 Jun 2026
     m3    amount  120             valid 5 Jun 2026
-  ask          ani.point_balance   T: 1 Feb 2027   R: 1 Feb 2027
+  ask          maria.point_balance   T: 1 Feb 2027   R: 1 Feb 2027
   result       30
 
 example balance_april_2027
@@ -99,7 +99,7 @@ example balance_april_2027
                2027 the balance is 0.
   zone         WIB
   facts        as in balance_february_2027
-  ask          ani.point_balance   T: 1 Apr 2027   R: 1 Apr 2027
+  ask          maria.point_balance   T: 1 Apr 2027   R: 1 Apr 2027
   result       0
 
 example balance_day_before_expiry
@@ -108,7 +108,7 @@ example balance_day_before_expiry
   explanation  On 9 March 2027 the March points are still valid: 30.
   zone         WIB
   facts        as in balance_february_2027
-  ask          ani.point_balance   T: 9 Mar 2027   R: 9 Mar 2027
+  ask          maria.point_balance   T: 9 Mar 2027   R: 9 Mar 2027
   result       30
 
 example balance_on_expiry_day
@@ -118,6 +118,6 @@ example balance_on_expiry_day
                10 March 2027 the balance is 0.
   zone         WIB
   facts        as in balance_february_2027
-  ask          ani.point_balance   T: 10 Mar 2027   R: 10 Mar 2027
+  ask          maria.point_balance   T: 10 Mar 2027   R: 10 Mar 2027
   result       0
 ```

@@ -19,7 +19,7 @@ the vocabulary [`content/vocabulary/item.md`](../content/vocabulary/item.md),
 Module and examples from appendix A §4, without change.
 
 ```uniti
-module rudi/rental@v3
+module alex/rental@v3
   uses uniti/item@v1
 
 concept Rental
@@ -147,7 +147,7 @@ Two policies from 06 §4, in a separate module that uses the rental module.
 
 ```uniti
 module example/rate@v1
-  uses rudi/rental@v3
+  uses alex/rental@v3
   uses uniti/item@v1
 
 computed Rental.total_due_a : number (money, increase), closed:
@@ -296,7 +296,7 @@ example cap_not_recorded
 
 ## School: class rank
 
-Example from appendix A §4, plus Budi and Dodi from 06 §4.
+Example from appendix A §4, plus Sam and Leo from 06 §4.
 
 ```uniti
 module example/school@v1
@@ -317,39 +317,39 @@ computed Student.rank : number (position), closed:
 example tied_scores
   kind         compute
   title        Two students with the same score
-  explanation  Budi 88, Ani and Citra both 84.9, Dodi 70. Ani and Citra are
-               both at rank 2, and Dodi is at rank 4.
+  explanation  Sam 88, Maria and Nina both 84.9, Leo 70. Maria and Nina are
+               both at rank 2, and Leo is at rank 4.
   facts        recorded 1 Dec 2026
     k7a    type           Class     valid 1 Jul 2026
-    budi   type           Student   valid 1 Jul 2026
-    budi   class          k7a       valid 1 Jul 2026
-    budi   average_score  88        valid 1 Dec 2026
-    ani    type           Student   valid 1 Jul 2026
-    ani    class          k7a       valid 1 Jul 2026
-    ani    average_score  84.9      valid 1 Dec 2026
-    citra  type           Student   valid 1 Jul 2026
-    citra  class          k7a       valid 1 Jul 2026
-    citra  average_score  84.9      valid 1 Dec 2026
-    dodi   type           Student   valid 1 Jul 2026
-    dodi   class          k7a       valid 1 Jul 2026
-    dodi   average_score  70        valid 1 Dec 2026
-  ask          citra.rank   T: 1 Dec 2026   R: 1 Dec 2026
+    sam   type           Student   valid 1 Jul 2026
+    sam   class          k7a       valid 1 Jul 2026
+    sam   average_score  88        valid 1 Dec 2026
+    maria    type           Student   valid 1 Jul 2026
+    maria    class          k7a       valid 1 Jul 2026
+    maria    average_score  84.9      valid 1 Dec 2026
+    nina  type           Student   valid 1 Jul 2026
+    nina  class          k7a       valid 1 Jul 2026
+    nina  average_score  84.9      valid 1 Dec 2026
+    leo   type           Student   valid 1 Jul 2026
+    leo   class          k7a       valid 1 Jul 2026
+    leo   average_score  70        valid 1 Dec 2026
+  ask          nina.rank   T: 1 Dec 2026   R: 1 Dec 2026
   result       2
 
 example highest_score
   kind         compute
   title        Highest score in the class
-  explanation  No student has a score above Budi.
+  explanation  No student has a score above Sam.
   facts        as in tied_scores
-  ask          budi.rank   T: 1 Dec 2026   R: 1 Dec 2026
+  ask          sam.rank   T: 1 Dec 2026   R: 1 Dec 2026
   result       1
 
 example after_tied_scores
   kind         compute
   title        Rank after two equal scores
-  explanation  Three students are above Dodi, so Dodi is at rank 4, not 3.
+  explanation  Three students are above Leo, so Leo is at rank 4, not 3.
   facts        as in tied_scores
-  ask          dodi.rank   T: 1 Dec 2026   R: 1 Dec 2026
+  ask          leo.rank   T: 1 Dec 2026   R: 1 Dec 2026
   result       4
 ```
 
@@ -394,20 +394,20 @@ constraint Purchase.approved_if_large:
 example self_approved
   kind         reject
   title        Large purchase approved by its own actor
-  explanation  Sari is a manager, but Sari records and approves a purchase of
+  explanation  Eva is a manager, but Eva records and approves a purchase of
                12,000,000 at the same time. The approver must be someone
                else.
   zone         WIB
   facts        recorded 2 Jan 2026 09:00
-    sari   type      Person     valid 2 Jan 2026
-    budi   type      Person     valid 2 Jan 2026
+    eva   type      Person     valid 2 Jan 2026
+    sam   type      Person     valid 2 Jan 2026
     ks     type      Contract   valid 2 Jan 2026
-    ks     employee  sari       valid 2 Jan 2026
+    ks     employee  eva       valid 2 Jan 2026
     ks     position  manager    valid 2 Jan 2026
     kb     type      Contract   valid 2 Jan 2026
-    kb     employee  budi       valid 2 Jan 2026
+    kb     employee  sam       valid 2 Jan 2026
     kb     position  manager    valid 2 Jan 2026
-  action       recorded 12 Oct 2026 09:00, actor sari, approver sari
+  action       recorded 12 Oct 2026 09:00, actor eva, approver eva
     p1     type      Purchase         valid 12 Oct 2026
     p1     total     12,000,000 IDR   valid 12 Oct 2026
   result       rejected by approved_if_large, entity p1, at 12 Oct 2026
@@ -415,11 +415,11 @@ example self_approved
 example approved_by_other_manager
   kind         accept
   title        Large purchase approved by another manager
-  explanation  Sari records a purchase of 12,000,000, and Budi, another
+  explanation  Eva records a purchase of 12,000,000, and Sam, another
                manager, approves it.
   zone         WIB
   facts        as in self_approved
-  action       recorded 12 Oct 2026 09:00, actor sari, approver budi
+  action       recorded 12 Oct 2026 09:00, actor eva, approver sam
     p1     type      Purchase         valid 12 Oct 2026
     p1     total     12,000,000 IDR   valid 12 Oct 2026
   result       accepted
@@ -431,7 +431,7 @@ example small_purchase
                it does not need approval.
   zone         WIB
   facts        as in self_approved
-  action       recorded 12 Oct 2026 09:00, actor sari
+  action       recorded 12 Oct 2026 09:00, actor eva
     p1     type      Purchase         valid 12 Oct 2026
     p1     total     10,000,000 IDR   valid 12 Oct 2026
   result       accepted

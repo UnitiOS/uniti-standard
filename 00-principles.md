@@ -12,7 +12,7 @@ contradicts a principle, the rule is what gets fixed.
 
 Every organization (a business, clinic, school, institution) keeps two things:
 
-- **facts**: what happened and what is true, for example "Budi rents two tents
+- **facts**: what happened and what is true, for example "Sam rents two tents
   on 6 October";
 - **logic**: what is recorded and how its numbers are calculated, for example
   "the number of tents currently rented is the number that went out minus the

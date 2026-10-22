@@ -3,7 +3,7 @@
 Cases O1 to O3 of the paper test (`uji/01-hitung.md`)<!-- ARCHIVE-LINK: ../../01-hitung.md -->
 §4.J, written in the reference notation. O2 is also in
 [`00-form-examples.md`](00-form-examples.md); here its five rows are written
-exactly as in the paper test, with Budi as staff.
+exactly as in the paper test, with Sam as staff.
 
 ## O1. Cost by organization chart
 
@@ -136,16 +136,16 @@ example small_without_approver
   explanation  Below the limit, so it does not need approval.
   zone         WIB
   facts        recorded 2 Jan 2026 09:00
-    sari   type      Person    valid 2 Jan 2026
-    budi   type      Person    valid 2 Jan 2026
-    andi   type      Person    valid 2 Jan 2026
+    eva   type      Person    valid 2 Jan 2026
+    sam   type      Person    valid 2 Jan 2026
+    omar   type      Person    valid 2 Jan 2026
     ks     type      Contract  valid 2 Jan 2026
-    ks     employee  sari      valid 2 Jan 2026
+    ks     employee  eva      valid 2 Jan 2026
     ks     position  manager   valid 2 Jan 2026
     kb     type      Contract  valid 2 Jan 2026
-    kb     employee  budi      valid 2 Jan 2026
+    kb     employee  sam      valid 2 Jan 2026
     kb     position  staff     valid 2 Jan 2026
-  action       recorded 12 Oct 2026 09:00, actor andi
+  action       recorded 12 Oct 2026 09:00, actor omar
     p1     type      Purchase         valid 12 Oct 2026
     p1     total     8,000,000 IDR    valid 12 Oct 2026
   result       accepted
@@ -156,7 +156,7 @@ example large_without_approver
   explanation  Above the limit and there is no approver.
   zone         WIB
   facts        as in small_without_approver
-  action       recorded 12 Oct 2026 09:00, actor andi
+  action       recorded 12 Oct 2026 09:00, actor omar
     p1     type      Purchase         valid 12 Oct 2026
     p1     total     12,000,000 IDR   valid 12 Oct 2026
   result       rejected by approved_if_large, entity p1, at 12 Oct 2026
@@ -164,10 +164,10 @@ example large_without_approver
 example large_approved_by_staff
   kind         reject
   title        Purchase of 12,000,000 approved by staff
-  explanation  Budi approves, but Budi is staff, not a manager.
+  explanation  Sam approves, but Sam is staff, not a manager.
   zone         WIB
   facts        as in small_without_approver
-  action       recorded 12 Oct 2026 09:00, actor andi, approver budi
+  action       recorded 12 Oct 2026 09:00, actor omar, approver sam
     p1     type      Purchase         valid 12 Oct 2026
     p1     total     12,000,000 IDR   valid 12 Oct 2026
   result       rejected by approved_if_large, entity p1
@@ -175,10 +175,10 @@ example large_approved_by_staff
 example large_approved_by_manager
   kind         accept
   title        Purchase of 12,000,000 approved by a manager
-  explanation  Andi records it, Sari the manager approves.
+  explanation  Omar records it, Eva the manager approves.
   zone         WIB
   facts        as in small_without_approver
-  action       recorded 12 Oct 2026 09:00, actor andi, approver sari
+  action       recorded 12 Oct 2026 09:00, actor omar, approver eva
     p1     type      Purchase         valid 12 Oct 2026
     p1     total     12,000,000 IDR   valid 12 Oct 2026
   result       accepted
@@ -186,11 +186,11 @@ example large_approved_by_manager
 example large_approved_by_self
   kind         reject
   title        Purchase of 12,000,000 approved by the actor themselves
-  explanation  Sari is a manager, but Sari is also the actor. The approver must
+  explanation  Eva is a manager, but Eva is also the actor. The approver must
                be someone else.
   zone         WIB
   facts        as in small_without_approver
-  action       recorded 12 Oct 2026 09:00, actor sari, approver sari
+  action       recorded 12 Oct 2026 09:00, actor eva, approver eva
     p1     type      Purchase         valid 12 Oct 2026
     p1     total     12,000,000 IDR   valid 12 Oct 2026
   result       rejected by approved_if_large, entity p1
@@ -202,7 +202,7 @@ example exactly_at_limit_without_approver
                purchase does not need approval.
   zone         WIB
   facts        as in small_without_approver
-  action       recorded 12 Oct 2026 09:00, actor andi
+  action       recorded 12 Oct 2026 09:00, actor omar
     p1     type      Purchase         valid 12 Oct 2026
     p1     total     10,000,000 IDR   valid 12 Oct 2026
   result       accepted
@@ -213,7 +213,7 @@ example over_limit_without_approver
   explanation  One rupiah above the limit already needs approval.
   zone         WIB
   facts        as in small_without_approver
-  action       recorded 12 Oct 2026 09:00, actor andi
+  action       recorded 12 Oct 2026 09:00, actor omar
     p1     type      Purchase         valid 12 Oct 2026
     p1     total     10,000,001 IDR   valid 12 Oct 2026
   result       rejected by approved_if_large, entity p1, at 12 Oct 2026

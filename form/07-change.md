@@ -121,9 +121,9 @@ without having to be moved or changed.
 ## 4. Examples
 
 **Equipment rental.**
-- Rudi freezes `rudi/rental` version 2, which adds the property "promised
+- Alex freezes `alex/rental` version 2, which adds the property "promised
   return date". The machine computes: one **addition**.
-- The Kemah Ceria shop still uses version 1, and nothing changes for it. When
+- The Happy Camp shop still uses version 1, and nothing changes for it. When
   the shop itself freezes a new version that names version 2, the old rentals
   can still be read, with the new property empty.
 

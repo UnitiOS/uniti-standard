@@ -37,7 +37,7 @@ example without_rental_module
   ask          tent.available   T: 7 Oct 2026   R: 7 Oct 2026
   result       5
 
-module rudi/rental@v1
+module alex/rental@v1
   uses uniti/inventory@v1
 
 concept Rental
@@ -90,7 +90,7 @@ class Contributions(unittest.TestCase):
         (CALC-17)."""
         start = INVENTORY.index("  facts        recorded 1 Oct 2026")
         ending = INVENTORY.index("  ask          tent.available")
-        text = (INVENTORY[:start] + "  facts        as in rudi/rental/one_rented\n"
+        text = (INVENTORY[:start] + "  facts        as in alex/rental/one_rented\n"
                 + INVENTORY[ending:])
         self.assertEqual(status(text)["without_rental_module"][0], "notation error")
 

@@ -20,7 +20,7 @@ A fact is **one statement about one entity**. It consists of:
 | **Identifier** | The unique code of the fact itself | `f-8c21…` |
 | **Subject** | The entity being talked about | rental R1 |
 | **Property** | What is said about the subject, pointed to by its address | customer |
-| **Value** | The content: text, number, date, or another entity that is referred to | Budi |
+| **Value** | The content: text, number, date, or another entity that is referred to | Sam |
 | **Valid time** | Since when the fact is true in the world | 6 October 2026 |
 | **Fact kind** | What this fact does to another fact (§2.3) | statement |
 | **Target** | The old fact it touches, when the kind is not statement | — |
@@ -230,20 +230,20 @@ truth. Its form is detailed in
 
 ## 4. Examples
 
-**Equipment rental.** Budi rents a tent on 6 October. The cashier mistypes the
+**Equipment rental.** Sam rents a tent on 6 October. The cashier mistypes the
 name of the customer, then fixes it the next day.
 
 | Fact | Subject | Property | Value | Valid | Kind | Target | Recorded |
 |---|---|---|---|---|---|---|---|
 | f1 | rental R1 | type | Rental | 6 Oct | statement | — | 6 Oct 10:02 |
-| f2 | rental R1 | customer | Bodi | 6 Oct | statement | — | 6 Oct 10:02 |
-| f3 | rental R1 | customer | Budi | 6 Oct | correction | f2 | 7 Oct 08:15 |
+| f2 | rental R1 | customer | Saam | 6 Oct | statement | — | 6 Oct 10:02 |
+| f3 | rental R1 | customer | Sam | 6 Oct | correction | f2 | 7 Oct 08:15 |
 
-- Read as of 6 October at 12:00: the customer is Bodi, because that is what was
+- Read as of 6 October at 12:00: the customer is Saam, because that is what was
   known at that time.
-- Read as of 7 October at 12:00 or later: the customer is Budi, and since
+- Read as of 7 October at 12:00 or later: the customer is Sam, and since
   6 October.
-- f1 and f2 are recorded by one action ("record rental", actor: cashier Sari,
+- f1 and f2 are recorded by one action ("record rental", actor: cashier Eva,
   source: typed in). f3 is recorded by another action with the reason "typing
   mistake".
 
@@ -252,23 +252,23 @@ stops being a subscribed patient.
 
 | Fact | Subject | Property | Value | Valid | Kind | Target |
 |---|---|---|---|---|---|---|
-| f10 | general consultation | price | Rp150,000 | 1 Jan | statement | — |
-| f11 | general consultation | price | Rp175,000 | 1 Nov | replacement | f10 |
-| f20 | patient Ani | subscription | yes | 1 Mar | statement | — |
-| f21 | patient Ani | subscription | — | 1 Oct | ending | f20 |
+| f10 | general consultation | price | 150,000 IDR | 1 Jan | statement | — |
+| f11 | general consultation | price | 175,000 IDR | 1 Nov | replacement | f10 |
+| f20 | patient Maria | subscription | yes | 1 Mar | statement | — |
+| f21 | patient Maria | subscription | — | 1 Oct | ending | f20 |
 
-- The price on 15 October is still Rp150,000. f10 is not wrong; the world
+- The price on 15 October is still 150,000 IDR. f10 is not wrong; the world
   changed.
-- On 15 October, Ani is no longer a subscribed patient. On 15 September Ani is
-  still a subscribed patient.
+- On 15 October, Maria is no longer a subscribed patient. On 15 September Maria
+  is still a subscribed patient.
 
 **School, with an AI actor.** An AI assistant proposes exam scores from a
 scanned sheet, then the teacher approves them. The action: actor "AI
-assistant", approver "Bu Rina", source "scan".
+assistant", approver "Kim", source "scan".
 
 ## 5. Not examples
 
-- **"Cash balance today Rp2,400,000"** is a computed value, not a fact.
+- **"Cash balance today 2,400,000 IDR"** is a computed value, not a fact.
 - **One fact that states two values** ("phone: 0812… and 0813…"). That is two
   facts.
 - **Changing the value of an old fact in place.** Every change is a new fact.
@@ -308,8 +308,8 @@ assistant", approver "Bu Rina", source "scan".
 
 1. **Redaction** (§2.6): the form needs to be reviewed together with parties who
    understand data protection law.
-2. **One entity in two organizations.** If Budi is recorded in two
-   organizations, Budi has two identifiers. The form of a "same as" fact between
+2. **One entity in two organizations.** If Sam is recorded in two
+   organizations, Sam has two identifiers. The form of a "same as" fact between
    organizations, and who may state it, is not yet decided.
 3. **Facts about facts.** Besides provenance, is a form needed to state
    something about another fact, for example "this fact is disputed"?

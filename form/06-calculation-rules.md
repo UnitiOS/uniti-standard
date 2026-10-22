@@ -89,7 +89,7 @@ constraint Rental.no_overlap:
 ```
 
 - `Rental.total_due` is a short way of writing the property
-  `rudi/rental/total_due` that applies to the concept `rudi/rental/Rental`.
+  `alex/rental/total_due` that applies to the concept `alex/rental/Rental`.
   The short name is looked up in that module itself and in the modules it
   uses.
 - In the parentheses are written the value type of the result, then the
@@ -487,13 +487,13 @@ The owner of a computed property declares the computation **open** or
 
 Example: the vocabulary has `Item.available`, open. The purchasing module
 contributes items received, the sales module contributes items sold, and the
-rental module of Rudi contributes items being rented:
+rental module of Alex contributes items being rented:
 
 ```
 computed uniti/item/Item.available : number (position), open:
   sum(contributions)
 
-contribution rudi/rental/being_rented to Item.available:
+contribution alex/rental/being_rented to Item.available:
   − sum(all(Rental, s: s.item = this and T in s.term), s: s.amount)
 ```
 
@@ -505,7 +505,7 @@ contribution rudi/rental/being_rented to Item.available:
 - Every contribution must produce the same value type, quantity, and
   direction as its computation.
 - A contribution applies only to organizations that install the module of the
-  contributor. An organization that does not install Rudi's module gets stock
+  contributor. An organization that does not install Alex's module gets stock
   without the rental deduction.
 - A closed computation may be opened in the next version. An open computation
   may not be closed, because the existing contributions would lose their place
@@ -594,8 +594,8 @@ constraint Purchase.approved_if_large:
 
 | Part | Example |
 |---|---|
-| The constraint that failed, with its address | `rudi/rental/enough_stock` |
-| Its source module, with the exact version | `rudi/rental@v3` |
+| The constraint that failed, with its address | `alex/rental/enough_stock` |
+| Its source module, with the exact version | `alex/rental@v3` |
 | The entity and valid time where the constraint failed | rental R2, 15 October |
 | The rejection message, and the reason if the constraint is not computable | "The stock of this item is not sufficient for part of the rental term." |
 
@@ -908,8 +908,8 @@ computed Claim.paid : number (money, increase), closed:
 The results are 4,000,000; 4,800,000; **1,200,000**, because that is all that
 is left of the cap; then **0**. Level 2.
 
-**School: class rank.** The average score of Budi is 88, Ani 84.9, Citra
-84.9, Dodi 70.
+**School: class rank.** The average score of Sam is 88, Maria 84.9, Nina
+84.9, Leo 70.
 
 ```
 computed Student.rank : number (position), closed:
@@ -917,7 +917,7 @@ computed Student.rank : number (position), closed:
                                and s.average_score > this.average_score))
 ```
 
-Budi **1**, Ani **2**, Citra **2**, Dodi **4**. Equal scores get the same rank
+Sam **1**, Maria **2**, Nina **2**, Leo **4**. Equal scores get the same rank
 by themselves, without a "sort" operation.
 
 ## 5. Not examples

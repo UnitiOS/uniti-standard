@@ -28,8 +28,8 @@ enough to write them.
   constraint failed, and its rejection message.
 
 **Alternatives**
-- *Only the owner of a concept may write constraints.* Rejected: Rudi needs
-  Rudi's own business rules over vocabulary concepts.
+- *Only the owner of a concept may write constraints.* Rejected: Alex needs
+  Alex's own business rules over vocabulary concepts.
 - *Every constraint must be met for all entities after every action.*
   Rejected: installing a new constraint over old data would lock every
   action.

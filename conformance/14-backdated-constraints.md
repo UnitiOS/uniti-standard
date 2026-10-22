@@ -149,15 +149,15 @@ constraint Purchase.approved_if_large
 example small_after_old_large
   kind         accept
   title        Small purchase, while an old large purchase exists
-  explanation  p0 of 12,000,000 is already recorded. Andi records p2 of
+  explanation  p0 of 12,000,000 is already recorded. Omar records p2 of
                8,000,000 without an approver. Only p2 is touched, so p0 is not
                checked again with the approver of this action.
   zone         WIB
   facts        recorded 2 Jan 2026 09:00
-    andi   type      Person           valid 2 Jan 2026
+    omar   type      Person           valid 2 Jan 2026
     p0     type      Purchase         valid 2 Jan 2026
     f0: p0 total     12,000,000 IDR   valid 2 Jan 2026
-  action       recorded 12 Oct 2026 09:00, actor andi
+  action       recorded 12 Oct 2026 09:00, actor omar
     p2     type      Purchase         valid 12 Oct 2026
     p2     total     8,000,000 IDR    valid 12 Oct 2026
   result       accepted
@@ -170,7 +170,7 @@ example old_large_changed
                rejected.
   zone         WIB
   facts        as in small_after_old_large
-  action       recorded 12 Oct 2026 09:00, actor andi
+  action       recorded 12 Oct 2026 09:00, actor omar
     f1: p0 total     13,000,000 IDR   valid 12 Oct 2026   replaces f0
   result       rejected by approved_if_large, entity p0, at 12 Oct 2026
 ```

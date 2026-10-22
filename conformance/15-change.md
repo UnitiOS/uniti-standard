@@ -13,12 +13,12 @@ between two versions are computed by `program/versi.py`, and tested in
 
 ## U1. A new version adds a property
 
-As in 07 §4: Rudi freezes version 2, which adds the property "promised return
+As in 07 §4: Alex freezes version 2, which adds the property "promised return
 date". The machine counts one **addition**. The version 1 example comes along
 in version 2 unchanged, and still passes.
 
 ```uniti
-module rudi/rental@v1
+module alex/rental@v1
 
 concept Item
 concept Rental
@@ -54,7 +54,7 @@ example three_night_rental
   ask          r1.total_due   T: 6 Oct 2026   R: 6 Oct 2026 12:00
   result       150,000 IDR
 
-module rudi/rental@v2
+module alex/rental@v2
 
 concept Item
 concept Rental
@@ -95,14 +95,14 @@ example three_night_rental
 
 ## U2. A user is bound to an exact version
 
-The Kemah Ceria shop uses version 1, and nothing changes for it because version 2
+The Happy Camp shop uses version 1, and nothing changes for it because version 2
 exists (CHANGE-15). When the shop freezes a version that uses version 2, its
 examples are run again with version 2 (PROOF-24). The old rental can still be
 read, with the new property empty (07 §4).
 
 ```uniti
-module kemah-ceria/shop@v1
-  uses rudi/rental@v1
+module happy-camp/shop@v1
+  uses alex/rental@v1
 
 example weekend_rental
   kind         compute
@@ -120,8 +120,8 @@ example weekend_rental
   ask          s1.total_due   T: 16 Oct 2026   R: 16 Oct 2026 12:00
   result       60,000 IDR
 
-module kemah-ceria/shop@v2
-  uses rudi/rental@v2
+module happy-camp/shop@v2
+  uses alex/rental@v2
 
 example weekend_rental
   kind         compute

@@ -100,12 +100,12 @@ example b4_shift_schedule
                nurse, then recorded as a schedule fact.
   zone         WIB
   facts        recorded 1 Oct 2026 09:00
-    sari   type   Nurse   valid 1 Jan 2026
+    eva   type   Nurse   valid 1 Jan 2026
   action       recorded 25 Oct 2026 16:00, actor auto_scheduler, approver head_nurse
     j1     type     Shift                  valid 25 Oct 2026
-    j1     nurse    sari                   valid 25 Oct 2026
+    j1     nurse    eva                   valid 25 Oct 2026
     j1     start    1 Nov 2026 07:00       valid 25 Oct 2026
   result       accepted
   ask          j1.nurse   T: 25 Oct 2026   R: 25 Oct 2026 17:00
-  result       sari
+  result       eva
 ```

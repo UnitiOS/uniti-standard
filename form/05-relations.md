@@ -17,7 +17,7 @@ content without changing it.
 
 The relations in this document connect **content**: concepts, properties,
 choice lists, and choices. A relation between **entities**, for example "the
-customer of rental R1 is Budi", is not a relation in the sense of this
+customer of rental R1 is Sam", is not a relation in the sense of this
 document; it is a fact with a reference property
 ([`03-values.md`](03-values.md) §2.7).
 
@@ -34,7 +34,7 @@ into two groups.
 | **applies to** | `standard/applies_to` | property → concept | `plate_number` applies to Item |
 | **refers to** | `standard/refers_to` | property → concept | `customer` refers to Party |
 | **uses list** | `standard/uses_list` | property → choice list | `method` uses list PaymentMethod |
-| **in list** | `standard/in_list` | choice → choice list | `qris` is in list PaymentMethod |
+| **in list** | `standard/in_list` | choice → choice list | `qr_payment` is in list PaymentMethod |
 
 Structural relations are the card parts described in
 [`04-concepts.md`](04-concepts.md) and [`03-values.md`](03-values.md), written
@@ -81,7 +81,7 @@ content in Uniti**:
 
 - `uniti/party/Party` is **similar** to `schema:Organization`;
 - `uniti/common/name` is **the same as** `schema:name`;
-- `ani/cashier/qris` is **the same as** `dewi/shop/qris`.
+- `maria/cashier/qr_payment` is **the same as** `lena/shop/qr_payment`.
 
 Bridges connect content of the same kind: concept with concept, property with
 property, choice with choice.
@@ -155,19 +155,20 @@ content ([`00-principles.md`](../00-principles.md), P3 and P4).
 
 | Statement | Relation | Written in module |
 |---|---|---|
-| `rudi/rental/Rental` subtype of `uniti/transaction/Transaction` | structural | `rudi/rental` |
-| `rudi/rental/customer` refers to `uniti/party/Party` | structural | `rudi/rental` |
-| `rudi/rental/plate_number` applies to `uniti/item/Item` | structural | `rudi/rental` |
-| `rudi/rental/Rental` narrower `schema:RentAction` | bridge | `rudi/rental` |
+| `alex/rental/Rental` subtype of `uniti/transaction/Transaction` | structural | `alex/rental` |
+| `alex/rental/customer` refers to `uniti/party/Party` | structural | `alex/rental` |
+| `alex/rental/plate_number` applies to `uniti/item/Item` | structural | `alex/rental` |
+| `alex/rental/Rental` narrower `schema:RentAction` | bridge | `alex/rental` |
 
-The vocabulary does not change at all, and everything stays Rudi's.
+The vocabulary does not change at all, and everything stays Alex's.
 
 **Clinic and cashier.** The vocabulary has the open list
-`uniti/payment/PaymentMethod`. Klinik Sehat adds `klinik-sehat/cashier/bpjs`
-to that list. A pharmacy adds `apotek-ria/cashier/bpjs`. Klinik Sehat then
-declares `klinik-sehat/cashier/bpjs` **the same as**
-`apotek-ria/cashier/bpjs`, so that the combined report of the two can be
-computed together through a calculation rule.
+`uniti/payment/PaymentMethod`. Healthy Clinic adds
+`healthy-clinic/cashier/national_insurance` to that list. A pharmacy adds
+`city-pharmacy/cashier/national_insurance`. Healthy Clinic then declares
+`healthy-clinic/cashier/national_insurance` **the same as**
+`city-pharmacy/cashier/national_insurance`, so that the combined report of the
+two can be computed together through a calculation rule.
 
 **School.** `uniti/education/Class` is **similar** to `schema:Course`, with
 the note: "in schema.org, a Course is a subject; here a Class is a group of
@@ -175,10 +176,10 @@ students".
 
 ## 5. Non-examples
 
-- **"Budi is the customer of rental R1"** as a relation. That is a fact.
+- **"Sam is the customer of rental R1"** as a relation. That is a fact.
 - **A bridge that makes a system copy facts automatically** from one module to
   another module.
-- **Rudi declaring `uniti/transaction/Transaction` a subtype of something.**
+- **Alex declaring `uniti/transaction/Transaction` a subtype of something.**
   Only the owner of Transaction may state its parent.
 - **A self-made relation "owned by"** between concepts. The relation list is
   closed; such a need is recorded as a reference property.

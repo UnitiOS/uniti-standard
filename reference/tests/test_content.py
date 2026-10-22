@@ -135,7 +135,7 @@ class FirstVocabulary(unittest.TestCase):
     def test_two_domain_cases_pass(self):
         s = ModuleSet([m for t in ALL_CONTENT + [VOCABULARY_17] for m in read(t, markdown=True)])
         result = {report.example: report.status for report in run_all(s)
-                  if report.example.startswith(("kemah-ceria/rental/", "tunas-bangsa/tuition/"))}
+                  if report.example.startswith(("happy-camp/rental/", "bright-future/tuition/"))}
         self.assertEqual(len(result), 3)
         self.assertEqual(set(result.values()), {"passed"})
 

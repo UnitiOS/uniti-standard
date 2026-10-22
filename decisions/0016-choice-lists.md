@@ -5,8 +5,8 @@ Status: accepted
 
 **Context**
 A choice list such as "payment method" is made by one owner, but other
-organizations often need choices that do not exist yet, for example QRIS or
-BPJS.
+organizations often need choices that do not exist yet, for example QR payment or
+national insurance.
 
 **Decision**
 - A choice list has **its own address**, so that one list can be used by many

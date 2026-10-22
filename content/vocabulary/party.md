@@ -19,8 +19,8 @@ concept Party
   label.id       Pihak
   definition.en  A person or organization that can act, own something, or
                  make a promise to another party.
-  includes.en    Rental: Budi, who rents a tent.
-  includes.en    Clinic: Klinik Sehat, which receives payments from
+  includes.en    Rental: Sam, who rents a tent.
+  includes.en    Clinic: Healthy Clinic, which receives payments from
                  patients.
   excludes.en    Shop: "customer". That is the role of a party in a sale,
                  recorded as a reference from the sale to its party.
@@ -35,7 +35,7 @@ concept Person
   parent         Party
   includes.en    Organization: an employee bound by an employment contract.
   includes.en    School: a student who attends a class.
-  excludes.en    Rental: Toko Kemah Ceria, even though one person owns it.
+  excludes.en    Rental: Toko Happy Camp, even though one person owns it.
                  The shop is an organization.
   excludes.en    Loyalty: a member account in a points program. One person
                  can have more than one account.

@@ -53,7 +53,7 @@ which the example is written, plus the exact version of every module it uses
 ### 2.3 Entities and actions inside an example
 
 **Local id.** An entity inside an example does not use a real identifier. It
-is given a **local id**, for example `tent`, `r1`, or `sari`, which is valid
+is given a **local id**, for example `tent`, `r1`, or `eva`, which is valid
 only inside that example. When the example is run, the machine gives each
 local id a new identifier that has never been used outside the example. The
 order of these identifiers follows the order of their local ids, compared
@@ -177,12 +177,12 @@ vocabulary sees one behavior change line, complete with both numbers.
 
 ### 2.8 Contract between modules
 
-Rudi's module uses vocabulary version 3. Rudi's own examples have been proven
+Alex's module uses vocabulary version 3. Alex's own examples have been proven
 with vocabulary version 3.
 
-Before Rudi moves to vocabulary version 4, all of Rudi's examples are **run
+Before Alex moves to vocabulary version 4, all of Alex's examples are **run
 again** with vocabulary version 4. Those that fail are treated as in §2.7:
-Rudi fixes the module, or marks the example replaced. In this way Rudi knows
+Alex fixes the module, or marks the example replaced. In this way Alex knows
 exactly whether the move is safe, **before** freezing the version that uses
 it.
 
@@ -318,7 +318,7 @@ technical basis, whatever that decision is.
 **Rental: a compute example.**
 
 ```
-example rudi/rental/three_night_rental
+example alex/rental/three_night_rental
   kind         compute
   title        Three-night rental
   explanation  A tent at a rate of 50,000 a day is rented from 6 to 9 October.
@@ -345,7 +345,7 @@ for 10 to 13 October.
 
 | Example | Action | Result |
 |---|---|---|
-| `one_day_overlap` (reject) | Record rental `r2`, tent, 12 to 14 October | Rejected by `rudi/rental/no_overlap`, entity `r2` |
+| `one_day_overlap` (reject) | Record rental `r2`, tent, 12 to 14 October | Rejected by `alex/rental/no_overlap`, entity `r2` |
 | `adjoining_no_overlap` (accept) | Record rental `r2`, tent, 13 to 15 October | Accepted, because the first rental ends before 13 October |
 
 In `one_day_overlap`, the constraint fails twice: for `r2`, and also for `r1`,
@@ -355,8 +355,8 @@ of them is at entity `r2` (PROOF-32).
 
 **Organization: a reject example with an approver.** The constraint
 `approved_if_large` ([`06-calculation-rules.md`](06-calculation-rules.md)
-§2.12). Facts: `sari` has a contract with the job title manager. Action: record
-a purchase of 12,000,000 IDR, actor `sari`, approver `sari`. Result: rejected
+§2.12). Facts: `eva` has a contract with the job title manager. Action: record
+a purchase of 12,000,000 IDR, actor `eva`, approver `eva`. Result: rejected
 by `approved_if_large`, because the approver is the same as the actor. Here the
 action must not be abbreviated, because the actor and the approver are exactly
 what is tested.

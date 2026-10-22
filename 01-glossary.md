@@ -76,7 +76,7 @@ in the last column.
 | **Address** | Alamat | A unique and permanent name for an owner, module, concept, property, or choice, which contains its owner | `form/02-addresses` |
 | **Root** *[provisional]* | Akar | The start of the address that is the same for the whole ecosystem. For now `https://uniti.example` | `form/02-addresses` |
 | **Choice** | Pilihan | One value from a choice list, with its own address | `form/03-values` |
-| **Version reference** | Rujukan versi | The address of a module plus one exact version number, for example `rudi/rental@v3` | `form/02-addresses` |
+| **Version reference** | Rujukan versi | The address of a module plus one exact version number, for example `alex/rental@v3` | `form/02-addresses` |
 | **Draft** | Draf | Content that is being written and has not been frozen. Not yet part of the ecosystem | `form/07-change` |
 | **Version** | Versi | One state of a module that has been frozen and never changes again | `form/07-change` |
 | **Freeze** | Membekukan | To make a version fixed, after all its checks pass | `form/07-change` |

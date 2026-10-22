@@ -20,7 +20,7 @@ concept Payment
   label.id       Pembayaran
   definition.en  Money that moves from one party to another, once, in a
                  specific amount.
-  includes.en    Clinic: a patient pays for a visit with BPJS.
+  includes.en    Clinic: a patient pays for a visit with national insurance.
   includes.en    Loans: a borrower pays this month's installment.
   excludes.en    Subscription: a monthly invoice. An invoice is a request
                  to pay, and the money has not moved yet.

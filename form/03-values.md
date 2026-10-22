@@ -20,13 +20,13 @@ exactly one value type ([`04-concepts.md`](04-concepts.md) §2.2).
 
 | Value type | Address | Meaning | Example |
 |---|---|---|---|
-| **Text** | `standard/text` | A sequence of letters, may come with a language code (§2.5) | "Budi", "Tent with a capacity of 4 people"@en |
+| **Text** | `standard/text` | A sequence of letters, may come with a language code (§2.5) | "Sam", "Tent with a capacity of 4 people"@en |
 | **Number** | `standard/number` | An exact number, may come with a unit (§2.2, §2.3) | 3; 2.5 kg; 150,000 IDR |
 | **Yes/no** | `standard/yes_no` | One of two: yes or no | yes |
 | **Date** | `standard/date` | One calendar day, without a time of day (§2.4) | 6 October 2026 |
 | **Instant** | `standard/instant` | One exact point in time, with its time zone (§2.4) | 6 October 2026 at 09:00 WIB |
 | **Choice** | `standard/choice` | One choice from a choice list (§2.6) | paid in full |
-| **Reference** | `standard/reference` | The identifier of another entity (§2.7) | rental R1 → Budi |
+| **Reference** | `standard/reference` | The identifier of another entity (§2.7) | rental R1 → Sam |
 
 Money, weight, length, and duration are **not** value types of their own. All of
 them are written as a **number with a unit**.
@@ -143,11 +143,11 @@ The owner of a list declares its list:
 | **Closed** | Only the owner of the list may add choices, through a new version | list of currencies, list of genders in official documents |
 | **Open** | Anyone may add choices, in their own module | payment method, cancellation reason |
 
-A choice that is added to an open list owned by someone else keeps an address
-in the module of the one who added it. Example: `ani/cashier/qris` goes into
-the list `uniti/payment/PaymentMethod`. Because the address contains its owner,
-two people who both add `qris` do not collide. The two can be connected with a
-bridge ([`05-relations.md`](05-relations.md)).
+A choice that is added to an open list owned by someone else keeps an address in
+the module of the one who added it. Example: `maria/cashier/qr_payment` goes
+into the list `uniti/payment/PaymentMethod`. Because the address contains its
+owner, two people who both add `qr_payment` do not collide. The two can be
+connected with a bridge ([`05-relations.md`](05-relations.md)).
 
 An added choice applies only to organizations that install the module that adds
 it.
@@ -167,7 +167,7 @@ is referred to must belong to that concept or to its child concepts
 ([`04-concepts.md`](04-concepts.md) §2.5).
 
 Example: the property `customer` refers to the concept Party. Its value is the
-identifier of Budi, whose type is Person, and Person is a child concept of
+identifier of Sam, whose type is Person, and Person is a child concept of
 Party.
 
 ## 3. Rules
@@ -236,7 +236,7 @@ Party.
 
 ## 4. Examples
 
-**Equipment rental, two currencies.** The Kemah Ceria shop rents out tents to
+**Equipment rental, two currencies.** The Happy Camp shop rents out tents to
 tourists.
 
 | Fact | Subject | Property | Value |
@@ -260,7 +260,7 @@ uses f3. f3 is an ordinary fact, with its own provenance.
 
 **School, open list.** The vocabulary provides the open list
 `uniti/education/AbsenceReason`: sick, excused. A school in a coastal area adds
-`sekolah-bahari/attendance/at_sea` in its own module. Other schools do not see
+`seaside-school/attendance/at_sea` in its own module. Other schools do not see
 that choice unless they install that module.
 
 ## 5. Not examples
@@ -271,7 +271,7 @@ that choice unless they install that module.
 - **Approximate binary numbers** that make 0.1 + 0.2 become
   0.30000000000000004.
 - **"2026-10-06 09:00"** as an instant. Its time zone is not stated.
-- **The customer name "Budi" as a reference value.** A reference is an
+- **The customer name "Sam" as a reference value.** A reference is an
   identifier, not a name.
 - **A yes/no value "unknown".** When something is unknown, there is no fact
   about it.

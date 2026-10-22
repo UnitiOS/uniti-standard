@@ -8,8 +8,8 @@ library.
 
 The inventory vocabulary has `Item.available`, open, together with the
 properties `item` and `amount` that the three contributing modules use. The
-rental module belongs to Rudi. The first organization installs all three; the
-second organization does not install Rudi's module.
+rental module belongs to Alex. The first organization installs all three; the
+second organization does not install Alex's module.
 
 ```uniti
 module paper/p1-inventory@v1
@@ -46,7 +46,7 @@ applies to Sale:
 contribution sold to Item.available:
   − sum(all(Sale, j: j.item = this), j: j.amount)
 
-module rudi/p1-rental@v1
+module alex/p1-rental@v1
   uses paper/p1-inventory@v1
 
 concept Rental
@@ -70,7 +70,7 @@ module paper/p1-shop@v1
   uses paper/p1-inventory@v1
   uses paper/p1-purchasing@v1
   uses paper/p1-sales@v1
-  uses rudi/p1-rental@v1
+  uses alex/p1-rental@v1
 
 example available_while_rented
   kind         compute
@@ -131,7 +131,7 @@ module paper/p1-shop-without-rental@v1
 example without_rental_module
   kind         compute
   title        Organization without the rental module
-  explanation  Without Rudi's module there is no rental contribution:
+  explanation  Without Alex's module there is no rental contribution:
                10 − 3 = 7, also on 6 October.
   zone         WIB
   facts        recorded 5 Oct 2026 09:00
