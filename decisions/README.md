@@ -82,3 +82,4 @@ Consequences  What changes or must be done because of this decision
 | [0056](0056-conformance-test-owners-and-known-gap.md) | Owners inside the conformance tests, and a known gap | 2026-10-22 | partly replaced by 0058 |
 | [0057](0057-closure-before-lock.md) | Closure before the lock | 2026-10-22 | accepted |
 | [0058](0058-rejection-of-facts-with-a-wrong-form.md) | Rejection of facts with a wrong form | 2026-10-22 | accepted |
+| [0059](0059-compatibility-promise.md) | The compatibility promise | 2026-10-22 | accepted |

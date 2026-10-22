@@ -87,7 +87,7 @@ is right, and the guide is what must be fixed.
 | [`conformance/`](conformance/README.md) | 23 case files with 188 examples, run as tests, with how to run them per level |
 | [`guide/`](guide/overview.md) | Reading aids: tour, overview, implementer guide |
 | [`rules.md`](rules.md) | The index of all 221 rules |
-| [`decisions/`](decisions/README.md) | 58 decision records |
+| [`decisions/`](decisions/README.md) | 59 decision records |
 | [`reference/`](reference/README.md) | The reference calculator in Python, and its tests |
 | [`AGENTS.md`](AGENTS.md) | Working rules for code agents in this repository |
 
@@ -175,6 +175,37 @@ The list of what is marked [provisional] at present:
 | `form/04-concepts.md` §2.8, CONCEPT-20: personal data mark | Review of data protection law, together with redaction |
 | `form/06-calculation-rules.md` §2.9 and §2.15: redacted values inside calculation and projections | Following redaction |
 | `form/02-addresses.md` §2.5, ADDRESS-15: the provisional ‹root› `https://uniti.example` | The real domain; ecosystem study, topic C1 (Indonesian archive, `kajian/01-ekosistem.md`). To be replaced once before v0.1 is stable |
+
+### Versions and compatibility
+
+Whoever builds on v0.1 can rely on this
+([`decisions/0059`](decisions/0059-compatibility-promise.md)):
+
+- **A defined result never changes.** For the same facts, modules, and
+  question, a value or empty stays the same in every later version, and an
+  action that is accepted stays accepted.
+- **Only the strict answers may be relaxed.** A result that is not
+  computable, a rejection by a rule of the standard, or a refusal may become
+  a defined result or an acceptance in a later version, for a practical case
+  and with a decision of its own. Until then it keeps its reason kind or its
+  rule.
+- **Not covered:** parts marked [provisional], content inside modules (it
+  changes by module versions, [`form/07-change.md`](form/07-change.md)), and
+  the texts that are not normative. While v0.1 is locked and not yet stable,
+  a blocker may change a defined result only where the text could be read two
+  ways or contradicts itself, each time with a decision and an entry in the
+  change log.
+
+| Version | What it may contain |
+|---|---|
+| v0.1.0 | The version that is locked |
+| v0.1.1, v0.1.2, … | Blocker fixes, words, links, new examples and guides; no relaxing |
+| v0.2, v0.3, … | New rules and operations, relaxing, postponed parts such as ownership |
+
+An implementation states the version and the level it conforms to, for
+example "Uniti Standard v0.1, level 1". When a later version relaxes a
+result, the conformance example that expected the old result is marked
+replaced there, and stays the test for the older version.
 
 ### Known gaps
 
