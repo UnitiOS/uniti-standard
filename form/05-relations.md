@@ -1,6 +1,6 @@
 # Relations
 
-Status: draft
+Status: locked (v0.1.0)
 
 > [Uniti Standard](../README.md) › Part A: form, 5 of 8
 > · Previous: [Concepts and properties](04-concepts.md)

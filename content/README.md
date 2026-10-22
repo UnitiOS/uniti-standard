@@ -1,6 +1,6 @@
 # Content
 
-Status: draft; stage 6 done
+Status: locked (v0.1.0)
 Opened: 2026-10-20
 
 Part B of the standard: content that is used in common. Its form follows part
@@ -12,8 +12,8 @@ A, and its content may keep growing without changing the form
 Stage 6 ([`decisions/0004`](../decisions/0004-how-to-write.md)) writes the
 first content: the card templates, the code lists, the calculation library, and
 the first vocabulary. This first content also tests one thing that has never
-been tested, which is a module in the **full form**, which will be frozen in
-stage 7.
+been tested, which is a module in the **full form**, which is frozen when
+v0.1 is locked.
 
 The scope is deliberately narrow. The first vocabulary holds only content that
 cases from at least two domains already need. Other content waits until after
@@ -30,7 +30,9 @@ v0.1, and enters through the vocabulary entry rules (§3).
 | B5 | [`vocabulary/`](vocabulary/) | The first vocabulary: three modules in §4 | `uniti/party@v1`, `uniti/item@v1`, `uniti/payment@v1` |
 | B6 | Tests | The reference calculator checks the full form, reads the code lists, and runs the cases of [`17-vocabulary.md`](../conformance/17-vocabulary.md) | — |
 
-All content modules are frozen as v1 when v0.1 is locked (stage 8).
+All content modules were frozen as v1 when v0.1 was locked
+([`CHANGELOG.md`](../CHANGELOG.md), v0.1.0). A change makes a new version
+([`form/07-change.md`](../form/07-change.md)).
 
 ## 3. Vocabulary entry rules
 

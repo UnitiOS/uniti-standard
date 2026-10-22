@@ -1,6 +1,6 @@
 # Appendix A. Notation
 
-Status: draft
+Status: locked (v0.1.0)
 
 > [Uniti Standard](../README.md) › Appendix
 > · Previous: [Proof](../form/08-proof.md)

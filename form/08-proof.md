@@ -1,6 +1,6 @@
 # Proof
 
-Status: draft
+Status: locked (v0.1.0)
 
 > [Uniti Standard](../README.md) › Part A: form, 8 of 8
 > · Previous: [Change](07-change.md)
@@ -435,8 +435,8 @@ archive). Every case there will later be rewritten in this form.
    example be a data generator instead of a list of facts?
 3. **Examples for bridges.** Does a "same as" bridge between two modules need
    to be proven with an example?
-4. **Storage format of examples.** The written form in §4 is the reference
-   notation, detailed in
+4. **Storage format of examples.** Answered: the written form in §4 is the
+   reference notation, detailed in
    [`appendix/A-notation.md`](../appendix/A-notation.md) §2.9. The default time
    zone of an example and the unchecked starting facts were added when the
    notation was written

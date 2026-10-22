@@ -6,9 +6,12 @@ community, a company, or an institution in any domain, can make content that
 is immediately usable together with content made by others, without knowing
 each other and without conflict.
 
-> **Status: v0.1, draft.** All parts of v0.1 are written. The next step is to
-> lock v0.1 ([`decisions/0052`](decisions/0052-quick-test-then-lock.md)).
-> Until then, any part may still change.
+> **Status: v0.1.0, locked.** v0.1 no longer grows. Until it is stable, it
+> changes only for blockers found while building the first system, each with
+> its own decision ([`decisions/0052`](decisions/0052-quick-test-then-lock.md)).
+> What may change and what may not is in
+> [Versions and compatibility](#versions-and-compatibility); what changed is in
+> [`CHANGELOG.md`](CHANGELOG.md).
 
 ---
 
@@ -89,6 +92,7 @@ is right, and the guide is what must be fixed.
 | [`rules.md`](rules.md) | The index of all 221 rules |
 | [`decisions/`](decisions/README.md) | 59 decision records |
 | [`reference/`](reference/README.md) | The reference calculator in Python, and its tests |
+| [`CHANGELOG.md`](CHANGELOG.md) | What changed in each version |
 | [`GOVERNANCE.md`](GOVERNANCE.md) | Who decides, how to propose a change, and the limits on every change |
 | [`ROADMAP.md`](ROADMAP.md) | What comes after v0.1, and every open question by when it is needed |
 | [`AGENTS.md`](AGENTS.md) | Working rules for code agents in this repository |

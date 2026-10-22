@@ -1,6 +1,6 @@
 # Values
 
-Status: draft
+Status: locked (v0.1.0)
 
 > [Uniti Standard](../README.md) › Part A: form, 3 of 8
 > · Previous: [Addresses](02-addresses.md)

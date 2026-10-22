@@ -1,6 +1,6 @@
 # Principles
 
-Status: draft
+Status: locked (v0.1.0)
 
 > [Uniti Standard](README.md) › Principles · Next: [Glossary](01-glossary.md)
 
@@ -161,6 +161,6 @@ The words follow the convention of international standard documents (RFC
   rules of part A for the facts it stores.
 
 The way to prove conformance, a set of tests that anyone can run, is set in
-[`form/08-proof.md`](form/08-proof.md) §2.9. The content of the tests is
-written when v0.1 is locked
-([`decisions/0052-quick-test-then-lock.md`](decisions/0052-quick-test-then-lock.md)).
+[`form/08-proof.md`](form/08-proof.md) §2.9. The tests are the examples in
+[`conformance/`](conformance/README.md)
+([`decisions/0056`](decisions/0056-conformance-test-owners-and-known-gap.md)).

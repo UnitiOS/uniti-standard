@@ -1,6 +1,6 @@
 # Code lists
 
-Status: draft
+Status: locked (v0.1.0)
 
 ## 1. Purpose
 

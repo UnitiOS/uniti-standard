@@ -223,7 +223,7 @@ example three_lengths
 
 `history` of a property with many values is a collection with no order, of
 records `{value, range}`. Here the office number of Maria is replaced on
-1 November, and her home number stays: three records in 2026.
+1 November, and the home number of Maria stays: three records in 2026.
 
 ```uniti
 module reference/closure-many@v1
@@ -274,8 +274,8 @@ applies to Customer:
 example correct_name_of_old_record
   kind         accept
   title        Typo in the name of an old customer
-  explanation  Nina was recorded before the phone was required, so she has a
-               name and no phone. Her name is corrected. The missing phone was
+  explanation  Nina was recorded before the phone was required, so the record
+               has a name and no phone. The name of Nina is corrected. The missing phone was
                there before the action, so it does not block.
   zone         WIB
   facts        recorded 1 Mar 2026 09:00
@@ -298,7 +298,7 @@ example new_customer_without_phone
 
 example retract_phone_of_customer
   kind         reject
-  title        Correction that removes a phone
+  title        Retraction of a phone
   explanation  Maria has a phone. Retracting it makes the gap in this action,
                not before it, so it is rejected.
   zone         WIB

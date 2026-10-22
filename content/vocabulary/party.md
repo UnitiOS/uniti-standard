@@ -1,6 +1,6 @@
 # Party
 
-Status: draft
+Status: locked (v0.1.0)
 
 Who acts, owns, or promises: people and organizations. Roles such as
 customer, employee, and student are not concepts here. A role is recorded as a

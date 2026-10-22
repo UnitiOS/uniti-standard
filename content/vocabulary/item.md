@@ -1,6 +1,6 @@
 # Item
 
-Status: draft
+Status: locked (v0.1.0)
 
 An item that is stored, sold, rented out, or made. The vocabulary holds only
 the concept Item and the reference to an item. Other properties, such as

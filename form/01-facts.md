@@ -1,6 +1,6 @@
 # Facts
 
-Status: draft
+Status: locked (v0.1.0)
 
 > [Uniti Standard](../README.md) › Part A: form, 1 of 8
 > · Previous: [Glossary](../01-glossary.md) · Next: [Addresses](02-addresses.md)

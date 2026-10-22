@@ -1,6 +1,6 @@
 # Change
 
-Status: draft
+Status: locked (v0.1.0)
 
 > [Uniti Standard](../README.md) › Part A: form, 7 of 8
 > · Previous: [Calculation rules](06-calculation-rules.md)
@@ -77,16 +77,18 @@ of the module that is used changes nothing until its user itself freezes a new
 version that names that version.
 
 An organization installs **one version of each module**, counting the modules
-that its installed modules use. If the cashier module uses `uniti/item@v2`
-while the warehouse module still uses `uniti/item@v1`, it is not clear which
-version calculates a property of an item, so the installation that would make
-two versions is refused, naming both. The organization waits until both
+that its installed modules use. For example, if a cashier module uses
+`uniti/item@v2` while a warehouse module still uses `uniti/item@v1`, it is not
+clear which version calculates a property of an item, so the installation that
+would make two versions is refused, naming both. The organization waits until both
 modules use the same version.
 
 A module whose content is used by facts that are already recorded **cannot be
 uninstalled**, because those facts must stay readable, for example for an
 audit. The organization may move to another version of it, or keep it
-installed and stop recording with it
+installed and stop recording with it. Moving to another version replaces the
+version that is installed; it is not an uninstall, and the facts keep the
+version they were recorded with (§2.6)
 ([`decisions/0057`](../decisions/0057-closure-before-lock.md)).
 
 ### 2.6 Facts and versions

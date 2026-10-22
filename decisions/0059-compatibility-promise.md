@@ -55,7 +55,7 @@ only helps if the relaxation is promised to be the only kind of change.
      ([`decisions/0048`](0048-ownership-to-v02.md)).
    - The step to v1.0 is decided later.
 5. **Conformance per version.** An implementation states the version of the
-   standard it conforms to, together with its level (PROOF-26), for example
+   standard it conforms to, together with its level (PROOF-26, PROOF-27), for example
    "Uniti Standard v0.1, level 1". When a later version relaxes a result, the
    conformance example that expected the old result is marked replaced in
    that version (08 §2.7). It stays readable, and it is still the test for

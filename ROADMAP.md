@@ -2,7 +2,7 @@
 
 Status: not normative; what comes after v0.1, and what is still open
 
-v0.1 is complete and is about to be locked. What follows is grouped by
+v0.1 is locked (v0.1.0, [`CHANGELOG.md`](CHANGELOG.md)). What follows is grouped by
 **when** it is needed, not by document. Every item that changes the form goes
 through the findings gate
 ([`decisions/0046`](decisions/0046-findings-gate.md)) and keeps the
@@ -36,7 +36,6 @@ first ([`decisions/0052`](decisions/0052-quick-test-then-lock.md)).
 | Who marks a behavior change in the vocabulary | `form/08-proof.md` §8 question 5 |
 | Private content of an organization: its own root or the shared one | `form/02-addresses.md` §8 question 2 |
 | One entity in two organizations, addresses of entities across organizations, and references to them | `form/01-facts.md` §8 question 2, `form/02-addresses.md` §8 question 3, `form/03-values.md` §8 question 6 |
-| Stating the version of the standard in a conformance claim, as a rule | PROOF-26; README "Versions and compatibility" |
 
 ## 3. After the first system runs
 

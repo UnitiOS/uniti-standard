@@ -125,7 +125,7 @@ example correction_of_an_ending
   kind         reject
   title        A correction aimed at an ending
   explanation  Maria sees that the price of a lamp was ended on the wrong date.
-               She records a correction of the ending with a price. An ending
+               Maria records a correction of the ending with a price. An ending
                has no value to correct. A wrong ending is retracted, and the
                right one is recorded.
   zone         WIB

@@ -1,6 +1,6 @@
 # Calculation library
 
-Status: draft
+Status: locked (v0.1.0)
 
 The first calculation library: helpers without a concept in the vocabulary
 module `uniti/calc`, written only with the core operations

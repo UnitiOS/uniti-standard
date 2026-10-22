@@ -1,6 +1,6 @@
 # Calculation rules
 
-Status: draft
+Status: locked (v0.1.0)
 
 > [Uniti Standard](../README.md) › Part A: form, 6 of 8
 > · Previous: [Relations](05-relations.md) · Next: [Change](07-change.md)
@@ -248,7 +248,7 @@ The first calculation library, `uniti/calc`:
 | `allocate(total, list, to, remainder)` | Divides a total by weight, with the sum of the shares exactly equal to the total (§2.8) |
 | `convert_money(n, to, rate)` | Converts currency with an exchange rate from facts. The rate is read only if the currencies differ |
 
-Its draft, together with examples, is in
+Its content, together with examples, is in
 [`content/calc.md`](../content/calc.md).
 
 An implementation may calculate the library helpers in its own way, as long
@@ -273,8 +273,9 @@ properties, and its range is formed in the rule, like `Rental.term` in §2.4.
 
 **Order of a collection.** A collection from `all` and `group` has no order,
 so a `fold` over it must name `order_by`. A collection from `split`,
-`history`, `[…]`, and `append` is already ordered, and `order_by` may be
-omitted. A summary such as `sum` does not depend on order.
+`history` of a property with one value, `[…]`, and `append` is already
+ordered, and `order_by` may be omitted. `history` of a property with many
+values has no order. A summary such as `sum` does not depend on order.
 
 **Tie-breaker.** If two members are equal by `order_by`, their order is
 decided by, one after the other:
@@ -414,7 +415,7 @@ divided by areas of 120, 80, and 100 m² becomes 4,000,000, 2,666,667, and
 | Operation | Condition and resulting unit |
 |---|---|
 | `+`, `−`, comparison | Both sides must have the same unit. 1 kg + 500 g is not computable, unless converted first |
-| `×`, `÷` | Units are combined: cm × cm × cm = cm³; cm³ ÷ (cm³/kg) = kg. A code may reach the power 3 or −3 at most ([`appendix/A-notation.md`](../appendix/A-notation.md) §2.4); a result with a higher power, for example cm⁴, is not computable because of unit mismatch |
+| `×`, `÷`, `power` | Units are combined: cm × cm × cm = cm³; cm³ ÷ (cm³/kg) = kg. A code may reach the power 3 or −3 at most ([`appendix/A-notation.md`](../appendix/A-notation.md) §2.4); a result with a higher power, for example cm⁴, is not computable because of unit mismatch |
 | Result of a computed property | The unit must match the quantity on its property card |
 
 A daily rate, for example, has the unit IDR/day, so rate × `span(term, day)`
@@ -570,11 +571,12 @@ A constraint is written in a module and applies to organizations that install
 that module. Anyone may write a constraint for a concept owned by anyone.
 
 **One action at a time.** Actions are checked and recorded one at a time, in
-the order in which they are recorded. *Before the action* means the facts
-recorded before it; *after the action* means those facts plus the facts of the
-action. When two cashiers rent out the last tent at the same moment, the
-action recorded first is checked first, and the second is checked against it
-and rejected ([`decisions/0057`](../decisions/0057-closure-before-lock.md)).
+the order in which they are recorded, also when two actions have the same
+recorded time. *Before the action* means the facts recorded before it; *after
+the action* means those facts plus the facts of the action. For example, when
+two cashiers rent out the last tent at the same moment, the action recorded
+first is checked first, and the second is checked against it and rejected
+([`decisions/0057`](../decisions/0057-closure-before-lock.md)).
 
 **Checked per action.** Like required properties
 ([`04-concepts.md`](04-concepts.md) §2.7), a constraint is checked after all
@@ -1054,10 +1056,9 @@ by themselves, without a "sort" operation.
 
 ## 8. Open questions
 
-1. **Full notation.** Detailed in
-   [`appendix/A-notation.md`](../appendix/A-notation.md), which is still a
-   draft. This document becomes a proposal together with that appendix. The
-   gaps in meaning that were found when writing the notation have been decided
+1. **Full notation.** Answered: detailed in
+   [`appendix/A-notation.md`](../appendix/A-notation.md), locked together
+   with this document. The gaps in meaning that were found when writing the notation have been decided
    here
    ([`decisions/0043`](../decisions/0043-additions-from-notation.md)), and so
    have the gaps found by the reference calculator

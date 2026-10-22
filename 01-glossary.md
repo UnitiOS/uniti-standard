@@ -1,6 +1,6 @@
 # Glossary
 
-Status: draft
+Status: locked (v0.1.0)
 
 > [Uniti Standard](README.md) › Glossary
 > · Previous: [Principles](00-principles.md) · Next: [Facts](form/01-facts.md)

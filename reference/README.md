@@ -86,6 +86,8 @@ finding below), **notation error**, or **replaced** (PROOF-21).
 | `../conformance/18-module-swap.md` | A shop changes cashier: the old and the new rentals are computed together, and the old rental is returned through the new cashier | stage 7, 7.1 (quick test, Indonesian archive, `uji/03-uji-singkat.md`) |
 | `../conformance/19-reading-facts.md` | A corrected history: a correction of a replacement, a change that became known later, a correction that moves a date, and a retraction | stage 7, 7.3 ([decision 0053](../decisions/0053-reading-corrected-facts.md)) |
 | `../conformance/20-written-choices.md` | Calendar month, `split`, an entity with two types, a property with many values, and a constraint whose result is empty | stage 7, 7.3 ([decision 0054](../decisions/0054-reference-choices-into-text.md)) |
+| `../conformance/21-closure.md`, `tests/test_closure.py` | One action at a time, `unit_of`, `history`, unit powers, an old gap in a required property, and members in tie-breaker order | stage 8 ([decision 0057](../decisions/0057-closure-before-lock.md)) |
+| `../conformance/22-fact-form.md`, `tests/test_fact_form.py` | Actions rejected because a fact has a wrong form | stage 8 ([decision 0058](../decisions/0058-rejection-of-facts-with-a-wrong-form.md)) |
 | `tests/test_cases.py` | Every example in the cases and the content passes, and fails if its expected result is changed | 3 |
 | `tools/rules_index.py`, `tests/test_rules_index.py` | Makes [`../rules.md`](../rules.md), the index of all rules, from the form documents and appendix A; the test fails when the index no longer matches them. Run `python -m tools.rules_index` after a rule changes | stage 8 |
 

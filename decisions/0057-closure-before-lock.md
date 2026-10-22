@@ -9,7 +9,7 @@ that it does not settle yet. The aim of the lock is that v0.1 can be used
 without being revised: what is added later may only add, never change a
 result that is already given.
 
-Twelve situations were found. Each of them could make two implementations
+Eleven situations were found. Each of them could make two implementations
 differ (blocker H1 in [`decisions/0052`](0052-quick-test-then-lock.md)), or
 looked open while the text already answers it:
 
@@ -21,7 +21,7 @@ looked open while the text already answers it:
   case needed them.
 - **T9 and T10.** Two versions of one module in one organization, and
   uninstalling a module whose facts remain (quick test, S7 and S2).
-- **T11.** Five open questions that the existing rules already answer, and
+- **T11.** Four open questions that the existing rules already answer, and
   one, a property that becomes required in a later version (quick test,
   S10), that blocks a common correction.
 

@@ -1,6 +1,6 @@
 # Card templates
 
-Status: draft
+Status: locked (v0.1.0)
 
 Templates for writing cards in the full form, which is the form for a module
 that will be frozen (appendix A §2.8, NOTATION-17). The parts that the

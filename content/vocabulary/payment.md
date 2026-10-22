@@ -1,6 +1,6 @@
 # Payment
 
-Status: draft
+Status: locked (v0.1.0)
 
 Money that moves from one party to another. Its amount has **no direction**,
 because the same payment is money out for the payer and money in for the
