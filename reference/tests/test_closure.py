@@ -1,4 +1,5 @@
-"""Tests for decision 0057 (closure before the lock): T2 to T7, T9, T11c.
+"""Tests for decision 0057 (closure before the lock): T2 to T7, T9, T11c,
+and quick test S9 (members in tie-breaker order).
 
 T1 and the examples are in conformance/21-closure.md.
 """
@@ -239,3 +240,58 @@ class OneVersion(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+TEAM = """
+module ref/team@v1
+
+concept Person
+concept Team
+property score : number (position)
+property extra : number (position)
+property divisor : number (position)
+property members : reference Person, many
+
+applies to Person:
+  score
+  extra
+  divisor
+
+applies to Team:
+  members
+
+computed Person.points : number (position), closed:
+  (this.score + this.extra) ÷ this.divisor
+
+computed Team.total : number (position), closed:
+  sum(this.members, p: p.points)
+
+example first_reason
+  kind         compute
+  title        First reason
+  explanation  Two members fail for different reasons.
+  zone         WIB
+  facts        recorded 1 Jan 2026
+    b     type      Person   valid 1 Jan 2026
+    b     score     1 IDR    valid 1 Jan 2026
+    b     extra     1 m      valid 1 Jan 2026
+    b     divisor   1        valid 1 Jan 2026
+    a     type      Person   valid 2 Jan 2026
+    a     score     1        valid 2 Jan 2026
+    a     extra     1        valid 2 Jan 2026
+    a     divisor   0        valid 2 Jan 2026
+    t     type      Team     valid 1 Jan 2026
+    t     members   a        valid 2 Jan 2026
+    t     members   b        valid 3 Jan 2026
+  ask          t.total   T: 1 Feb 2026   R: 1 Feb 2026
+  result       not computable: unit mismatch
+"""
+
+
+class MembersInTieBreakerOrder(unittest.TestCase):
+    """Quick test S9: the members of a reference with many values are
+    calculated in tie-breaker order (06 §2.9, CALC-52), not in the order of
+    their facts. b is first by its type fact, although a was added first."""
+
+    def test_reason_of_the_first_member_by_tie_breaker(self):
+        self.assertEqual(status(TEAM)["first_reason"][0], "passed")

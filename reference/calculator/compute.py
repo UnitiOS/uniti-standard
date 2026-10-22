@@ -543,8 +543,21 @@ class Evaluator:
         unordered = not k.ordered and not all(isinstance(m, Entity) for m in k.members)
         if binder is None:
             value = list(k.members)
-        elif not unordered:
+        elif k.ordered:
             value = [self._bind(binder, env, m) for m in k.members]
+        elif not unordered:
+            # Entities with no order: the first reason is that of the first
+            # member in tie-breaker order (06 §2.9, CALC-52; quick test S9).
+            value, failed = [], []
+            for m in k.members:
+                try:
+                    value.append(self._bind(binder, env, m))
+                except NotComputable as e:
+                    failed.append((m, e))
+            if len(failed) == 1:
+                raise failed[0][1]
+            if failed:
+                raise min(failed, key=lambda p: self.tie_key(p[0], env.T))[1]
         else:
             value, failed = [], []
             for m in k.members:

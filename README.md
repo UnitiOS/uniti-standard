@@ -89,6 +89,8 @@ is right, and the guide is what must be fixed.
 | [`rules.md`](rules.md) | The index of all 221 rules |
 | [`decisions/`](decisions/README.md) | 59 decision records |
 | [`reference/`](reference/README.md) | The reference calculator in Python, and its tests |
+| [`GOVERNANCE.md`](GOVERNANCE.md) | Who decides, how to propose a change, and the limits on every change |
+| [`ROADMAP.md`](ROADMAP.md) | What comes after v0.1, and every open question by when it is needed |
 | [`AGENTS.md`](AGENTS.md) | Working rules for code agents in this repository |
 
 To run all tests, from this folder (Python 3):
@@ -223,7 +225,8 @@ Every decision that shapes the standard is recorded in `decisions/`, one
 decision per file, with what was decided, the reasons, and the alternatives
 that were rejected. The main documents only need to contain the outcome. A
 finding changes the form only through the findings gate
-([`decisions/0046`](decisions/0046-findings-gate.md)).
+([`decisions/0046`](decisions/0046-findings-gate.md)). How to propose a change,
+and who decides, is in [`GOVERNANCE.md`](GOVERNANCE.md).
 
 ### Language and the Indonesian archive
 

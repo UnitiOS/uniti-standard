@@ -17,7 +17,7 @@ normative and what is not.
 | How to write a rule, card, or example | [`appendix/A-notation.md`](appendix/A-notation.md), and the templates in [`content/card-templates.md`](content/card-templates.md) |
 | A worked example of a feature | [`conformance/README.md`](conformance/README.md), which lists every example with its group and level |
 | Why something is as it is | [`decisions/`](decisions/README.md). Search for the rule ID or the term |
-| What is still open | §8 "Open questions" of each form document, and the [provisional] list in [`README.md`](README.md) |
+| What is still open | [`ROADMAP.md`](ROADMAP.md), which groups the §8 "Open questions" of each form document and the [provisional] list by when they are needed |
 
 Each form document has the same eight sections: Purpose, Definitions, Rules,
 Examples, Not examples, Reasons, Outside standards, Open questions. The rules

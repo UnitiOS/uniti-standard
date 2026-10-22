@@ -55,7 +55,7 @@ reports OK.
 ### 2.1 All tests
 
 The whole test suite of the reference calculator, including all conformance
-files (222 tests):
+files (223 tests):
 
 ```
 python -m unittest discover -s reference/tests -t reference
