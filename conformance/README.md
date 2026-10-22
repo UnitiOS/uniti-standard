@@ -55,7 +55,7 @@ reports OK.
 ### 2.1 All tests
 
 The whole test suite of the reference calculator, including all conformance
-files (194 tests):
+files (222 tests):
 
 ```
 python -m unittest discover -s reference/tests -t reference
@@ -104,13 +104,13 @@ files, as in section 2.1, or the list of the level above.
 POSIX shell:
 
 ```
-CASES="03-rental.md,04-payroll.md,05-subscription.md,08-school.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,21-closure.md" python -m unittest discover -s reference/tests -t reference -p test_cases.py
+CASES="03-rental.md,04-payroll.md,05-subscription.md,08-school.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,21-closure.md,22-fact-form.md" python -m unittest discover -s reference/tests -t reference -p test_cases.py
 ```
 
 Windows PowerShell:
 
 ```
-$env:CASES = "03-rental.md,04-payroll.md,05-subscription.md,08-school.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,21-closure.md"; python -m unittest discover -s reference/tests -t reference -p test_cases.py; Remove-Item Env:CASES
+$env:CASES = "03-rental.md,04-payroll.md,05-subscription.md,08-school.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,21-closure.md,22-fact-form.md"; python -m unittest discover -s reference/tests -t reference -p test_cases.py; Remove-Item Env:CASES
 ```
 
 **Level 2** (adds `00`, `01`, `07`, `11`, `15`, `20`)
@@ -118,13 +118,13 @@ $env:CASES = "03-rental.md,04-payroll.md,05-subscription.md,08-school.md,12-logi
 POSIX shell:
 
 ```
-CASES="00-form-examples.md,01-finance.md,03-rental.md,04-payroll.md,05-subscription.md,07-clinic.md,08-school.md,11-loyalty.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,15-change.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,20-written-choices.md,21-closure.md" python -m unittest discover -s reference/tests -t reference -p test_cases.py
+CASES="00-form-examples.md,01-finance.md,03-rental.md,04-payroll.md,05-subscription.md,07-clinic.md,08-school.md,11-loyalty.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,15-change.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,20-written-choices.md,21-closure.md,22-fact-form.md" python -m unittest discover -s reference/tests -t reference -p test_cases.py
 ```
 
 Windows PowerShell:
 
 ```
-$env:CASES = "00-form-examples.md,01-finance.md,03-rental.md,04-payroll.md,05-subscription.md,07-clinic.md,08-school.md,11-loyalty.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,15-change.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,20-written-choices.md,21-closure.md"; python -m unittest discover -s reference/tests -t reference -p test_cases.py; Remove-Item Env:CASES
+$env:CASES = "00-form-examples.md,01-finance.md,03-rental.md,04-payroll.md,05-subscription.md,07-clinic.md,08-school.md,11-loyalty.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,15-change.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,20-written-choices.md,21-closure.md,22-fact-form.md"; python -m unittest discover -s reference/tests -t reference -p test_cases.py; Remove-Item Env:CASES
 ```
 
 **Level 3** (adds `02`, `06`, `09`, `10`): this is every file, so it is the
@@ -160,9 +160,10 @@ python -m unittest discover -s reference/tests -t reference -p test_cases.py
 | [`19-reading-facts.md`](19-reading-facts.md) | Reading at two times after corrections, retractions, and late reports | Facts; Values and concepts; Constraints | 1 | 15 |
 | [`20-written-choices.md`](20-written-choices.md) | Calendar months, split, two types of one entity, empty collections, empty constraint checks | Calculation level 1; Calculation level 2; Constraints | 2 | 12 |
 | [`21-closure.md`](21-closure.md) | Situations closed before the lock: one action at a time, `unit_of`, `history`, unit powers, an old gap in a required property (decision 0057) | Values and concepts; Calculation level 1; Constraints | 1 | 12 |
+| [`22-fact-form.md`](22-fact-form.md) | Actions rejected because a fact has a wrong form: FACT-2, FACT-9, FACT-10, FACT-11, FACT-13, FACT-14, and the right way (decision 0058) | Facts | — | 13 |
 
 Level "—" means that no calculation rule ran in any example of the file.
-There are 175 examples in these files, and 7 more in `content/calc.md`
+There are 188 examples in these files, and 7 more in `content/calc.md`
 (section 5).
 
 ## 4. Every example
@@ -462,6 +463,24 @@ in Facts or Values and concepts.
 | `reference/required-later/correct_name_of_old_record` | accept | Values and concepts | — |
 | `reference/required-later/new_customer_without_phone` | reject | Values and concepts | — |
 | `reference/required-later/retract_phone_of_customer` | reject | Values and concepts | — |
+
+### 22-fact-form.md
+
+| Example | Kind | Group | Level |
+|---|---|---|---|
+| `reference/fact-form/ending_with_a_value` | reject | Facts | — |
+| `reference/fact-form/correction_without_a_value` | reject | Facts | — |
+| `reference/fact-form/target_of_another_customer` | reject | Facts | — |
+| `reference/fact-form/target_in_the_same_action` | reject | Facts | — |
+| `reference/fact-form/replacement_on_the_same_date` | reject | Facts | — |
+| `reference/fact-form/correction_of_an_ending` | reject | Facts | — |
+| `reference/fact-form/retraction_of_a_retraction` | reject | Facts | — |
+| `reference/fact-form/second_statement_of_the_phone` | reject | Facts | — |
+| `reference/fact-form/replacement_of_an_old_price` | reject | Facts | — |
+| `reference/fact-form/two_prices_for_one_date` | reject | Facts | — |
+| `reference/fact-form/replace_the_price_in_force` | accept | Facts | — |
+| `reference/fact-form/price_before_the_first_price` | accept | Facts | — |
+| `reference/fact-form/state_the_phone_again` | accept | Facts | — |
 
 ## 5. Examples in the content library
 

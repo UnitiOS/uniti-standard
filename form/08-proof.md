@@ -448,7 +448,9 @@ archive). Every case there will later be rewritten in this form.
    marking an example replaced need the approval of more than one party?
    Discussed together with governance
    (Indonesian archive, `kajian/01-ekosistem.md`, A2).
-6. **Rejection of facts with a wrong form.** The group Facts in §2.9 includes
-   it, but v0.1 has no conformance example that rejects an action because of
-   a FACT rule. This is a known gap
-   ([`decisions/0056`](../decisions/0056-conformance-test-owners-and-known-gap.md)).
+6. **Rejection of facts with a wrong form.** Answered: the conformance tests
+   reject actions by FACT-2, FACT-9, FACT-10, FACT-11, FACT-13, and FACT-14
+   ([`conformance/22-fact-form.md`](../conformance/22-fact-form.md)). FACT-19
+   to FACT-21 have no example, because the notation of an action has no
+   source and no reason. This is a known gap
+   ([`decisions/0058`](../decisions/0058-rejection-of-facts-with-a-wrong-form.md)).

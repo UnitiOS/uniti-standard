@@ -139,6 +139,7 @@ class _Run:
 
         entity = self._entity_named(entity_name)
         valid = parse_time(_normalize(valid_text), self.zone)
+        action_fact = action  # None for a starting fact
         if action is not None:
             if recorded_text:
                 raise NotationError(f"{where}: an action fact uses the recorded time of its action")
@@ -155,7 +156,10 @@ class _Run:
             if target_label not in self.label:  # NOTATION-19
                 raise NotationError(f"{where}: target {target_label} is not known; give it a label")
             target = self.label[target_label]
-        if (fact_kind in VALUE_KINDS) != bool(value_text):  # FACT-2
+        # FACT-2, FACT-9, and FACT-10 are notation errors only for starting
+        # facts. Inside an action the fact is built as written, and the
+        # checker rejects the action (conformance/22-fact-form.md).
+        if action_fact is None and (fact_kind in VALUE_KINDS) != bool(value_text):  # FACT-2
             raise NotationError(f"{where}: {fact_kind} {'requires' if fact_kind in VALUE_KINDS else 'takes no'} a value")
 
         if property_name == "type":
@@ -165,9 +169,10 @@ class _Run:
             prop = self.module_set.find(self.module, property_name, (Property,))  # CALC-5
             address = prop.address
             value = self._parse_value(value_text, prop, where) if value_text else None
-        if target is not None and (target.entity != entity or target.prop != address):  # FACT-9
+        if (action_fact is None and target is not None  # FACT-9
+                and (target.entity != entity or target.prop != address)):
             raise NotationError(f"{where}: target {target_label} is about another entity or property")
-        if (fact_kind in ("replacement", "ending")  # FACT-10
+        if (action_fact is None and fact_kind in ("replacement", "ending")  # FACT-10
                 and to_instant(valid, self.zone) <= to_instant(target.valid, self.zone)):
             raise NotationError(f"{where}: {fact_kind} MUST be valid after its target; "
                                 f"if the valid time of its target is wrong, use a correction")

@@ -1,8 +1,15 @@
 """Checking an action: accepted or rejected.
 
-Two kinds of rejection: by a form rule (04 §2.7: CONCEPT-6, CONCEPT-18,
-VALUE-16) and by a constraint (06 §2.12). The initial facts of an example
-are not checked (PROOF-30); only the action is checked.
+Three kinds of rejection: by a rule of the form of a fact (01 §3: FACT-2,
+FACT-9, FACT-10, FACT-11, FACT-13, FACT-14), by a form rule (04 §2.7:
+CONCEPT-6, CONCEPT-18, VALUE-16), and by a constraint (06 §2.12). The initial
+facts of an example are not checked (PROOF-30); only the action is checked.
+
+The rules of the form of a fact are checked first. If any of them rejects,
+only those rejections are returned: the state after a wrong action has no
+defined reading, so the form rules and the constraints are not checked.
+Not checked: FACT-19 to FACT-21 (the notation of an action has no source or
+reason) and FACT-23 to FACT-25 (redaction is provisional).
 
 The entities and times at which a constraint is read: 06 §2.12 steps 1 to 3,
 CALC-38 and CALC-57 (decision 0047).
@@ -54,7 +61,62 @@ class Checker:
 
     def check(self) -> list[Rejection]:
         """All rejections; the action is accepted if the list is empty."""
+        fact_rules = self._fact_rules()
+        if fact_rules:
+            return fact_rules
         return self._form_rules() + self._check_constraints()
+
+    # Form of a fact (01 §3)
+
+    def _fact_rules(self) -> list[Rejection]:
+        """Each fact of the action is read against the facts before it. "In
+        force" is read from the store before the action, at the valid time of
+        the fact, as of the recorded time of the action."""
+        rejected: list[Rejection] = []
+        before_ids = {id(g) for g in self.before_store.facts}
+        instant = self.after.instant_of
+
+        def reject(rule: str, f: Fact) -> None:
+            rejected.append(Rejection(rule, f.entity, f.valid))
+
+        for f in self.action_facts:
+            if (f.value is not None) != (f.fact_kind in VALUE_KINDS):  # FACT-2
+                reject("FACT-2", f)
+            t = f.target
+            if f.fact_kind != "statement":
+                if (t is None or t.entity != f.entity or t.prop != f.prop  # FACT-9
+                        or id(t) not in before_ids):
+                    reject("FACT-9", f)
+                    continue  # a target that does not count says nothing more
+                if (f.fact_kind in ("replacement", "ending")  # FACT-10
+                        and instant(f.valid) <= instant(t.valid)):
+                    reject("FACT-10", f)
+                if f.fact_kind == "correction" and t.fact_kind not in VALUE_KINDS:  # FACT-11
+                    reject("FACT-11", f)
+                if f.fact_kind == "retraction" and t.fact_kind == "retraction":  # FACT-13
+                    reject("FACT-13", f)
+            card = self._card(f.prop)
+            if f.prop == TYPE_PROPERTY or card is None or card.value_type.many:
+                continue  # FACT-14 is only for a property with one value
+            in_force = self.before_store.valid_facts(
+                f.entity, f.prop, f.valid, self.action.recorded, True)
+            if f.fact_kind == "statement" and in_force:  # FACT-14 (a)
+                reject("FACT-14", f)
+            if (f.fact_kind == "replacement"  # FACT-14 (b)
+                    and not any(g is f.target for g in in_force)):
+                reject("FACT-14", f)
+        seen: dict[tuple, Fact] = {}
+        for f in self.action_facts:  # FACT-14 (c)
+            if f.fact_kind not in VALUE_KINDS or f.prop == TYPE_PROPERTY:
+                continue
+            card = self._card(f.prop)
+            if card is None or card.value_type.many:
+                continue
+            key = (f.entity, f.prop, instant(f.valid))
+            if key in seen:
+                reject("FACT-14", f)
+            seen[key] = f
+        return rejected
 
     # Form rules (04 §2.7)
 

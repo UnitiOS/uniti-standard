@@ -1,7 +1,8 @@
 # 0056. Owners inside the conformance tests, and a known gap
 
 Date: 2026-10-22
-Status: accepted
+Status: partly replaced by 0058. Item 3: the known gap is filled before the
+lock, and only FACT-19 to FACT-21 stay without an example
 
 **Context**
 While the conformance tests were listed per example in stage 8.6
