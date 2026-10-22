@@ -214,7 +214,7 @@ module, to test **implementations**:
 | Change and proof | Versions, replaced examples, behavior change reports |
 
 The conformance tests are addressed under the owner `standard` and are kept in
-[`conformance/`](../conformance/00-form-examples.md).
+[`conformance/`](../conformance/README.md).
 
 - An implementation states the **level** it supports: 1, 2, or 3.
 - An implementation may state that it **conforms to the Uniti Standard** only
