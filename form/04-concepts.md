@@ -161,6 +161,16 @@ correction that moves a date. A replacement and an ending only change the
 state from their own valid time, so the time of their target is not included.
 A required property is checked at every time touched.
 
+**An old gap does not block.** If, at a time touched, the entity already had
+that type before the action and the required property already had no value
+then, the action is not rejected for that property at that time. This happens
+when a property becomes required in a later version and an old record is
+corrected, for example a typo in the name of a customer recorded before a
+phone number was required. An entity that the action creates, or that gets
+that type through the action, must be complete. The same holds for
+constraints ([`06-calculation-rules.md`](06-calculation-rules.md) §2.12 step
+4; [`decisions/0057`](../decisions/0057-closure-before-lock.md)).
+
 The second and third checks above are only for facts that state a value
 (statement, replacement, and correction), read at the valid time of that fact.
 A retraction, an ending, and a redaction do not state a new value, so
@@ -265,7 +275,8 @@ separately, so that users know before they install that version.
 - **CONCEPT-18.** After all facts in an action are taken into account, every
   entity that is the subject of a fact in that action MUST have a valid
   value for every property that is required for its type, at every time that
-  the action touches for that entity (§2.7).
+  the action touches for that entity (§2.7), unless at that time the entity
+  already had that type and no value for that property before the action.
 - **CONCEPT-19.** An action that does not meet CONCEPT-6, CONCEPT-18, or
   VALUE-16 MUST be rejected as a whole.
 
@@ -381,6 +392,6 @@ then declares `homeroom_teacher` required for that child.
 2. **Tiered personal data [provisional].** Is yes/no enough, or are tiers
    needed, for example health data that is more sensitive? Waiting for a legal
    review.
-3. **Time gaps in required properties.** CONCEPT-18 only checks the time
-   touched by an action. Is a full check needed over the whole history of an
-   entity?
+3. **Time gaps in required properties.** Answered: CONCEPT-18 checks only the
+   times touched by an action, and an old gap does not block (§2.7). A check
+   over the whole history is not needed ([`decisions/0057`](../decisions/0057-closure-before-lock.md)).

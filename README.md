@@ -84,10 +84,10 @@ is right, and the guide is what must be fixed.
 | `form/09-ownership.md` | Who may write what, and how the form changes. Postponed to v0.2 ([`decisions/0048`](decisions/0048-ownership-to-v02.md)) |
 | [`appendix/A-notation.md`](appendix/A-notation.md) | The reference notation: how to write rules, examples, and cards |
 | [`content/`](content/README.md) | The first vocabulary, card templates, code lists, calculation library |
-| [`conformance/`](conformance/README.md) | 21 case files with 163 examples, run as tests, with how to run them per level |
+| [`conformance/`](conformance/README.md) | 22 case files with 175 examples, run as tests, with how to run them per level |
 | [`guide/`](guide/overview.md) | Reading aids: tour, overview, implementer guide |
-| [`rules.md`](rules.md) | The index of all 218 rules |
-| [`decisions/`](decisions/README.md) | 56 decision records |
+| [`rules.md`](rules.md) | The index of all 221 rules |
+| [`decisions/`](decisions/README.md) | 57 decision records |
 | [`reference/`](reference/README.md) | The reference calculator in Python, and its tests |
 | [`AGENTS.md`](AGENTS.md) | Working rules for code agents in this repository |
 

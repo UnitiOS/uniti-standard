@@ -551,15 +551,17 @@ UNIT_MODULE = "uniti/unit"
 
 def unit_as_choice(s: Unit) -> Choice:
     if len(s.parts) != 1 or s.parts[0][1] != 1:
-        raise NotDefined(f"compound unit {s} as a choice")
+        raise NotationError(f"{s} is not one unit code of the list (03 §2.3)")
     return Choice(f"{UNIT_MODULE}/{list_code(s.parts[0][0])}")
 
 
 def unit_of(n: object) -> Choice:
     """`unit_of(n)`: the unit of a number, as a choice."""
     n = _as_number(n, "unit_of")
-    if n.unit.dimensionless:
-        raise NotDefined(f"unit of the pure number {n}")
+    if n.unit.dimensionless:  # 0057 T4 (A24), VALUE-5: no unit by definition
+        return EMPTY
+    if len(n.unit.parts) != 1 or n.unit.parts[0][1] != 1:  # 0057 T3 (A23), 06 §2.5
+        raise NotComputable("unit mismatch", f"unit_of({n}): the unit is not one code")
     return unit_as_choice(n.unit)
 
 

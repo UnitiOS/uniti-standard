@@ -55,7 +55,7 @@ reports OK.
 ### 2.1 All tests
 
 The whole test suite of the reference calculator, including all conformance
-files (176 tests):
+files (194 tests):
 
 ```
 python -m unittest discover -s reference/tests -t reference
@@ -104,13 +104,13 @@ files, as in section 2.1, or the list of the level above.
 POSIX shell:
 
 ```
-CASES="03-rental.md,04-payroll.md,05-subscription.md,08-school.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md" python -m unittest discover -s reference/tests -t reference -p test_cases.py
+CASES="03-rental.md,04-payroll.md,05-subscription.md,08-school.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,21-closure.md" python -m unittest discover -s reference/tests -t reference -p test_cases.py
 ```
 
 Windows PowerShell:
 
 ```
-$env:CASES = "03-rental.md,04-payroll.md,05-subscription.md,08-school.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md"; python -m unittest discover -s reference/tests -t reference -p test_cases.py; Remove-Item Env:CASES
+$env:CASES = "03-rental.md,04-payroll.md,05-subscription.md,08-school.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,21-closure.md"; python -m unittest discover -s reference/tests -t reference -p test_cases.py; Remove-Item Env:CASES
 ```
 
 **Level 2** (adds `00`, `01`, `07`, `11`, `15`, `20`)
@@ -118,13 +118,13 @@ $env:CASES = "03-rental.md,04-payroll.md,05-subscription.md,08-school.md,12-logi
 POSIX shell:
 
 ```
-CASES="00-form-examples.md,01-finance.md,03-rental.md,04-payroll.md,05-subscription.md,07-clinic.md,08-school.md,11-loyalty.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,15-change.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,20-written-choices.md" python -m unittest discover -s reference/tests -t reference -p test_cases.py
+CASES="00-form-examples.md,01-finance.md,03-rental.md,04-payroll.md,05-subscription.md,07-clinic.md,08-school.md,11-loyalty.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,15-change.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,20-written-choices.md,21-closure.md" python -m unittest discover -s reference/tests -t reference -p test_cases.py
 ```
 
 Windows PowerShell:
 
 ```
-$env:CASES = "00-form-examples.md,01-finance.md,03-rental.md,04-payroll.md,05-subscription.md,07-clinic.md,08-school.md,11-loyalty.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,15-change.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,20-written-choices.md"; python -m unittest discover -s reference/tests -t reference -p test_cases.py; Remove-Item Env:CASES
+$env:CASES = "00-form-examples.md,01-finance.md,03-rental.md,04-payroll.md,05-subscription.md,07-clinic.md,08-school.md,11-loyalty.md,12-logistics.md,13-outside-calculation.md,14-backdated-constraints.md,15-change.md,16-relations.md,17-vocabulary.md,18-module-swap.md,19-reading-facts.md,20-written-choices.md,21-closure.md"; python -m unittest discover -s reference/tests -t reference -p test_cases.py; Remove-Item Env:CASES
 ```
 
 **Level 3** (adds `02`, `06`, `09`, `10`): this is every file, so it is the
@@ -159,9 +159,10 @@ python -m unittest discover -s reference/tests -t reference -p test_cases.py
 | [`18-module-swap.md`](18-module-swap.md) | Moving to another module without breaking old records | Values and concepts; Change and proof | 1 | 4 |
 | [`19-reading-facts.md`](19-reading-facts.md) | Reading at two times after corrections, retractions, and late reports | Facts; Values and concepts; Constraints | 1 | 15 |
 | [`20-written-choices.md`](20-written-choices.md) | Calendar months, split, two types of one entity, empty collections, empty constraint checks | Calculation level 1; Calculation level 2; Constraints | 2 | 12 |
+| [`21-closure.md`](21-closure.md) | Situations closed before the lock: one action at a time, `unit_of`, `history`, unit powers, an old gap in a required property (decision 0057) | Values and concepts; Calculation level 1; Constraints | 1 | 12 |
 
 Level "—" means that no calculation rule ran in any example of the file.
-There are 163 examples in these files, and 7 more in `content/calc.md`
+There are 175 examples in these files, and 7 more in `content/calc.md`
 (section 5).
 
 ## 4. Every example
@@ -444,6 +445,24 @@ in Facts or Values and concepts.
 | `reference/many/count_to_check` | compute | Calculation level 1 | 1 |
 | `reference/empty-constraint/purchase_without_check_mark` | reject | Constraints | 1 |
 | `reference/empty-constraint/purchase_with_check_mark` | accept | Constraints | 1 |
+
+### 21-closure.md
+
+| Example | Kind | Group | Level |
+|---|---|---|---|
+| `reference/closure-rental/last_tent_same_moment` | reject | Constraints | 1 |
+| `reference/closure-history/item_not_filled_in` | compute | Calculation level 1 | 1 |
+| `reference/closure-history/total_without_item_is_not_zero` | compute | Calculation level 1 | 1 |
+| `reference/closure-history/item_filled_in` | compute | Calculation level 1 | 1 |
+| `reference/closure-unit/number_without_unit` | compute | Calculation level 1 | 1 |
+| `reference/closure-unit/rate_has_two_codes` | compute | Calculation level 1 | 1 |
+| `reference/closure-power/four_lengths` | compute | Calculation level 1 | 1 |
+| `reference/closure-power/three_lengths` | compute | Calculation level 1 | 1 |
+| `reference/closure-many/three_records` | compute | Calculation level 1 | 1 |
+| `reference/required-later/correct_name_of_old_record` | accept | Values and concepts | — |
+| `reference/required-later/new_customer_without_phone` | reject | Values and concepts | — |
+| `reference/required-later/retract_phone_of_customer` | reject | Values and concepts | — |
+
 ## 5. Examples in the content library
 
 The file [`content/calc.md`](../content/calc.md) holds examples for the

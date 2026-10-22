@@ -148,10 +148,12 @@ class FactStore:
             raise NotComputable("redacted", f"the value of {f!r} has been redacted")
         return f.value
 
-    def history(self, entity: Entity, prop: str, r: Range, R: dt.datetime) -> Collection:
+    def history(self, entity: Entity, prop: str, r: Range, R: dt.datetime,
+                many: bool = False) -> Collection:
         """`history(x.s, in: r)`: each value with the range it was valid for,
-        cut to r, ordered by time (06 §2.5). Only for a property with one
-        value."""
+        cut to r (06 §2.5). A property with one value gives a collection
+        ordered by time. A property with many values gives a collection with
+        no order, each value read as in 01 §2.5 (0057 T7)."""
         known = [f for f in self._index.get((entity, prop), []) if f.recorded <= R]
         points = [r.start, r.end] + [f.valid for f in known]
         if any(isinstance(t, dt.datetime) for t in points):
@@ -159,6 +161,20 @@ class FactStore:
         start, end, valid = points[0], points[1], points[2:]
         points = sorted({start} | {t for t in valid if start < t < end})
         slices: list[tuple[object, object, list[Fact]]] = []
+        if many:
+            open_: dict[int, list] = {}  # fact id → [start, end, fact]
+            records: list[list] = []
+            for i, t in enumerate(points):
+                slice_end = points[i + 1] if i + 1 < len(points) else end
+                for f in self.valid_facts(entity, prop, t, R):
+                    if id(f) in open_ and open_[id(f)][1] == t:
+                        open_[id(f)][1] = slice_end
+                    else:
+                        open_[id(f)] = entry = [t, slice_end, f]
+                        records.append(entry)
+            return Collection(tuple(
+                Record({"value": self.value_of(f, R), "range": Range(a, b)})
+                for a, b, f in records), False)
         for i, t in enumerate(points):
             slice_end = points[i + 1] if i + 1 < len(points) else end
             facts = self.valid_facts(entity, prop, t, R, single=True)
@@ -274,7 +290,9 @@ class Evaluator:
     def tie_key(self, entity: Entity, T: object) -> tuple:
         type_facts = self.type_facts(entity, T)
         if not type_facts:
-            raise NotDefined(f"tie-breaker for {entity!r}, which has no type at {T}")
+            # 0057 T5 (A25), 06 §2.6: no place in the tie-breaker
+            raise NotComputable("undefined order",
+                                f"{entity!r} has no type fact valid at {T}, so it has no place in the order")
         return self._tie_key(type_facts[0])
 
     def entities_of(self, concept: str, T: object) -> list[Entity]:
@@ -675,16 +693,15 @@ class Evaluator:
         r = op._as_range(self.evaluate(n.arg("in"), env), "history")
         if x_s.arguments is not None:
             raise NotationError("history only for a recorded property (06 §2.7)")
-        if x is EMPTY:
-            raise NotDefined("history of an empty reference")
+        if x is EMPTY:  # 0057 T6 (A26), 06 §2.5: empty, like x.s
+            return EMPTY
         if not isinstance(x, Entity):
             raise NotationError(f"history requires a property of an entity, not {op._type_name(x)}")
         prop = self.module_set.find(env.module, x_s.name, (Property, Rule))
         if not isinstance(prop, Property):
             raise NotationError("history only for a recorded property (06 §2.7)")
-        if prop.value_type.many:
-            raise NotDefined("history of a property with many values: the order of values at the same time")
-        return self.store.history(x, prop.address, r, self.R)
+        # 0057 T7 (A27): many values give a collection with no order
+        return self.store.history(x, prop.address, r, self.R, many=prop.value_type.many)
 
     def _op_convert(self, n, env):
         return op.convert(self.evaluate(n.positional[0], env), n.arg("to").unit)

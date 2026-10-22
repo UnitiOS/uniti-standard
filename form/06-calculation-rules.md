@@ -161,7 +161,7 @@ to divide without a remainder, are content. They are written in the
 | | `x.s` | The value of property `s` of entity `x` at *T*. If there is no value, the result is **empty** (§2.9). For a property with many values, the result is a collection, which may have no members |
 | | `x.a.b` | Follow a reference: the value of property `b` of the entity referred to by `x.a` |
 | | `T` | The valid time being asked about (§2.7) |
-| | `unit_of(n)` | The unit of a number, as a choice from the code list `uniti/unit/Unit` ([`03-values.md`](03-values.md) §2.3) |
+| | `unit_of(n)` | The unit of a number, as a choice from the code list `uniti/unit/Unit` ([`03-values.md`](03-values.md) §2.3). A unit that is not one code without a power, for example `IDR/day` or `m²`, is not computable because of unit mismatch. A number without a unit gives empty |
 | | fixed value | A number, text, date, choice, or duration written directly: `10,000,000 IDR`, `manager`, `1 month` |
 | | `contributions` | Only in the rule of an open computed property: the collection of the results of all contributions to `this`, from the installed modules (§2.11). This collection has no order |
 | **Collect** | `all(K, x: condition)` | All entities that belong to concept `K` or its child concepts at *T*, and meet the condition. The condition may be omitted |
@@ -185,7 +185,7 @@ to divide without a remainder, are content. They are written in the
 | | `split(r, step: …)` | Range `r` cut into small ranges in sequence |
 | | `in` | `t in r`: time `t` is in range `r`. `x in k`: `x` is a member of collection `k` |
 | | `at(t, u)` | Expression `u` is read at valid time `t`, not at *T* |
-| | `history(x.s, in: r)` | The values of the recorded property `x.s` during range `r`, each with its range of validity, cut to `r` |
+| | `history(x.s, in: r)` | The values of the recorded property `x.s` during range `r`, each with its range of validity, cut to `r`. If `x` is empty, the result is empty. For a property with many values, the collection has no order |
 | **Choose** | `if … then … else …` | Only the chosen branch is calculated |
 | | `=`, `≠`, `<`, `≤`, `>`, `≥` | Comparison. Two records are equal if the names of their parts are the same and every part is equal. Two ordered collections are equal if their members are equal, in the same order. If one of the collections has no order, order is not looked at: the two are equal if every member appears the same number of times in both |
 | | `and`, `or`, `not` | Read from the left. If the left side already decides the result, the right side is not calculated |
@@ -295,6 +295,11 @@ implementation, including for two events on the same date.
 **Entity as key.** An `order_by` key may be an entity, and those entities are
 ordered by the tie-breaker. For example `order_by: d: d.room` for records that
 name a room, before a building rental is divided among those rooms.
+
+An entity that has no type fact valid at *T*, for example one reached through
+a reference whose type fact is valid only later, has no place in this order.
+If its place is needed, the result is not computable because of undefined
+order.
 
 **Undefined order.** The tie-breaker exists only for entities. Members that
 are not entities, for example groups from `group` or the results of
@@ -409,7 +414,7 @@ divided by areas of 120, 80, and 100 m² becomes 4,000,000, 2,666,667, and
 | Operation | Condition and resulting unit |
 |---|---|
 | `+`, `−`, comparison | Both sides must have the same unit. 1 kg + 500 g is not computable, unless converted first |
-| `×`, `÷` | Units are combined: cm × cm × cm = cm³; cm³ ÷ (cm³/kg) = kg |
+| `×`, `÷` | Units are combined: cm × cm × cm = cm³; cm³ ÷ (cm³/kg) = kg. A code may reach the power 3 or −3 at most ([`appendix/A-notation.md`](../appendix/A-notation.md) §2.4); a result with a higher power, for example cm⁴, is not computable because of unit mismatch |
 | Result of a computed property | The unit must match the quantity on its property card |
 
 A daily rate, for example, has the unit IDR/day, so rate × `span(term, day)`
@@ -563,6 +568,13 @@ constraint uses a card:
 
 A constraint is written in a module and applies to organizations that install
 that module. Anyone may write a constraint for a concept owned by anyone.
+
+**One action at a time.** Actions are checked and recorded one at a time, in
+the order in which they are recorded. *Before the action* means the facts
+recorded before it; *after the action* means those facts plus the facts of the
+action. When two cashiers rent out the last tent at the same moment, the
+action recorded first is checked first, and the second is checked against it
+and rejected ([`decisions/0057`](../decisions/0057-closure-before-lock.md)).
 
 **Checked per action.** Like required properties
 ([`04-concepts.md`](04-concepts.md) §2.7), a constraint is checked after all
@@ -868,6 +880,10 @@ again by anyone.
 - **CALC-57.** A constraint that uses `before_action` or `this_action` MUST be
   read only for the entities touched by the action, at the times touched by
   the action, and its value before the action MUST be taken as not existing.
+- **CALC-58.** Actions MUST be checked and recorded one at a time, in the
+  order in which they are recorded. The state before an action MUST be the
+  facts recorded before it, and the state after it those facts plus the facts
+  of the action.
 - **CALC-41.** Every rejection MUST name the constraint and its address, its
   source module with the exact version, the entity and valid time where the
   constraint failed, and its rejection message.
@@ -1065,9 +1081,11 @@ by themselves, without a "sort" operation.
 6. **Resource limits.** A rule that is certain to finish can still be very
    expensive, for example a daily constraint for a rental of one hundred
    years. Is a standard limit needed that is the same in all implementations?
-7. **Precision of each currency.** May money rounding follow the precision of
-   the currency in ISO 4217 by default
-   ([`03-values.md`](03-values.md) §8)?
+7. **Precision of each currency.** Answered: there is no rounding by
+   default. In practice the precision of ISO 4217 is not always used, for
+   example IDR has two decimals there but is paid in whole rupiah. A number
+   is rounded only where a rule says so (§2.8), and a limit on the digits of
+   a recorded value is written as a constraint ([`decisions/0057`](../decisions/0057-closure-before-lock.md)).
 8. **Module set in the past.** A result depends on the installed modules. To
    read a result as of an *R* that has already passed, the time a module was
    installed needs to be recorded. Discussed together with ownership, in v0.2
@@ -1087,6 +1105,7 @@ by themselves, without a "sort" operation.
     `median(k, x: x.duration)` and `round(n, to: 1, mode: nearest)` can be
     written like core operations
     ([`appendix/A-notation.md`](../appendix/A-notation.md) §2.7).
-13. **Calendar months.** 31 January + 1 month is a convention, and some
-    domains use another convention. Should shifting and difference in months
-    stay in the core, or should some of it move to the library?
+13. **Calendar months.** Answered: shifting and difference in months stay in
+    the core as written in §2.7, which is what most monthly billing does.
+    Another convention, such as 30/360 for loans, is written in the
+    calculation library when a case needs it ([`decisions/0057`](../decisions/0057-closure-before-lock.md)).

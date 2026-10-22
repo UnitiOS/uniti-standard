@@ -154,13 +154,13 @@ class Unit:
         powers = dict(self.parts)
         for code, p in other.parts:
             powers[code] = powers.get(code, 0) + sign * p
-        return Unit.from_map(powers)
+        return _within_power_limit(Unit.from_map(powers))
 
     def divide(self, other: Unit) -> Unit:
         return self.multiply(other, -1)
 
     def power(self, n: int) -> Unit:
-        return Unit.from_map({k: p * n for k, p in self.parts})
+        return _within_power_limit(Unit.from_map({k: p * n for k, p in self.parts}))
 
     def __str__(self) -> str:
         def render(code: str, p: int) -> str:
@@ -175,6 +175,15 @@ class Unit:
         for b in bottom:
             text += "/" + b
         return text if self.parts else ""
+
+
+def _within_power_limit(s: Unit) -> Unit:
+    """0057 T2 (06 §2.8): a unit code reaches the power 3 or −3 at most; a
+    result beyond that is not computable. Raised where the unit is made."""
+    for code, p in s.parts:
+        if abs(p) > 3:
+            raise NotComputable("unit mismatch", f"unit {code} to the power {p} (06 §2.8)")
+    return s
 
 
 DIMENSIONLESS = Unit()

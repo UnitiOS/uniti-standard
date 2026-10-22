@@ -33,7 +33,7 @@ content, which may grow.
 Each form document has the same eight sections: Purpose, Definitions, Rules,
 Examples, Not examples, Reasons, Outside standards, Open questions. Terms are
 in the [glossary](../01-glossary.md). The full list of rules is in
-[`rules.md`](../rules.md); the counts below come from there (218 rules in 9
+[`rules.md`](../rules.md); the counts below come from there (221 rules in 9
 documents).
 
 ### 00 Principles
@@ -104,7 +104,7 @@ facts: computed properties, helpers, constraints, contributions, the operation
 list, time and numbers inside rules, empty and not computable, rejection, and
 projection. Terms: [computed property, constraint, expression, empty, not
 computable, rejection record, projection](../01-glossary.md#content). Prefix
-`CALC`, 57 rules (a few numbers are revoked). Rules:
+`CALC`, 58 rules (a few numbers are revoked). Rules:
 [§3](../form/06-calculation-rules.md#3-rules); index:
 [`rules.md`](../rules.md#calculation-rules).
 
@@ -114,7 +114,7 @@ computable, rejection record, projection](../01-glossary.md#content). Prefix
 versions, the kinds of change between versions, deprecated and withdrawn
 marks, and using other modules by exact version. Terms: [draft, version,
 freeze, deprecated, withdrawn](../01-glossary.md#addresses-and-change).
-Prefix `CHANGE`, 15 rules. Rules: [§3](../form/07-change.md#3-rules); index:
+Prefix `CHANGE`, 17 rules. Rules: [§3](../form/07-change.md#3-rules); index:
 [`rules.md`](../rules.md#change).
 
 ### Form 8: Proof
@@ -150,10 +150,10 @@ RELATION-11).
 
 | Place | What it is |
 |---|---|
-| [`decisions/`](../decisions/) | 56 decision records: why things are as they are |
+| [`decisions/`](../decisions/) | 57 decision records: why things are as they are |
 | [`conformance/README.md`](../conformance/README.md) | How to run the worked cases, per file and per level. The cases themselves are the conformance tests of [`form/08-proof.md`](../form/08-proof.md) §2.9 and belong to the standard |
 | [`reference/`](../reference/README.md) | The reference calculator (Python) and its tests |
-| [`rules.md`](../rules.md) | Generated index of all 218 rules |
+| [`rules.md`](../rules.md) | Generated index of all 221 rules |
 | [`tour.md`](tour.md) | One small story, from a fact to a rejection |
 | [`implementing.md`](implementing.md) | A guide for people who build software |
 
@@ -175,7 +175,7 @@ RELATION-11).
 | What does "not computable" mean? | [06 §2.9](../form/06-calculation-rules.md#29-empty-and-not-computable), CALC-28 to CALC-30 |
 | How does a constraint reject an action? | [06 §2.12](../form/06-calculation-rules.md#212-constraint), CALC-38, CALC-41 |
 | How does a module version change? | [07 §2.1 and §2.2](../form/07-change.md#21-draft-and-version), CHANGE-1 to CHANGE-7 |
-| How is a module bound to another version? | [07 §2.5](../form/07-change.md#25-using-other-modules), CHANGE-14, CHANGE-15 |
+| How is a module bound to another version? | [07 §2.5](../form/07-change.md#25-using-other-modules), CHANGE-14 to CHANGE-17 |
 | What does an example contain? | [08 §2.2](../form/08-proof.md#22-parts-of-an-example), PROOF-2 |
 | Which content needs examples? | [08 §2.5](../form/08-proof.md#25-when-examples-are-required), PROOF-13 to PROOF-16 |
 | When can a version be frozen? | [08 §2.6](../form/08-proof.md#26-the-freeze-gate), PROOF-18 |

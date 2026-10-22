@@ -43,6 +43,7 @@ class Checker:
         self.installed = installed
         self.action = action
         self.action_facts = action_facts
+        self.before_store = before
         self.after = before.with_facts(action_facts)
         self.evaluator_before = Evaluator(module_set, installed, before, action.recorded)
         self.evaluator = Evaluator(module_set, installed, self.after, action.recorded,
@@ -94,10 +95,18 @@ class Checker:
                     rejected.append(Rejection("VALUE-16", f.entity, f.valid))
         for entity, T in dict.fromkeys(_touched(self.action_facts)):
             required = self._applies_to_for(self._ancestors_of(self._types(entity, T)))
+            # 0057 T11c: the types the entity already had at T before the action
+            required_before = self._applies_to_for(self._ancestors_of(
+                [f.value for f in self.evaluator_before.type_facts(entity, T)]))
             for address, w in required.items():  # CONCEPT-18
                 card = self._card(address)
                 single = card is not None and not card.value_type.many
                 if w and not self.after.valid_facts(entity, address, T, self.action.recorded, single):
+                    # An old gap does not block (CONCEPT-18, 04 §2.7): required
+                    # before the action too, and already without a value at T.
+                    if required_before.get(address) and not self.before_store.valid_facts(
+                            entity, address, T, self.action.recorded, single):
+                        continue
                     rejected.append(Rejection("CONCEPT-18", entity, T))
                     break
         return rejected

@@ -215,8 +215,9 @@ students".
 
 ## 8. Open questions
 
-1. **Bridges that contradict each other.** If two installed modules state
-   opposite bridges for the same content, what does the reader do?
+1. **Bridges that contradict each other.** Answered: a bridge is only a
+   remark (RELATION-9) and does not change any result, so a reader may show
+   both bridges as they are ([`decisions/0057`](../decisions/0057-closure-before-lock.md)).
 2. **Bridges between properties with different units.** May "same as" be used
    between two number properties that have the same quantity but are usually
    filled in with different units?

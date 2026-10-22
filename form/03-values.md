@@ -316,9 +316,10 @@ that choice unless they install that module.
 1. **Self-made units.** Businesses often use units such as "box" or "package"
    whose contents differ. May a unit like this be made as content, and how does
    it relate to standard units?
-2. **Precision of numbers.** May a property set the number of digits after the
-   decimal point, for example following the precision of each currency in
-   ISO 4217?
+2. **Precision of numbers.** Answered: a property does not set its digits. A
+   limit on the digits of a recorded value is written as a constraint, and
+   rounding inside a calculation is written in the rule
+   ([`decisions/0057`](../decisions/0057-closure-before-lock.md)).
 3. **An organization with several time zones.** If the branches of an
    organization are in Jakarta (UTC+7) and Tokyo (UTC+9), which default time
    zone is used, and

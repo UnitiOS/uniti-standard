@@ -330,5 +330,5 @@ does not describe what changed between version 2 and version 3.
   the standard.
 - [`conformance/`](../conformance/): all the worked cases. The rental cases S1
   to S4 are in [`03-rental.md`](../conformance/03-rental.md).
-- [`rules.md`](../rules.md): the index of all 218 rules.
+- [`rules.md`](../rules.md): the index of all 221 rules.
 - [`form/`](../form/01-facts.md): the normative text, starting with Facts.

@@ -2,7 +2,7 @@
 
 Status: generated; not normative
 
-218 rules in 9 documents.
+221 rules in 9 documents.
 
 Every rule of the form documents and of appendix A, in reading order.
 Each line shows the rule's ID, the requirement keywords it uses, and its
@@ -229,7 +229,7 @@ hand; a test fails when it no longer matches the documents.
 
 | Rule | Keywords | First sentence |
 |---|---|---|
-| CONCEPT-18 | MUST | After all facts in an action are taken into account, every entity that is the subject of a fact in that action MUST have a valid value for every property that is required for its type, at every time that the action touches for that entity (§2.7). |
+| CONCEPT-18 | MUST | After all facts in an action are taken into account, every entity that is the subject of a fact in that action MUST have a valid value for every property that is required for its type, at every time that the action touches for that entity (§2.7), unless at that time the entity already had that type and no value for that property before the action. |
 | CONCEPT-19 | MUST | An action that does not meet CONCEPT-6, CONCEPT-18, or VALUE-16 MUST be rejected as a whole. |
 
 **Personal data [provisional]**
@@ -283,7 +283,7 @@ hand; a test fails when it no longer matches the documents.
 
 ## [Calculation rules](form/06-calculation-rules.md#3-rules)
 
-57 rules.
+58 rules.
 
 **Kinds**
 
@@ -383,6 +383,7 @@ hand; a test fails when it no longer matches the documents.
 | CALC-39 | MUST | A constraint that is not computable, or whose result is empty, MUST be treated as not met. |
 | CALC-40 | MUST NOT | `before_action`, `this_action.actor`, and `this_action.approver` MUST NOT be used outside constraints. |
 | CALC-57 | MUST | A constraint that uses `before_action` or `this_action` MUST be read only for the entities touched by the action, at the times touched by the action, and its value before the action MUST be taken as not existing. |
+| CALC-58 | MUST | Actions MUST be checked and recorded one at a time, in the order in which they are recorded. … |
 | CALC-41 | MUST | Every rejection MUST name the constraint and its address, its source module with the exact version, the entity and valid time where the constraint failed, and its rejection message. |
 
 **Rejection record**
@@ -409,7 +410,7 @@ hand; a test fails when it no longer matches the documents.
 
 ## [Change](form/07-change.md#3-rules)
 
-15 rules.
+17 rules.
 
 **Versions**
 
@@ -445,6 +446,8 @@ hand; a test fails when it no longer matches the documents.
 |---|---|---|
 | CHANGE-14 | MUST | A module MUST name the exact version of every module it uses. |
 | CHANGE-15 | MUST NOT | A new version of a module that is used MUST NOT change the behavior of its users until the user freezes a new version that names it. |
+| CHANGE-16 | MUST | An organization MUST have at most one version of each module installed, counting the modules that its installed modules use. … |
+| CHANGE-17 | MUST NOT | A module whose content is used by recorded facts MUST NOT be uninstalled. |
 
 ## [Proof](form/08-proof.md#3-rules)
 

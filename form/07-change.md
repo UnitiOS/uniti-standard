@@ -76,6 +76,19 @@ A module that uses another module names its **exact version**. A new version
 of the module that is used changes nothing until its user itself freezes a new
 version that names that version.
 
+An organization installs **one version of each module**, counting the modules
+that its installed modules use. If the cashier module uses `uniti/item@v2`
+while the warehouse module still uses `uniti/item@v1`, it is not clear which
+version calculates a property of an item, so the installation that would make
+two versions is refused, naming both. The organization waits until both
+modules use the same version.
+
+A module whose content is used by facts that are already recorded **cannot be
+uninstalled**, because those facts must stay readable, for example for an
+audit. The organization may move to another version of it, or keep it
+installed and stop recording with it
+([`decisions/0057`](../decisions/0057-closure-before-lock.md)).
+
 ### 2.6 Facts and versions
 
 Every fact names the version used when it was stated (*version used*,
@@ -121,6 +134,11 @@ without having to be moved or changed.
 - **CHANGE-14.** A module MUST name the exact version of every module it uses.
 - **CHANGE-15.** A new version of a module that is used MUST NOT change the
   behavior of its users until the user freezes a new version that names it.
+- **CHANGE-16.** An organization MUST have at most one version of each module
+  installed, counting the modules that its installed modules use. An
+  installation that would make two versions MUST be refused, naming both.
+- **CHANGE-17.** A module whose content is used by recorded facts MUST NOT be
+  uninstalled.
 
 ## 4. Examples
 

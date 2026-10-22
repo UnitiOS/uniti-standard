@@ -80,3 +80,4 @@ Consequences  What changes or must be done because of this decision
 | [0054](0054-reference-choices-into-text.md) | Choices of the reference calculator moved into the text | 2026-10-20 | accepted |
 | [0055](0055-locked-in-english.md) | v0.1 is locked in English, in its own directory | 2026-10-20 | accepted |
 | [0056](0056-conformance-test-owners-and-known-gap.md) | Owners inside the conformance tests, and a known gap | 2026-10-22 | accepted |
+| [0057](0057-closure-before-lock.md) | Closure before the lock | 2026-10-22 | accepted |

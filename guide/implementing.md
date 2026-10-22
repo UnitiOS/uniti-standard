@@ -213,6 +213,7 @@ module is installed, check at least the following.
 | The module is a frozen version, not a draft; versions run 1, 2, 3 without gaps | CHANGE-4, CHANGE-2 |
 | The version is not withdrawn | CHANGE-11 |
 | Every module it uses is named with one exact version, no range | CHANGE-14, ADDRESS-11 |
+| The organization ends up with one version of each module, counting the modules they use; otherwise refuse and name both versions | CHANGE-16 |
 | Cards have their required parts; labels carry a language code; one main label per language | CONCEPT-1, CONCEPT-3, CONCEPT-4, CONCEPT-16, CONCEPT-17, CONCEPT-20, VALUE-19 |
 | Number properties state a direction; others do not | CONCEPT-5 |
 | A concept has at most one parent and no loop of parents | CONCEPT-9, CONCEPT-10 |
@@ -235,8 +236,9 @@ Things to keep in mind:
 - The root `https://uniti.example` is stored once and put in front of an
   address only when it is written in full (ADDRESS-14, ADDRESS-15).
 
-The text does not say whether installing a module also installs the modules it
-uses. That choice is yours.
+A module whose content is used by recorded facts is never uninstalled
+(CHANGE-17). The text does not say whether installing a module also installs
+the modules it uses. That choice is yours.
 
 ## 6. Calculation, by level
 
@@ -399,8 +401,14 @@ Hard points:
   rejection record holds the action with its facts, actor, approver, time
   tried, and every rejection (CALC-42), and never counts as a fact or affects a
   computed value (CALC-43).
-- **Which R.** The text does not say which *R* to read before and after an
-  action. The reference calculator uses the recorded time of the action.
+- **One action at a time.** Check and record actions one after another, in
+  the order they are recorded. Before an action means the facts recorded
+  before it; after means those facts plus the action (CALC-58). Two actions
+  that arrive at the same moment are never checked against the same state.
+- **An old gap does not block.** A required property that was already missing
+  at a touched time before the action, for an entity that already had its
+  type, does not reject the action (CONCEPT-18, 04 §2.7). An entity the action
+  creates must be complete.
 
 Conformance files:
 [`14-backdated-constraints`](../conformance/14-backdated-constraints.md),
