@@ -87,7 +87,7 @@ is right, and the guide is what must be fixed.
 | [`conformance/`](conformance/README.md) | 21 case files with 163 examples, run as tests, with how to run them per level |
 | [`guide/`](guide/overview.md) | Reading aids: tour, overview, implementer guide |
 | [`rules.md`](rules.md) | The index of all 218 rules |
-| [`decisions/`](decisions/README.md) | 55 decision records |
+| [`decisions/`](decisions/README.md) | 56 decision records |
 | [`reference/`](reference/README.md) | The reference calculator in Python, and its tests |
 | [`AGENTS.md`](AGENTS.md) | Working rules for code agents in this repository |
 
@@ -175,6 +175,16 @@ The list of what is marked [provisional] at present:
 | `form/04-concepts.md` §2.8, CONCEPT-20: personal data mark | Review of data protection law, together with redaction |
 | `form/06-calculation-rules.md` §2.9 and §2.15: redacted values inside calculation and projections | Following redaction |
 | `form/02-addresses.md` §2.5, ADDRESS-15: the provisional ‹root› `https://uniti.example` | The real domain; ecosystem study, topic C1 (Indonesian archive, `kajian/01-ekosistem.md`). To be replaced once before v0.1 is stable |
+
+### Known gaps
+
+What v0.1 is known to lack, recorded so that nobody relies on it by mistake:
+
+| Gap | Where it is recorded |
+|---|---|
+| No conformance example rejects an action because of a fact with a wrong form (FACT rules), although the group Facts of 08 §2.9 names it | [`form/08-proof.md`](form/08-proof.md) §8, question 6; [`decisions/0056`](decisions/0056-conformance-test-owners-and-known-gap.md) |
+| Who may write what, and how the form changes (ownership) | Postponed to v0.2 ([`decisions/0048`](decisions/0048-ownership-to-v02.md)) |
+| A machine format for exchange | Postponed ([`decisions/0055`](decisions/0055-locked-in-english.md)) |
 
 ### Changing the standard
 

@@ -507,7 +507,7 @@ hand; a test fails when it no longer matches the documents.
 
 | Rule | Keywords | First sentence |
 |---|---|---|
-| PROOF-25 | MUST | Conformance tests MUST be written in the form of examples according to this document, under the owner `standard`. |
+| PROOF-25 | MUST, MAY | Conformance tests MUST be written in the form of examples according to this document, and kept in `conformance/`. … |
 | PROOF-26 | MUST | An implementation MUST state the level it supports. |
 | PROOF-27 | MUST, MAY | An implementation MAY state that it conforms to the Uniti Standard only if it passes all conformance test examples according to §2.9. … |
 | PROOF-28 | MUST | An implementation MUST refuse to install a module that holds a rule above its level, naming which rule. |

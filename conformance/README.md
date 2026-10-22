@@ -12,8 +12,10 @@ page and the text differ.
 
 The files here are the **conformance tests** of
 [`form/08-proof.md`](../form/08-proof.md) §2.9: examples owned by the
-standard, in the same form as the examples in a module (PROOF-25). Each
-example has facts, a question, and an expected result. The reference
+standard, in the same form as the examples in a module (PROOF-25). The
+modules inside them are example data and may use any owner
+([`decisions/0056`](../decisions/0056-conformance-test-owners-and-known-gap.md)).
+Each example has facts, a question, and an expected result. The reference
 calculator (see [`reference/README.md`](../reference/README.md)) runs every
 one of them and compares the result exactly (PROOF-5).
 

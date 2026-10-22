@@ -213,8 +213,12 @@ module, to test **implementations**:
 | Constraints | Per-action checks, rejection, rejection records |
 | Change and proof | Versions, replaced examples, behavior change reports |
 
-The conformance tests are addressed under the owner `standard` and are kept in
-[`conformance/`](../conformance/README.md).
+The conformance tests are the examples in the files of
+[`conformance/`](../conformance/README.md), which belong to the standard. The
+modules inside those files are example data: they may use any owner, so that
+one case can show several organizations working together, and they are run
+only in the space of an example (PROOF-8)
+([`decisions/0056`](../decisions/0056-conformance-test-owners-and-known-gap.md)).
 
 - An implementation states the **level** it supports: 1, 2, or 3.
 - An implementation may state that it **conforms to the Uniti Standard** only
@@ -309,7 +313,8 @@ the technical basis, whatever that decision is.
 **Conformance tests**
 
 - **PROOF-25.** Conformance tests MUST be written in the form of examples
-  according to this document, under the owner `standard`.
+  according to this document, and kept in `conformance/`. The modules inside
+  them MAY use any owner.
 - **PROOF-26.** An implementation MUST state the level it supports.
 - **PROOF-27.** An implementation MAY state that it conforms to the Uniti
   Standard only if it passes all conformance test examples according to §2.9.
@@ -443,3 +448,7 @@ archive). Every case there will later be rewritten in this form.
    marking an example replaced need the approval of more than one party?
    Discussed together with governance
    (Indonesian archive, `kajian/01-ekosistem.md`, A2).
+6. **Rejection of facts with a wrong form.** The group Facts in §2.9 includes
+   it, but v0.1 has no conformance example that rejects an action because of
+   a FACT rule. This is a known gap
+   ([`decisions/0056`](../decisions/0056-conformance-test-owners-and-known-gap.md)).
