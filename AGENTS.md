@@ -69,6 +69,9 @@ pass.
 
 ## Writing conventions
 
+The full conventions for the standard documents are in
+[`CONTRIBUTING.md`](CONTRIBUTING.md). In short:
+
 - English only. Short sentences; one rule, one sentence. Wrap prose at about
   80 characters.
 - Requirement keywords in capitals (MUST, MUST NOT, SHOULD, SHOULD NOT, MAY)

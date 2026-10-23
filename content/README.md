@@ -7,17 +7,20 @@ Part B of the standard: content that is used in common. Its form follows part
 A, and its content may keep growing without changing the form
 ([`decisions/0002`](../decisions/0002-fixed-form-free-content.md)).
 
-## 1. Purpose of stage 6
+## 1. Purpose
 
-Stage 6 ([`decisions/0004`](../decisions/0004-how-to-write.md)) writes the
-first content: the card templates, the code lists, the calculation library, and
-the first vocabulary. This first content also tests one thing that has never
-been tested, which is a module in the **full form**, which is frozen when
-v0.1 is locked.
+Part B holds the first content that everyone shares: the card templates, the
+code lists, the calculation library, and the first vocabulary. It is also the
+first content written as modules in the **full form**, the form a module has
+when it is frozen.
 
 The scope is deliberately narrow. The first vocabulary holds only content that
-cases from at least two domains already need. Other content waits until after
-v0.1, and enters through the vocabulary entry rules (§3).
+cases from at least two domains already need. More content enters through the
+vocabulary entry rules (§3).
+
+This content was written in stage 6 of shaping the standard
+([`decisions/0004`](../decisions/0004-how-to-write.md)). §5, §7, and §8
+record how it was written and checked.
 
 ## 2. Map of the content
 
@@ -26,7 +29,7 @@ v0.1, and enters through the vocabulary entry rules (§3).
 | B1 | `content/README.md` | This file: the map of the content and the vocabulary entry rules | — |
 | B2 | [`card-templates.md`](card-templates.md) | Templates for the concept card, property card, choice list, computed property, constraint, and helper, in the reference notation | — |
 | B3 | [`code-lists.md`](code-lists.md) | The external code lists in use: currencies (ISO 4217), units (UCUM, only those in use), and languages (BCP 47), plus the list of quantities | `uniti/unit@v1` |
-| B4 | [`calc.md`](calc.md) | The calculation library, moved from `uji/acuan/pustaka/hitung.md` and written in the full form. Its rules do not change | `uniti/calc@v1` |
+| B4 | [`calc.md`](calc.md) | The calculation library, moved from the paper test (Indonesian archive, `uji/acuan/pustaka/hitung.md`) and written in the full form. Its rules do not change | `uniti/calc@v1` |
 | B5 | [`vocabulary/`](vocabulary/) | The first vocabulary: three modules in §4 | `uniti/party@v1`, `uniti/item@v1`, `uniti/payment@v1` |
 | B6 | Tests | The reference calculator checks the full form, reads the code lists, and runs the cases of [`17-vocabulary.md`](../conformance/17-vocabulary.md) | — |
 
@@ -36,8 +39,8 @@ All content modules were frozen as v1 when v0.1 was locked
 
 ## 3. Vocabulary entry rules
 
-The requirements already exist in part A. Stage 6 only gathers them in one
-place, plus one requirement from the findings gate
+The requirements already exist in part A. This section only gathers them in
+one place, plus one requirement from the findings gate
 ([`decisions/0046`](../decisions/0046-findings-gate.md)):
 
 1. **Needed, not imagined.** A concept or property enters the vocabulary only
@@ -97,7 +100,7 @@ the codes in use and names how to write them in the reference notation, for
 example `day` for the UCUM `d`. The factors between units are taken from UCUM.
 If the list grows, what changes is the content, not the form.
 
-## 6. What stage 6 does not do
+## 6. What the first content does not hold
 
 - A list of countries, and time zones by region (IANA). No case needs them yet.
   Time zones are still written as an offset from UTC in appendix A.
@@ -107,6 +110,10 @@ If the list grows, what changes is the content, not the form.
 - Vocabulary concepts other than those in §4.
 
 ## 7. Completion criteria
+
+§7 and §8 are a record of stage 6: what had to be true before the first
+content was done, and what was found. The counts in §8 are those of that
+time.
 
 1. B1 to B5 are written. Every vocabulary module and the library pass the
    full-form card check by the reference calculator.

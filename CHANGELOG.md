@@ -8,6 +8,22 @@ answer separately
 of version may contain is in "Versions and compatibility" in
 [`README.md`](README.md).
 
+## Unreleased
+
+No rule and no result changes.
+
+- **Reading aids, not normative.** [`README.md`](README.md) now starts with
+  the problem, a small story in plain words, a diagram, and what the standard
+  is not. New [`guide/introduction.md`](guide/introduction.md): the standard
+  in plain words, with no notation. [`guide/tour.md`](guide/tour.md) explains
+  how to read every code block, and names the rules only at the end of each
+  section. New [`CONTRIBUTING.md`](CONTRIBUTING.md): the layout, style,
+  status, and [provisional] mark of the standard documents, moved from the
+  README.
+- **Words only, in normative text.** [`content/README.md`](content/README.md)
+  no longer reads as a plan of stage 6: §1 says what part B holds, and §7 and
+  §8 are marked as a record of stage 6.
+
 ## v0.1.0 (2026-10-22): locked
 
 The first version, locked. Its normative documents have the status

@@ -2,31 +2,34 @@
 
 Status: guide; not normative
 
-> [Uniti Standard](../README.md) › Guide · for a reader who wants a map of the
-> standard without reading all of it
+> [Uniti Standard](../README.md) › Guide · for a reader who knows the idea
+> and wants a map of the whole standard, document by document
 
 This guide points and explains. It adds no rule. When this guide and the
 normative text differ, the normative text wins.
 
+If you are new, read the [introduction](introduction.md) and the
+[tour](tour.md) first. This page assumes you know what a fact, a module, and a
+rule are, and tells you which document settles what.
+
 ## The idea in five sentences
 
 1. An organization really stores only **facts**: what happened and what is
-   true. Everything else is worked out from them
-   ([`00-principles.md`](../00-principles.md) §1, FACT-4).
+   true. Everything else is worked out from them.
 2. Facts are only added. A correction or a retraction is a new fact that
-   points to the old one, so what was known on any day can be read back (P5).
+   points to the old one, so what was known on any day can be read back.
 3. The standard fixes the **form** (how to record anything) and leaves the
    **content** (the words and logic of a domain) free. Content is always
-   written in the form (P1, P2).
+   written in the form.
 4. Every piece of content has an address that contains its owner, so two
-   builders never collide (P6, P7).
+   builders never collide.
 5. Every piece of logic carries **examples**: facts and the result that must
-   come out of them. Content is accepted only when its examples are proven
-   (P9).
+   come out of them. Content is accepted only when its examples are proven.
 
-The three layers are form, vocabulary, and modules
-([`00-principles.md`](../00-principles.md) §3). Part A is the form. Part B is
-content, which may grow.
+These five sentences come from the principles P1 to P12 in
+[`00-principles.md`](../00-principles.md) §4. The three layers are form,
+vocabulary, and modules ([`00-principles.md`](../00-principles.md) §3).
+Part A is the form. Part B is content, which may grow.
 
 ## The normative documents, in reading order
 
@@ -154,6 +157,7 @@ RELATION-11).
 | [`conformance/README.md`](../conformance/README.md) | How to run the worked cases, per file and per level. The cases themselves are the conformance tests of [`form/08-proof.md`](../form/08-proof.md) §2.9 and belong to the standard |
 | [`reference/`](../reference/README.md) | The reference calculator (Python) and its tests |
 | [`rules.md`](../rules.md) | Generated index of all 221 rules |
+| [`introduction.md`](introduction.md) | The standard in plain words, with no notation |
 | [`tour.md`](tour.md) | One small story, from a fact to a rejection |
 | [`implementing.md`](implementing.md) | A guide for people who build software |
 

@@ -74,7 +74,7 @@ also pass the entry test for the core
   one domain goes into content first. The form does not become a programming
   language.
 - **The text stays in plain words.** Rules follow the writing conventions in
-  [`README.md`](README.md): one sentence per rule where possible, terms from
+  [`CONTRIBUTING.md`](CONTRIBUTING.md): one sentence per rule where possible, terms from
   the glossary, no business words in part A outside examples.
 
 ## 5. How a change is made

@@ -1,70 +1,135 @@
 # Uniti Standard
 
-The Uniti Standard is a **shared form** for recording the facts, knowledge, and
-logic of an organization. Anyone who follows it, whether an open source
-community, a company, or an institution in any domain, can make content that
-is immediately usable together with content made by others, without knowing
-each other and without conflict.
+The Uniti Standard is a **shared way to record what an organization knows**:
+what happened, what is true, and how its numbers are worked out. Content made
+by one person can be used together with content made by another, in any
+domain, without the two knowing each other and without conflict.
 
-> **Status: v0.1.0, locked.** v0.1 no longer grows. Until it is stable, it
-> changes only for blockers found while building the first system, each with
-> its own decision ([`decisions/0052`](decisions/0052-quick-test-then-lock.md)).
-> What may change and what may not is in
-> [Versions and compatibility](#versions-and-compatibility); what changed is in
-> [`CHANGELOG.md`](CHANGELOG.md).
+Uniti is the project that wrote this standard. The standard is a set of
+written documents, not a product you install.
 
----
+> **Status: version 0.1.0, locked.** This first version is complete: nothing
+> more is added to it. Until it is declared stable, it changes only to fix a
+> real problem found while building the first system, such as text that can be
+> read two ways. Every fix gets its own
+> [decision record](decisions/0052-quick-test-then-lock.md) and an entry in the
+> [change log](CHANGELOG.md).
 
-## The idea in one minute
+## The problem
 
-- An organization stores only **facts**: what happened and what is true,
-  each with the time it is true and the time it was recorded. Facts are never
-  edited or deleted; a correction is a new fact.
-- Everything else, such as a balance, a total due, or a stock level, is
-  **calculated** from the facts by written rules.
-- The standard fixes the **form**, the way anything is written, and leaves
-  the **content**, the words and logic of a domain, free.
-- Every rule carries **examples**: facts and the result that must come out.
-  A machine runs them, so a rule is accepted only when it is proven.
+Every organization, whether a shop, a clinic, a school, or a community, keeps
+two things: **facts** (what happened) and **logic** (how its numbers are
+worked out). In most systems the two are mixed inside the code and tables of
+one builder. So:
 
-## Two parts
+- parts made by different people are hard to combine;
+- old data breaks when the system changes;
+- the organization's knowledge is locked inside one piece of software.
+
+The Uniti Standard separates facts from logic and gives both one shared form.
+
+## The idea, in a small story
+
+Alex rents out tents.
+
+- **Only facts are recorded.** "The tent costs 50,000 IDR a day." "Rental r1
+  takes the tent from 6 to 9 October." Each fact keeps two times: when it is
+  true, and when it was recorded.
+- **Numbers are worked out, not typed in.** The total due of r1 is not
+  recorded. A written rule works it out: the daily rate times the number of
+  days, 150,000 IDR.
+- **Nothing is erased.** On 20 October, Alex records that the rate rises to
+  60,000 IDR from 1 November: recorded on one day, true from another. This
+  new fact replaces the old one, and the old one stays. The October rental
+  still comes to 150,000 IDR, and anyone can see what was known on any day.
+  It works like an accountant's ledger: a mistake is fixed by a new entry,
+  never by rubbing out the old one.
+- **Rules can say no.** A rule "one tent is not rented twice on the same day"
+  rejects a second rental that overlaps the first, with a message that says
+  why.
+- **Every rule proves itself.** Each rule carries examples: some facts and the
+  answer that must come out. A machine runs them, so a rule is accepted only
+  when its examples pass.
+- **Others build on it safely.** Alex keeps these rules together in a
+  package called a **module**, `alex/rental`, published in numbered versions
+  that never change once published. A camping shop uses version 1. When
+  Alex publishes version 2, the shop is not affected until it chooses to
+  move.
+
+The same ideas, explained in plain words, are in the
+[introduction](guide/introduction.md); the same story in the real notation
+is the [tour](guide/tour.md).
+
+```mermaid
+flowchart LR
+  F["Facts<br/>what happened,<br/>only ever added"] --> R["Rules in a module<br/>written in the shared form"]
+  R --> A["Answers<br/>a total due, a stock level,<br/>a rejection"]
+  E["Examples<br/>facts and the answer<br/>that must come out"] -. prove .-> R
+```
+
+## What it is, and what it is not
+
+The standard has two parts:
 
 | Part | Contents | Nature |
 |---|---|---|
-| **A. Form** ([`form/`](form/01-facts.md)) | The way to record anything: the form of facts, addresses, values, concepts, relations, calculation rules, change, and proof | **Fixed.** Applies to all domains. May only grow, never be changed |
-| **B. Content** ([`content/`](content/README.md)) | The first shared vocabulary, the card templates, the outside code lists that are used, and the calculation library | **Flexible.** May follow outside standards, may be made by oneself, and keeps growing |
+| **A. Form** ([`form/`](form/01-facts.md)) | The way to record anything: facts, addresses, values, concepts, relations, calculation rules, change, and proof | **Fixed.** The same for all domains. New rules may be added later; existing ones never change |
+| **B. Content** ([`content/`](content/README.md)) | Ready-made shared material: the first shared words (such as party, item, payment), templates for writing cards, lists of standard codes such as currencies, and ready-made calculations | **Flexible.** Keeps growing |
 
-An analogy: the form is the **grammar**, the vocabulary is the **shared
-words**, and a module is the **story** that each person writes with that
-grammar and those words. The full explanation is in
-[`00-principles.md`](00-principles.md).
+An analogy: the form is the **grammar**, the shared vocabulary is the
+**words**, and each organization's module is a **story** written with that
+grammar and those words ([`00-principles.md`](00-principles.md) §3).
+
+It is **not**:
+
+- **software.** Any software may follow it, including Uniti's own. When
+  software and the standard differ, the standard is right.
+- **a database or a file format.** Facts may be stored in any way. A machine
+  format for exchange is postponed
+  ([`decisions/0055`](decisions/0055-locked-in-english.md)).
+- **a programming language.** Rules are written with a small set of
+  operations that the form defines. If a field needs a new way of
+  calculating, it is added to a shared library of calculations, and the form
+  stays small
+  ([`decisions/0045`](decisions/0045-core-operations-and-calculation-library.md)).
+- **finished content for every domain.** It brings the first shared words;
+  each organization writes the rest in its own modules.
 
 ## Start here
 
-Pick the path that fits you. Each path starts short and goes deeper.
-
-| You are | Read in this order |
+| You want to | Read |
 |---|---|
-| **New to the standard**, or deciding whether it fits | [`guide/tour.md`](guide/tour.md), one small story through every part → [`guide/overview.md`](guide/overview.md), a map of the whole standard → [`00-principles.md`](00-principles.md) |
-| **Building software** that follows the standard | [`guide/overview.md`](guide/overview.md) → [`guide/implementing.md`](guide/implementing.md) → [`form/01-facts.md`](form/01-facts.md) to [`form/08-proof.md`](form/08-proof.md) and [`appendix/A-notation.md`](appendix/A-notation.md) → [`conformance/README.md`](conformance/README.md) → [`reference/README.md`](reference/README.md) |
-| **Writing content**: a module or a vocabulary | [`00-principles.md`](00-principles.md) → [`01-glossary.md`](01-glossary.md) → [`form/04-concepts.md`](form/04-concepts.md), [`form/06-calculation-rules.md`](form/06-calculation-rules.md), and [`form/08-proof.md`](form/08-proof.md) → [`appendix/A-notation.md`](appendix/A-notation.md) → [`content/README.md`](content/README.md) and [`content/card-templates.md`](content/card-templates.md) |
-| **A code agent** | [`AGENTS.md`](AGENTS.md) |
-| **Looking for one rule** | [`rules.md`](rules.md), the index of all rules, by ID |
-| **Asking why** something is as it is | [`decisions/`](decisions/README.md), one decision per file, with the alternatives that were rejected |
+| **Understand the idea** | [`guide/introduction.md`](guide/introduction.md), the standard in plain words, then the [tour](guide/tour.md): one small story through every part |
+| **Get a map** of the whole standard | [`guide/overview.md`](guide/overview.md) |
+| **Build software** that follows the standard | [`guide/implementing.md`](guide/implementing.md), which leads to the form documents and the [conformance tests](conformance/README.md) |
+| **Write content**: a module or a vocabulary | [`00-principles.md`](00-principles.md), then [`content/README.md`](content/README.md) and [`content/card-templates.md`](content/card-templates.md); the notation is in [`appendix/A-notation.md`](appendix/A-notation.md) |
+| **Look up** a rule or a term | [`rules.md`](rules.md), every rule by ID; [`01-glossary.md`](01-glossary.md), every term |
+| **Know why** something is as it is | [`decisions/`](decisions/README.md), one decision per file, with the alternatives that were rejected |
+| **Propose a change** | [`GOVERNANCE.md`](GOVERNANCE.md), then [`CONTRIBUTING.md`](CONTRIBUTING.md) |
+| **Work here as a code agent** | [`AGENTS.md`](AGENTS.md) |
 
-The normative documents are read in this order: `00` → `01` → `form/01` to
-`form/08` → `appendix/A` → `content/`. Each of them has a navigation line at
-the top with the previous and next document.
+To read the standard itself, start at [`00-principles.md`](00-principles.md).
+Each document links to the next one at the top, in this order: `00` → `01` →
+`form/01` to `form/08` → `appendix/A` → `content/`.
+
+---
+
+The rest of this page is a reference for people who will work with the
+standard itself. If you only want to understand the idea, the
+[introduction](guide/introduction.md) is the next step.
 
 ## What is normative
 
+"Normative" means: this is the standard itself, and software is measured
+against it. Everything else helps you read and use it.
+
 | Normative: this is the standard | Not normative: this helps you read and use it |
 |---|---|
-| [`00-principles.md`](00-principles.md) | [`guide/`](guide/overview.md): the tour, the overview, the implementer guide |
+| [`00-principles.md`](00-principles.md) | [`guide/`](guide/overview.md): the introduction, the tour, the overview, the implementer guide |
 | [`01-glossary.md`](01-glossary.md) | [`rules.md`](rules.md): an index made from the text |
 | [`form/`](form/01-facts.md): part A | [`decisions/`](decisions/README.md): the reasons |
 | [`appendix/A-notation.md`](appendix/A-notation.md): the reference notation | [`reference/`](reference/README.md): the reference calculator, a program for comparison |
-| [`content/`](content/README.md): part B | |
+| [`content/`](content/README.md): part B | This page, [`CONTRIBUTING.md`](CONTRIBUTING.md), [`GOVERNANCE.md`](GOVERNANCE.md), [`ROADMAP.md`](ROADMAP.md), [`CHANGELOG.md`](CHANGELOG.md) |
 | The examples in [`conformance/`](conformance/README.md): the conformance tests of [`form/08-proof.md`](form/08-proof.md) §2.9 | |
 
 When a guide or an index differs from the normative text, the normative text
@@ -88,12 +153,13 @@ is right, and the guide is what must be fixed.
 | [`appendix/A-notation.md`](appendix/A-notation.md) | The reference notation: how to write rules, examples, and cards |
 | [`content/`](content/README.md) | The first vocabulary, card templates, code lists, calculation library |
 | [`conformance/`](conformance/README.md) | 23 case files with 188 examples, run as tests, with how to run them per level |
-| [`guide/`](guide/overview.md) | Reading aids: tour, overview, implementer guide |
+| [`guide/`](guide/overview.md) | Reading aids: introduction in plain words, tour, overview, implementer guide |
 | [`rules.md`](rules.md) | The index of all 221 rules |
 | [`decisions/`](decisions/README.md) | 59 decision records |
 | [`reference/`](reference/README.md) | The reference calculator in Python, and its tests |
 | [`CHANGELOG.md`](CHANGELOG.md) | What changed in each version |
 | [`GOVERNANCE.md`](GOVERNANCE.md) | Who decides, how to propose a change, and the limits on every change |
+| [`CONTRIBUTING.md`](CONTRIBUTING.md) | How the standard documents are written: layout, style, status, the [provisional] mark |
 | [`ROADMAP.md`](ROADMAP.md) | What comes after v0.1, and every open question by when it is needed |
 | [`AGENTS.md`](AGENTS.md) | Working rules for code agents in this repository |
 
@@ -103,84 +169,9 @@ To run all tests, from this folder (Python 3):
 python -m unittest discover -s reference/tests -t reference
 ```
 
-## The standard and software
-
-This standard **does not name any software, database, or programming
-language.**
-
-- Software, including Uniti's own implementation, is an **executor** of the
-  standard.
-- When software differs from the standard, the **standard** is right, and the
-  software is what must be fixed.
-- The reference notation, the way of writing used in the standard documents and
-  in the conformance tests, is detailed in
-  [`appendix/A-notation.md`](appendix/A-notation.md). Other formats (for
-  example YAML or RDF) may be used if the meaning is exactly the same. The
-  form is the same, whatever the format. A machine format for exchange is
-  postponed ([`decisions/0055`](decisions/0055-locked-in-english.md)).
-
 ---
 
-## How to write the standard documents
-
-### The layout of a form document
-
-Every document in `form/` uses the same layout, so that every document can be
-compared with the others and is easy to read for both people and machines:
-
-```
-# Name of the form
-Status: draft | proposed | locked | stable
-
-1. Purpose          What problem this form solves (2–3 sentences)
-2. Definition       What the form is, as firmly as possible
-3. Rules            Numbered; each uses a requirement keyword (00-principles §6)
-4. Examples         At least two examples from different domains
-5. Non-examples     What is deliberately not included
-6. Reason           Why the form is like this, briefly (details in decisions/)
-7. Outside standards  The equivalents, if any
-8. Open questions
-```
-
-Rules get fixed numbers, for example `FACT-3`. A number that has been used is
-never used again for another rule, even when the rule is later revoked.
-
-### Writing style
-
-- Short sentences. One rule, one sentence.
-- Every term is used according to [`01-glossary.md`](01-glossary.md). A new term
-  is added to the glossary **before** it is used.
-- Examples are always taken from **at least two different domains**, for
-  example a shop and a clinic, so that no rule quietly fits only one domain.
-- Part A cannot contain terms belonging to one domain. Words such as
-  "customer", "item", or "patient" may appear only in examples.
-
-### The status of a document
-
-| Status | Meaning |
-|---|---|
-| **draft** | Being written, free to change |
-| **proposed** | Complete and under review |
-| **locked** | A proposal that is no longer added to. Changes only for obstacles found when building the first system, each with its own decision ([`decisions/0052`](decisions/0052-quick-test-then-lock.md)) |
-| **stable** | Approved. From then on it may only **grow**: new rules may be added, existing rules do not change their meaning and are not deleted |
-
-### The [provisional] mark
-
-A section, rule, or term marked **[provisional]** has its form written, but can
-still change because it depends on outside parties or on a discussion that is
-not finished, for example matters of law or ecosystem governance. Every
-[provisional] mark comes with a note on what is still being waited for. A
-document cannot become **stable** while it still contains a [provisional] mark
-that has not been resolved or excepted in writing.
-
-The list of what is marked [provisional] at present:
-
-| Part | Waiting for |
-|---|---|
-| `form/01-facts.md` §2.6, FACT-23 to 25: redaction | Review of data protection law; ecosystem study, topic D2 |
-| `form/04-concepts.md` §2.8, CONCEPT-20: personal data mark | Review of data protection law, together with redaction |
-| `form/06-calculation-rules.md` §2.9 and §2.15: redacted values inside calculation and projections | Following redaction |
-| `form/02-addresses.md` §2.5, ADDRESS-15: the provisional ‹root› `https://uniti.example` | The real domain; ecosystem study, topic C1 (Indonesian archive, `kajian/01-ekosistem.md`). To be replaced once before v0.1 is stable |
+## For those who build on v0.1
 
 ### Versions and compatibility
 
@@ -195,7 +186,8 @@ Whoever builds on v0.1 can rely on this
   a defined result or an acceptance in a later version, for a practical case
   and with a decision of its own. Until then it keeps its reason kind or its
   rule.
-- **Not covered:** parts marked [provisional], content inside modules (it
+- **Not covered:** parts marked [provisional]
+  ([`CONTRIBUTING.md`](CONTRIBUTING.md) §4), content inside modules (it
   changes by module versions, [`form/07-change.md`](form/07-change.md)), and
   the texts that are not normative. While v0.1 is locked and not yet stable,
   a blocker may change a defined result only where the text could be read two
@@ -227,17 +219,13 @@ What v0.1 is known to lack, recorded so that nobody relies on it by mistake:
 
 Every decision that shapes the standard is recorded in `decisions/`, one
 decision per file, with what was decided, the reasons, and the alternatives
-that were rejected. The main documents only need to contain the outcome. A
-finding changes the form only through the findings gate
-([`decisions/0046`](decisions/0046-findings-gate.md)). How to propose a change,
-and who decides, is in [`GOVERNANCE.md`](GOVERNANCE.md).
-
-### Language and the Indonesian archive
+that were rejected. A finding changes the form only through the findings gate
+([`decisions/0046`](decisions/0046-findings-gate.md)). Who decides and how to
+propose a change is in [`GOVERNANCE.md`](GOVERNANCE.md); how the text is
+written is in [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 English is the only normative text
-([`decisions/0055`](decisions/0055-locked-in-english.md)). The standard was
-shaped in Indonesian up to v0.1. That text, with its paper tests (`uji/`),
-studies (`kajian/`), and version history (`PERUBAHAN.md`), is kept as an
-archive outside this repository. A note such as "(Indonesian archive,
-`uji/01-hitung.md`)" points to a file in that archive. Labels in other
-languages, such as `label.id`, are content and stay where they are.
+([`decisions/0055`](decisions/0055-locked-in-english.md)). A note such as
+"(Indonesian archive, `uji/01-hitung.md`)" points to the Indonesian text the
+standard was shaped in, kept outside this repository
+([`CONTRIBUTING.md`](CONTRIBUTING.md) §5).
